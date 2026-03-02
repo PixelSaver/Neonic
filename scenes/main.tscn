@@ -1,5 +1,38 @@
 [gd_scene format=3 uid="uid://bwg4h8wm2h1ry"]
 
+[ext_resource type="PackedScene" uid="uid://hnmw2l6ff5iw" path="res://scenes/ui.tscn" id="1_o5qli"]
+
+[sub_resource type="Environment" id="Environment_o5qli"]
+background_mode = 3
+ambient_light_source = 1
+reflected_light_source = 1
+glow_enabled = true
+glow_intensity = 2.7
+glow_bloom = 0.35
+
 [node name="Main" type="Node2D" unique_id=1271193628]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=628848148]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=129226884]
+visible = false
+
+[node name="UI" parent="CanvasLayer" unique_id=1052533720 instance=ExtResource("1_o5qli")]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=381642543]
+points = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+closed = true
+default_color = Color(0, 1.4148024, 1.7235138, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=201808339]
+environment = SubResource("Environment_o5qli")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=254637365]
+modulate = Color(8.3, 8.3, 8.3, 1)
+offset_left = 262.0
+offset_top = 103.0
+offset_right = 302.0
+offset_bottom = 143.0
+color = Color(2.208, 1.351142, 2.1903293, 1)
+
+[editable path="CanvasLayer/UI"]
