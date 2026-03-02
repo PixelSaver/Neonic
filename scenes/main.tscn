@@ -18,11 +18,22 @@ glow_bloom = 0.35
 visible = false
 
 [node name="UI" parent="CanvasLayer" unique_id=1052533720 instance=ExtResource("1_o5qli")]
+visible = false
+
+[node name="BG" type="ColorRect" parent="CanvasLayer" unique_id=1204476640]
+z_index = -100
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.087457694, 0.08745768, 0.08745768, 1)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=381642543]
 points = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
 closed = true
-default_color = Color(0, 1.4148024, 1.7235138, 1)
+default_color = Color(0, 0.36471134, 1.7239999, 1)
+joint_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=201808339]
 environment = SubResource("Environment_o5qli")
