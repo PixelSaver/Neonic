@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://hnmw2l6ff5iw"]
+
+[ext_resource type="Shader" uid="uid://dgb6msru8ep4r" path="res://shaders/glow.gdshader" id="1_nt7q6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4jx1"]
+shader = ExtResource("1_nt7q6")
+shader_parameter/glow_color = Color(1, 0, 0, 1)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/glow_radius = 1.0
+
+[node name="UI" type="Control" unique_id=1052533720]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1965871192]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13215789, 0.13215789, 0.13215789, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1552807831]
+material = SubResource("ShaderMaterial_x4jx1")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.209
+anchor_top = 0.332
+anchor_right = 0.284
+anchor_bottom = 0.408
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://khkv72v44goa"]
+
+[ext_resource type="Script" uid="uid://b12jmcsqact61" path="res://scripts/bullet.gd" id="1_mkf8s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y25gk"]
+radius = 50.0
+height = 300.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l5glv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eoqba"]
+width = 300
+height = 100
+noise = SubResource("FastNoiseLite_l5glv")
+
+[node name="Bullet" type="RigidBody2D" unique_id=1369175125]
+custom_integrator = true
+script = ExtResource("1_mkf8s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=77706694]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=86929779]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_y25gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2088580855]
+texture = SubResource("NoiseTexture2D_eoqba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1219749504]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_y25gk")
