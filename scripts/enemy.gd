@@ -3,20 +3,24 @@ class_name Enemy
 
 @export_group("Exports")
 @export var health_component : HealthComponent
+@export var knockback_component : KnockbackComponent
 @export_category("Tweakables")
 @export var damage : float = 1.0
-@export var knockback : float = 1.0
+@export var knockback_strength : float = 100000.0
+@export var knockback_resistance : float = 0.0
+func get_knockback_resistance() -> float: return knockback_resistance
 
 func _ready() -> void:
 	Global.register_enemy(self)
 
-func _get_attack() -> Attack:
+func _get_attack(target:Node2D) -> Attack:
 	var atk = Attack.new()
 	atk.damage = self.damage
-	atk.knockback = self.knockback
+	atk.calc_knockback(self, target, knockback_strength)
+	print("Knockback: %s" % str(atk.knockback))
 	return atk
 
 func _on_body_entered(body: Node) -> void:
 	if body is not Player: return 
 	var player = body as Player
-	player.health_component.damage(_get_attack())
+	player.health_component.damage(_get_attack(player))

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b3dxlqyn1r8rn"]
 
 [ext_resource type="Script" uid="uid://buhm4nrt6xo4w" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/health_component.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_qhqgy"]
 
 [node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component")]
 gravity_scale = 0.0
@@ -11,6 +12,7 @@ script = ExtResource("1_3vyb7")
 line = NodePath("Line2D")
 collision_shape = NodePath("CollisionPolygon2D")
 health_component = NodePath("HealthComponent")
+knockback_resistance = null
 
 [node name="HealthComponent" type="Node" parent="." unique_id=208179252]
 script = ExtResource("2_g2els")
@@ -24,3 +26,7 @@ points = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
 closed = true
 default_color = Color(0, 1.2250806, 4.415934, 1)
 joint_mode = 1
+
+[node name="KnockbackComponent" type="Node" parent="." unique_id=590449831]
+script = ExtResource("3_qhqgy")
+metadata/_custom_type_script = "uid://dgtg2a5maatww"

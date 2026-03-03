@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://2qxv63wlb60v"]
 
 [ext_resource type="Script" uid="uid://cw8y265c5i8le" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/health_component.gd" id="2_4ra3w"]
+[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://qxkexhaypaso" path="res://assets/icon.svg" id="3_4ra3w"]
+[ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="4_5uy6h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 80.0
@@ -15,6 +16,7 @@ max_contacts_reported = 5
 linear_damp = 10.0
 script = ExtResource("1_md0e3")
 health_component = NodePath("HealthComponent")
+knockback_strength = 15.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1467516213]
 script = ExtResource("2_4ra3w")
@@ -25,5 +27,9 @@ texture = ExtResource("3_4ra3w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=913226749]
 shape = SubResource("CircleShape2D_md0e3")
+
+[node name="KnockbackComponent" type="Node" parent="." unique_id=957452475]
+script = ExtResource("4_5uy6h")
+metadata/_custom_type_script = "uid://dgtg2a5maatww"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -13,6 +13,7 @@ const POINTS = [
 @export var line : Line2D
 @export var collision_shape : CollisionPolygon2D
 @export var health_component : HealthComponent
+@export var knockback_component : KnockbackComponent
 @export_group("Player Shape")
 @export var player_size : float = 80 : 
 	set(val):
@@ -21,6 +22,9 @@ const POINTS = [
 			_update_size()
 @export_group("Player Movement")
 @export var acceleration : float = 15000
+@export_group("Tweakables")
+@export var knockback_resistance : float = 0.0
+func get_knockback_resistance() -> float: return knockback_resistance
 
 func _ready() -> void:
 	_update_size()
