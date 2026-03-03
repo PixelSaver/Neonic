@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://bwg4h8wm2h1ry"]
 
 [ext_resource type="PackedScene" uid="uid://hnmw2l6ff5iw" path="res://scenes/ui.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://b3dxlqyn1r8rn" path="res://scenes/player.tscn" id="2_0wfyh"]
 
 [sub_resource type="Environment" id="Environment_o5qli"]
 background_mode = 3
 ambient_light_source = 1
 reflected_light_source = 1
 glow_enabled = true
-glow_intensity = 2.7
-glow_bloom = 0.35
+glow_intensity = 0.91
+glow_bloom = 0.29
+adjustment_enabled = true
 
 [node name="Main" type="Node2D" unique_id=1271193628]
 
@@ -22,7 +24,7 @@ visible = false
 
 [node name="BG" type="ColorRect" parent="CanvasLayer" unique_id=1204476640]
 z_index = -100
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -32,18 +34,25 @@ color = Color(0.087457694, 0.08745768, 0.08745768, 1)
 [node name="Line2D" type="Line2D" parent="." unique_id=381642543]
 points = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
 closed = true
-default_color = Color(0, 0.36471134, 1.7239999, 1)
+default_color = Color(0, 1.2250806, 4.415934, 1)
 joint_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=201808339]
 environment = SubResource("Environment_o5qli")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=254637365]
-modulate = Color(8.3, 8.3, 8.3, 1)
-offset_left = 262.0
-offset_top = 103.0
-offset_right = 302.0
-offset_bottom = 143.0
-color = Color(2.208, 1.351142, 2.1903293, 1)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=105803126]
+offset_left = 347.0
+offset_top = 21.0
+offset_right = 387.0
+offset_bottom = 61.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1973316014]
+offset_left = 365.0
+offset_top = 77.0
+offset_right = 405.0
+offset_bottom = 117.0
+color = Color(4.415934, 4.415934, 4.415934, 1)
+
+[node name="Player" parent="." unique_id=1294409382 instance=ExtResource("2_0wfyh")]
 
 [editable path="CanvasLayer/UI"]

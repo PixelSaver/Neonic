@@ -1,14 +1,25 @@
 [gd_scene format=3 uid="uid://b3dxlqyn1r8rn"]
 
-[ext_resource type="Texture2D" uid="uid://qxkexhaypaso" path="res://assets/icon.svg" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://buhm4nrt6xo4w" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/health_component.gd" id="2_g2els"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 63.1981
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
+radius = 45.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1367756354]
+[node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("health_component")]
+script = ExtResource("1_3vyb7")
+health_component = NodePath("HealthComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1449191704]
-texture = ExtResource("1_3vyb7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=544985514]
+shape = SubResource("CircleShape2D_u8vuu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=136514002]
-shape = SubResource("CircleShape2D_g2els")
+[node name="Line2D" type="Line2D" parent="." unique_id=1935202646]
+position = Vector2(-40, -40)
+points = PackedVector2Array(0, 0, 80, 0, 80, 80, 0, 80)
+closed = true
+default_color = Color(0, 1.2250806, 4.415934, 1)
+joint_mode = 1
+
+[node name="HealthComponent" type="Node" parent="." unique_id=208179252]
+script = ExtResource("2_g2els")
+metadata/_custom_type_script = "uid://c0opl162vnmfw"
