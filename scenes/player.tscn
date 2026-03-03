@@ -29,7 +29,7 @@ polygon = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
 [node name="Line2D" type="Line2D" parent="." unique_id=1935202646]
 points = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
 closed = true
-default_color = Color(0, 1.2250806, 4.415934, 1)
+default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
 
 [node name="KnockbackComponent" type="Node" parent="." unique_id=590449831]

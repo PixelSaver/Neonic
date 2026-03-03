@@ -11,6 +11,6 @@ gun_size = Vector2(15, 10)
 points = PackedVector2Array(15, 0, 0, -5, 0, 5)
 closed = true
 width = 7.0
-default_color = Color(0, 1.2250806, 4.415934, 1)
+default_color = Color(0, 0.49312025, 3.2944162, 1)
 joint_mode = 2
 antialiased = true

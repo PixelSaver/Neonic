@@ -7,7 +7,6 @@
 script = ExtResource("1_36trf")
 collision_shape = NodePath("StaticBody2D/CollisionPolygon2D")
 border = NodePath("Line2D")
-room_size = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=453305642]
 
@@ -27,3 +26,4 @@ position = Vector2(-558, 351)
 [node name="Line2D" type="Line2D" parent="." unique_id=673220217]
 points = PackedVector2Array(-1000, 600, -1000, -600, 1000, -600, 1000, 600)
 closed = true
+default_color = Color(2.737, 0.205, 1.243, 1)
