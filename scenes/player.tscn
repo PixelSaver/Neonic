@@ -6,6 +6,7 @@
 [node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component")]
 gravity_scale = 0.0
 can_sleep = false
+linear_damp = 10.0
 script = ExtResource("1_3vyb7")
 line = NodePath("Line2D")
 collision_shape = NodePath("CollisionPolygon2D")

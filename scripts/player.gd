@@ -17,8 +17,10 @@ const POINTS = [
 @export var player_size : float = 80 : 
 	set(val):
 		player_size = val
-		call_deferred("_update_size")
-
+		if Engine.is_editor_hint():
+			_update_size()
+@export_group("Player Movement")
+@export var acceleration : float = 15000
 
 func _ready() -> void:
 	_update_size()
@@ -26,8 +28,8 @@ func _ready() -> void:
 		print("Health Component is null")
 
 func _update_size():
-	if not is_inside_tree():
-		return
+	if not is_inside_tree(): return
+	if Engine.is_editor_hint(): return
 	
 	# Line
 	line.position = Vector2.ZERO
@@ -41,3 +43,11 @@ func _update_size():
 	for point in POINTS:
 		points.append(point * player_size / 2.)
 	collision_shape.polygon = (points)
+
+func _physics_process(delta):
+	if not is_inside_tree(): return
+	if Engine.is_editor_hint(): return
+	var input_dir = Input.get_vector("left", "right", "up", "down")
+	
+	if input_dir != Vector2.ZERO:
+		apply_central_force(input_dir * acceleration)

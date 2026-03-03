@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://hfi0ownhhbh8"]
+
+[ext_resource type="Script" uid="uid://rvsppgw6xtr5" path="res://scripts/room.gd" id="1_36trf"]
+
+[node name="Room" type="Node2D" unique_id=392177367 node_paths=PackedStringArray("collision_shape", "border")]
+script = ExtResource("1_36trf")
+collision_shape = NodePath("StaticBody2D/CollisionPolygon2D")
+border = NodePath("Line2D")
+room_size = null
+
+[node name="Line2D" type="Line2D" parent="." unique_id=673220217]
+points = PackedVector2Array(-1000, 600, -1000, -600, 1000, -600, 1000, 600)
+closed = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=453305642]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=678867329]
+build_mode = 1
+polygon = PackedVector2Array(-1000, 600, -1000, -600, 1495, -897, 1000, 600)
