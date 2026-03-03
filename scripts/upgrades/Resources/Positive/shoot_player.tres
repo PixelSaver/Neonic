@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShootPLayerStrategy" load_steps=3 format=3 uid="uid://ca80g7ea4f1kv"]
+
+[ext_resource type="Script" uid="uid://dd27ulveavo6x" path="res://Upgrades/shoot_player_strategy.gd" id="1_omogn"]
+[ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_3n6k2"]
+
+[resource]
+script = ExtResource("1_omogn")
+shoot_speed_mult = 1.2
+texture = ExtResource("2_3n6k2")
+upgrade_text = "Fire Rate"
+upgrade_description = ""
+metadata/_custom_type_script = "uid://dd27ulveavo6x"

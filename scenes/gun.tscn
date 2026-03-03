@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cft4so0m0iimv"]
+
+[ext_resource type="Script" uid="uid://cu5fgs1v07be5" path="res://scripts/gun.gd" id="1_x77fm"]
+
+[node name="Gun" type="Node2D" unique_id=187595378 node_paths=PackedStringArray("line")]
+script = ExtResource("1_x77fm")
+line = NodePath("Line2D")
+gun_size = Vector2(15, 10)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=914568350]
+points = PackedVector2Array(15, 0, 0, -5, 0, 5)
+closed = true
+width = 7.0
+default_color = Color(0, 0.49312025, 3.2944162, 1)
+joint_mode = 2
+antialiased = true

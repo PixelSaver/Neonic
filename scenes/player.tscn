@@ -1,14 +1,43 @@
 [gd_scene format=3 uid="uid://b3dxlqyn1r8rn"]
 
-[ext_resource type="Texture2D" uid="uid://qxkexhaypaso" path="res://assets/icon.svg" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://buhm4nrt6xo4w" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://cft4so0m0iimv" path="res://scenes/gun.tscn" id="4_dqkch"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 63.1981
+[node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component", "knockback_component", "gun", "gun_center")]
+z_index = 100
+gravity_scale = 0.0
+can_sleep = false
+linear_damp = 10.0
+script = ExtResource("1_3vyb7")
+line = NodePath("Line2D")
+collision_shape = NodePath("CollisionPolygon2D")
+health_component = NodePath("HealthComponent")
+knockback_component = NodePath("KnockbackComponent")
+gun = NodePath("GunCenter/Gun")
+gun_center = NodePath("GunCenter")
+gun_spacing = -10.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1367756354]
+[node name="HealthComponent" type="Node" parent="." unique_id=208179252]
+script = ExtResource("2_g2els")
+metadata/_custom_type_script = "uid://c0opl162vnmfw"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1449191704]
-texture = ExtResource("1_3vyb7")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1162314289]
+polygon = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=136514002]
-shape = SubResource("CircleShape2D_g2els")
+[node name="Line2D" type="Line2D" parent="." unique_id=1935202646]
+points = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
+closed = true
+default_color = Color(0, 0.493, 3.294, 1)
+joint_mode = 1
+
+[node name="KnockbackComponent" type="Node" parent="." unique_id=590449831]
+script = ExtResource("3_qhqgy")
+metadata/_custom_type_script = "uid://dgtg2a5maatww"
+
+[node name="GunCenter" type="Node2D" parent="." unique_id=1740501492]
+
+[node name="Gun" parent="GunCenter" unique_id=187595378 node_paths=PackedStringArray("parent") instance=ExtResource("4_dqkch")]
+position = Vector2(70, 0)
+parent = NodePath("../..")

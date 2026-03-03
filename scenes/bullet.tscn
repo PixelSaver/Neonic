@@ -2,30 +2,21 @@
 
 [ext_resource type="Script" uid="uid://b12jmcsqact61" path="res://scripts/bullet.gd" id="1_mkf8s"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y25gk"]
-radius = 50.0
-height = 300.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkf8s"]
+radius = 15.0
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_l5glv"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eoqba"]
-width = 300
-height = 100
-noise = SubResource("FastNoiseLite_l5glv")
-
-[node name="Bullet" type="RigidBody2D" unique_id=1369175125]
-custom_integrator = true
+[node name="Bullet" type="Line2D" unique_id=1687535478]
+points = PackedVector2Array(0, 0, 0.001, 0)
+width = 30.0
+default_color = Color(0, 0.493, 3.294, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
 script = ExtResource("1_mkf8s")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=77706694]
+[node name="Area2D" type="Area2D" parent="." unique_id=1194668302]
+input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=86929779]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_y25gk")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1674786256]
+shape = SubResource("CircleShape2D_mkf8s")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2088580855]
-texture = SubResource("NoiseTexture2D_eoqba")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1219749504]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_y25gk")
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
