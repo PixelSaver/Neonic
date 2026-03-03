@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://2qxv63wlb60v"]
+
+[ext_resource type="Script" uid="uid://cw8y265c5i8le" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/health_component.gd" id="2_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://qxkexhaypaso" path="res://assets/icon.svg" id="3_4ra3w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 80.0
+
+[node name="Enemy" type="RigidBody2D" unique_id=1695829330 node_paths=PackedStringArray("health_component")]
+gravity_scale = 0.0
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 5
+linear_damp = 10.0
+script = ExtResource("1_md0e3")
+health_component = NodePath("HealthComponent")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1467516213]
+script = ExtResource("2_4ra3w")
+metadata/_custom_type_script = "uid://c0opl162vnmfw"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1315943398]
+texture = ExtResource("3_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=913226749]
+shape = SubResource("CircleShape2D_md0e3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

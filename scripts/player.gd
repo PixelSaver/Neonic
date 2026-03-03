@@ -26,6 +26,8 @@ func _ready() -> void:
 	_update_size()
 	if health_component == null:
 		print("Health Component is null")
+	health_component.death.connect(_on_death)
+	health_component.health_changed.connect(_on_health_changed)
 
 func _update_size():
 	if not is_inside_tree(): return
@@ -44,10 +46,16 @@ func _update_size():
 		points.append(point * player_size / 2.)
 	collision_shape.polygon = (points)
 
-func _physics_process(delta):
+func _physics_process(_delta:float):
 	if not is_inside_tree(): return
 	if Engine.is_editor_hint(): return
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	if input_dir != Vector2.ZERO:
 		apply_central_force(input_dir * acceleration)
+
+func _on_death():
+	print("DEAD")
+
+func _on_health_changed(_h, _mh):
+	print("Health: " + str(health_component.health))
