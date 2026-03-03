@@ -9,7 +9,8 @@ ambient_light_source = 1
 reflected_light_source = 1
 glow_enabled = true
 glow_intensity = 0.91
-glow_bloom = 0.29
+glow_bloom = 0.2
+glow_hdr_luminance_cap = 20.05
 adjustment_enabled = true
 
 [node name="Main" type="Node2D" unique_id=1271193628]
@@ -31,28 +32,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.087457694, 0.08745768, 0.08745768, 1)
 
-[node name="Line2D" type="Line2D" parent="." unique_id=381642543]
-points = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
-closed = true
-default_color = Color(0, 1.2250806, 4.415934, 1)
-joint_mode = 1
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=201808339]
 environment = SubResource("Environment_o5qli")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=105803126]
-offset_left = 347.0
-offset_top = 21.0
-offset_right = 387.0
-offset_bottom = 61.0
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1973316014]
-offset_left = 365.0
-offset_top = 77.0
-offset_right = 405.0
-offset_bottom = 117.0
-color = Color(4.415934, 4.415934, 4.415934, 1)
-
 [node name="Player" parent="." unique_id=1294409382 instance=ExtResource("2_0wfyh")]
 
+[node name="CollisionPolygon2D" parent="Player" index="1" unique_id=1162314289]
+polygon = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
+
+[node name="Line2D" parent="Player" index="2" unique_id=1935202646]
+position = Vector2(0, 0)
+points = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
+
 [editable path="CanvasLayer/UI"]
+[editable path="Player"]
