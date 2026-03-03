@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cft4so0m0iimv"]
+
+[ext_resource type="Script" uid="uid://cu5fgs1v07be5" path="res://scripts/gun.gd" id="1_x77fm"]
+
+[node name="Gun" type="Node2D" unique_id=187595378 node_paths=PackedStringArray("line", "collision_shape")]
+script = ExtResource("1_x77fm")
+line = NodePath("Line2D")
+collision_shape = NodePath("CollisionPolygon2D")
+gun_size = Vector2(10, 15)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=914568350]
+points = PackedVector2Array(0, -15, -5, 0, 5, 0)
+closed = true
+width = 7.0
+default_color = Color(0, 1.2250806, 4.415934, 1)
+joint_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1740359817]
+polygon = PackedVector2Array(0, -15, -5, 0, 5, 0)

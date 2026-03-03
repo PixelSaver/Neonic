@@ -14,6 +14,8 @@ const POINTS = [
 @export var collision_shape : CollisionPolygon2D
 @export var health_component : HealthComponent
 @export var knockback_component : KnockbackComponent
+@export var gun : Node2D
+@export var gun_center : Node2D
 @export_group("Player Shape")
 @export var player_size : float = 80 : 
 	set(val):
@@ -25,6 +27,13 @@ const POINTS = [
 @export_group("Tweakables")
 @export var knockback_resistance : float = 0.0
 func get_knockback_resistance() -> float: return knockback_resistance
+## Extra spacing past the Player Size
+@export var gun_spacing : float = 10.0 :
+	set(val):
+		if gun_spacing == val: return
+		gun_spacing = val
+		if Engine.is_editor_hint():
+			_update_gun_hold_pos()
 
 func _ready() -> void:
 	_update_size()
@@ -35,7 +44,7 @@ func _ready() -> void:
 
 func _update_size():
 	if not is_inside_tree(): return
-	if Engine.is_editor_hint(): return
+	if !Engine.is_editor_hint(): return
 	
 	# Line
 	line.position = Vector2.ZERO
@@ -49,6 +58,17 @@ func _update_size():
 	for point in POINTS:
 		points.append(point * player_size / 2.)
 	collision_shape.polygon = (points)
+	
+	_update_gun_hold_pos()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		var mouse_global = get_global_mouse_position()
+		var direction = (mouse_global - global_position).normalized()
+		gun_center.look_at(mouse_global)
+
+func _update_gun_hold_pos():
+	gun.position = Vector2(player_size + gun_spacing, 0)
 
 func _physics_process(_delta:float):
 	if not is_inside_tree(): return

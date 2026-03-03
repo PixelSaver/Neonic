@@ -50,6 +50,7 @@ color = Color(0.087457694, 0.08745768, 0.08745768, 1)
 environment = SubResource("Environment_o5qli")
 
 [node name="Player" parent="." unique_id=1294409382 instance=ExtResource("2_0wfyh")]
+knockback_resistance = 0.0
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=629698645 node_paths=PackedStringArray("follow_target")]
 top_level = true

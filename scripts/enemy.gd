@@ -20,7 +20,13 @@ func _get_attack(target:Node2D) -> Attack:
 	print("Knockback: %s" % str(atk.knockback))
 	return atk
 
-func _on_body_entered(body: Node) -> void:
+#func _physics_process(_delta: float) -> void:
+	#var colliding = get_colliding_bodies()
+	#for collider in colliding:
+		#_on_contact(collider)
+		
+
+func _on_contact(body: Node) -> void:
 	if body is not Player: return 
 	var player = body as Player
 	player.health_component.damage(_get_attack(player))

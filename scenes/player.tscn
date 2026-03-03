@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://buhm4nrt6xo4w" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://cft4so0m0iimv" path="res://scenes/gun.tscn" id="4_dqkch"]
 
-[node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component")]
+[node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component", "knockback_component", "gun", "gun_center")]
 gravity_scale = 0.0
 can_sleep = false
 linear_damp = 10.0
@@ -12,7 +13,10 @@ script = ExtResource("1_3vyb7")
 line = NodePath("Line2D")
 collision_shape = NodePath("CollisionPolygon2D")
 health_component = NodePath("HealthComponent")
-knockback_resistance = null
+knockback_component = NodePath("KnockbackComponent")
+gun = NodePath("GunCenter/Gun")
+gun_center = NodePath("GunCenter")
+gun_spacing = 0.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=208179252]
 script = ExtResource("2_g2els")
@@ -30,3 +34,10 @@ joint_mode = 1
 [node name="KnockbackComponent" type="Node" parent="." unique_id=590449831]
 script = ExtResource("3_qhqgy")
 metadata/_custom_type_script = "uid://dgtg2a5maatww"
+
+[node name="GunCenter" type="Node2D" parent="." unique_id=1740501492]
+
+[node name="Gun" parent="GunCenter" unique_id=187595378 node_paths=PackedStringArray("parent") instance=ExtResource("4_dqkch")]
+position = Vector2(80, 0)
+rotation = 1.5707964
+parent = NodePath("../..")
