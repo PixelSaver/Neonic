@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RicochetBulletStrategy" load_steps=3 format=3 uid="uid://jo36wr4t7sp7"]
+
+[ext_resource type="Script" uid="uid://b460jgjci1ttx" path="res://Upgrades/ricochet_bullet_strategy.gd" id="1_7os58"]
+[ext_resource type="Texture2D" uid="uid://d16vt57ciouee" path="res://Assets/upgrades & debuffs/bullet ricochet/bullet bounce minus.aseprite" id="2_1hgjh"]
+
+[resource]
+script = ExtResource("1_7os58")
+ricochet_increase = 1.0
+texture = ExtResource("2_1hgjh")
+upgrade_text = "Bullet Ricochet"
+upgrade_description = "Once piercing runs out, bounces for 1 more time"

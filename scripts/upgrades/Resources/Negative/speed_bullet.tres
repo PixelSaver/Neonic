@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpeedBulletStrategy" load_steps=3 format=3 uid="uid://crrf0koulx1hx"]
+
+[ext_resource type="Script" uid="uid://et4olpg8b1ll" path="res://Upgrades/speed_bullet_strategy.gd" id="1_fybsn"]
+[ext_resource type="Texture2D" uid="uid://dd56p5bg0y2ir" path="res://Assets/it-gets-worse-art/bullet/bullet speed.aseprite" id="2_fybsn"]
+
+[resource]
+script = ExtResource("1_fybsn")
+speed_multiplier = 0.7
+texture = ExtResource("2_fybsn")
+upgrade_text = "Bullet Speed"
+upgrade_description = "Decreases bullet speed by 30%"

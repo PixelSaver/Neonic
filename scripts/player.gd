@@ -34,8 +34,13 @@ func get_knockback_resistance() -> float: return knockback_resistance
 		gun_spacing = val
 		if Engine.is_editor_hint():
 			_update_gun_hold_pos()
+var bullet_upgrades : Array[BaseBulletStrategy] = []
+var player_upgrades : Array[BasePlayerStrategy] = []
 
 func _ready() -> void:
+	print("Ready")
+	Global.player_ref = self
+	print(Global.player_ref)
 	_update_size()
 	if health_component == null:
 		print("Health Component is null")
@@ -91,3 +96,11 @@ func _on_death():
 
 func _on_health_changed(_h, _mh):
 	print("Health: " + str(health_component.health))
+
+
+func add_upgrade(upgrade:BaseStrategy):
+	if upgrade is BaseBulletStrategy:
+		bullet_upgrades.append(upgrade)
+	elif upgrade is BasePlayerStrategy:
+		player_upgrades.append(upgrade)
+		upgrade.apply_upgrade(self)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DamageBulletStrategy" load_steps=3 format=3 uid="uid://2vf0oq540y06"]
+
+[ext_resource type="Script" uid="uid://ctehemryuklbu" path="res://Upgrades/damage_bullet_strategy.gd" id="1_eg858"]
+[ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_db3fw"]
+
+[resource]
+script = ExtResource("1_eg858")
+attack_multiplier = 1.2
+texture = ExtResource("2_db3fw")
+upgrade_text = "Bullet Damage"
+upgrade_description = "Increases bullet damage by 20%"

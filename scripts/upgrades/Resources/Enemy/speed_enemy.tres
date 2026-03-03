@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpeedEnemyStrategy" load_steps=3 format=3 uid="uid://dfqmoycnhchcc"]
+
+[ext_resource type="Script" uid="uid://7wnxasxadrhg" path="res://Upgrades/Resources/Enemy/speed_enemy_strategy.gd" id="1_sjtss"]
+[ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_daeyy"]
+
+[resource]
+script = ExtResource("1_sjtss")
+speed_mult = 1.4
+texture = ExtResource("2_daeyy")
+upgrade_text = "Enemy Speed"
+upgrade_description = ""

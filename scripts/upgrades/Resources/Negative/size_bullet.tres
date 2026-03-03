@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SizeBulletStrategy" load_steps=3 format=3 uid="uid://dlhu5eecd716l"]
+
+[ext_resource type="Script" uid="uid://d1t0kvr0s2u7j" path="res://Upgrades/size_bullet_strategy.gd" id="1_0fra2"]
+[ext_resource type="Texture2D" uid="uid://d2v026s264k3r" path="res://Assets/it-gets-worse-art/bullet/bullet small.png" id="2_0fra2"]
+
+[resource]
+script = ExtResource("1_0fra2")
+size_multiplier = 0.7
+texture = ExtResource("2_0fra2")
+upgrade_text = "Size Down"
+upgrade_description = "Reduces bullet size by 30%"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ScythespeedPlayerStrategy" load_steps=3 format=3 uid="uid://0dt3oti0gapn"]
+
+[ext_resource type="Script" uid="uid://bp4y4lu7wnyyj" path="res://Upgrades/scythespeed_player_strategy.gd" id="1_awm55"]
+[ext_resource type="Texture2D" uid="uid://kibvct4tt8ce" path="res://Assets/it-gets-worse-art/scythe normal.aseprite" id="2_awm55"]
+
+[resource]
+script = ExtResource("1_awm55")
+scythe_speed_mult = 0.7
+texture = ExtResource("2_awm55")
+upgrade_text = "Scythe Speed"
+upgrade_description = "Decrases speed of scythes by 30%"
+metadata/_custom_type_script = "uid://bp4y4lu7wnyyj"

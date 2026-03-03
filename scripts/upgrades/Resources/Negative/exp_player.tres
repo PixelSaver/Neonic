@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ExpPlayerStrategy" load_steps=3 format=3 uid="uid://dvejrixj44ut6"]
+
+[ext_resource type="Script" uid="uid://iuqwjevpodlb" path="res://Upgrades/exp_player_strategy.gd" id="1_w7pf7"]
+[ext_resource type="Texture2D" uid="uid://h5tjeu41up4j" path="res://Assets/icon.svg" id="2_j4npl"]
+
+[resource]
+script = ExtResource("1_w7pf7")
+exp_multiplier = 0.1
+texture = ExtResource("2_j4npl")
+upgrade_text = "Exp Mult"
+upgrade_description = "Increase experience gained by 10%"
+metadata/_custom_type_script = "uid://iuqwjevpodlb"

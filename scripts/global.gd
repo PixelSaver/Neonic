@@ -8,7 +8,10 @@ enum STATE{
 }
 var game_state
 
-var player_ref : Player
+var player_ref : Player :
+	set(val):
+		player_ref = val
+		print("Boom")
 
 var root : Node
 var bullet_manager : BulletManager

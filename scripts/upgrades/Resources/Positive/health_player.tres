@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HealthPlayerStrategy" load_steps=3 format=3 uid="uid://bf1cr3tuvcdfg"]
+
+[ext_resource type="Script" uid="uid://bx8niwwdu3omc" path="res://Upgrades/health_player_strategy.gd" id="1_51vkm"]
+[ext_resource type="Texture2D" uid="uid://bw686ahpw30hk" path="res://Assets/it-gets-worse-art/cracked heart.aseprite" id="2_r0uko"]
+
+[resource]
+script = ExtResource("1_51vkm")
+max_health_change = 2.0
+texture = ExtResource("2_r0uko")
+upgrade_text = "Max Health"
+upgrade_description = "Doubles max health"
+metadata/_custom_type_script = "uid://bx8niwwdu3omc"

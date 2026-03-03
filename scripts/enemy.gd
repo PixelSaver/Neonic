@@ -5,6 +5,7 @@ class_name Enemy
 @export var health_component : HealthComponent
 @export var knockback_component : KnockbackComponent
 @export_category("Tweakables")
+@export var speed : float = 100.
 @export var damage : float = 1.0
 @export var knockback_strength : float = 100000.0
 @export var knockback_resistance : float = 0.0

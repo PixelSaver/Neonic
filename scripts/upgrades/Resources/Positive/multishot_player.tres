@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MultishotPlayerStrategy" load_steps=3 format=3 uid="uid://2ftf7bsj35xb"]
+
+[ext_resource type="Script" uid="uid://dwqaqk1ty0nhw" path="res://Upgrades/multishot_player_strategy.gd" id="1_dgvah"]
+[ext_resource type="Texture2D" uid="uid://nhqyomuylys3" path="res://Assets/it-gets-worse-art/bullet/multiple bullets.aseprite" id="2_v4gmj"]
+
+[resource]
+script = ExtResource("1_dgvah")
+multishot_increase = 1.0
+texture = ExtResource("2_v4gmj")
+upgrade_text = "Multishot"
+upgrade_description = "Shoots 1 more bullet per shot"

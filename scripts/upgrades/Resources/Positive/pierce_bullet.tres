@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PierceBulletStrategy" load_steps=3 format=3 uid="uid://bull5mrvoj7f1"]
+
+[ext_resource type="Script" uid="uid://b1wpb7wbfix1f" path="res://Upgrades/pierce_bullet_strategy.gd" id="1_4nb2f"]
+[ext_resource type="Texture2D" uid="uid://v5n4jpt0xtjm" path="res://Assets/it-gets-worse-art/bullet/penetration (sus).aseprite" id="2_4nb2f"]
+
+[resource]
+script = ExtResource("1_4nb2f")
+pierce_increase = 1.0
+texture = ExtResource("2_4nb2f")
+upgrade_text = "Bullet Pierce"
+upgrade_description = "Increases bullet piercing ability by 1"
