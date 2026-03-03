@@ -12,6 +12,7 @@ func get_knockback_resistance() -> float: return knockback_resistance
 
 func _ready() -> void:
 	Global.register_enemy(self)
+	health_component.death.connect(_on_death)
 
 func _get_attack(target:Node2D) -> Attack:
 	var atk = Attack.new()
@@ -30,3 +31,6 @@ func _on_contact(body: Node) -> void:
 	if body is not Player: return 
 	var player = body as Player
 	player.health_component.damage(_get_attack(player))
+
+func _on_death():
+	self.queue_free()

@@ -1,9 +1,10 @@
-extends Node
+@tool
+extends Resource
 class_name Attack
 
-var damage := 1.0
+@export var damage := 1.0
 ## Knockback vector encoding direction and strength of knockback
-var knockback := Vector2.ZERO
+@export var knockback := Vector2.ZERO
 
 ## Set the knockback using the position, normalizes the direction, and then multiplies by the kb_strength
 func calc_knockback(attacker:Node2D, attacked:Node2D, kb_strength:float) -> Vector2:

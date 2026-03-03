@@ -2,17 +2,17 @@
 extends Node2D
 class_name Gun
 
-
+#TODO Add pooling to bullets
 const POINTS = [
-	Vector2(0,-1),
-	Vector2(-.5,0),
-	Vector2(.5,0),
+	Vector2(1,0),
+	Vector2(0,-.5),
+	Vector2(0,.5),
 ]
+const BULLET = preload("res://scenes/bullet.tscn")
 
 @export_group("Exports")
 @export var parent : RigidBody2D
 @export var line : Line2D
-@export var collision_shape : CollisionPolygon2D
 @export_group("Customization")
 @export var gun_size : Vector2 = Vector2(2, 2) :
 	set(val):
@@ -43,8 +43,11 @@ func _update_size():
 	for point in POINTS:
 		line.add_point(point * gun_size)
 	line.queue_redraw()
-	
-	var points : PackedVector2Array = []
-	for point in POINTS:
-		points.append(point * gun_size)
-	collision_shape.polygon = (points)
+
+func fire(spread:float, attack:Attack):
+	var dir_offset := randf_range(-spread, spread) * 0.5
+	var inst = BULLET.instantiate() as Bullet
+	inst.global_transform = self.global_transform
+	inst.global_rotation += dir_offset
+	#TODO Add the bullet settings using upgrades
+	Global.bullet_manager.register_bullet(inst)
