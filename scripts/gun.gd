@@ -49,6 +49,7 @@ func fire(spread:float, attack:Attack):
 	var inst = BULLET.instantiate() as Bullet
 	inst.global_transform = self.global_transform
 	inst.global_rotation += dir_offset
+	inst.attack = attack
 	#TODO Add the bullet settings using upgrades
 	for upgrade in Global.player_ref.bullet_upgrades:
 		upgrade.apply_upgrade(inst)

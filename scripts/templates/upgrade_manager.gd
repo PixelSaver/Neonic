@@ -1,32 +1,32 @@
 extends Node2D
-class_name UpgradeManager
+#class_name UpgradeManager
 
 var all_positive_upgrades : Array[BaseStrategy] = [
-	preload("res://Upgrades/Resources/Positive/damage_bullet.tres"),
-	preload("res://Upgrades/Resources/Positive/health_player.tres"),
-	preload("res://Upgrades/Resources/Positive/multishot_player.tres"),
-	preload("res://Upgrades/Resources/Positive/pierce_bullet.tres"),
-	preload("res://Upgrades/Resources/Positive/ricochet_bullet.tres"),
-	preload("res://Upgrades/Resources/Positive/size_bullet.tres"),
-	preload("res://Upgrades/Resources/Positive/speed_bullet.tres"),
-	preload("res://Upgrades/Resources/Positive/speed_player.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/damage_bullet.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/health_player.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/multishot_player.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/pierce_bullet.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/ricochet_bullet.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/size_bullet.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/speed_bullet.tres"),
+	preload("res://scripts/upgrades/Resources/Positive/speed_player.tres"),
 ]
-var all_negative_upgrades : Array[BaseStrategy] = [
-	preload("res://Upgrades/Resources/Negative/damage_bullet.tres"),
-	preload("res://Upgrades/Resources/Negative/health_player.tres"),
-	preload("res://Upgrades/Resources/Negative/multishot_player.tres"),
-	preload("res://Upgrades/Resources/Negative/pierce_bullet.tres"),
-	preload("res://Upgrades/Resources/Negative/ricochet_bullet.tres"),
-	preload("res://Upgrades/Resources/Negative/size_bullet.tres"),
-	preload("res://Upgrades/Resources/Negative/speed_bullet.tres"),
-	preload("res://Upgrades/Resources/Negative/speed_player.tres"),
-]
-var all_enemy_upgrades : Array[BaseEnemyStrategy] = [
-	preload("res://Upgrades/Resources/Enemy/damage_enemy.tres"),
-	preload("res://Upgrades/Resources/Enemy/health_enemy.tres"),
-	preload("res://Upgrades/Resources/Enemy/knockback_enemy.tres"),
-	preload("res://Upgrades/Resources/Enemy/speed_enemy.tres"),
-]
+#var all_negative_upgrades : Array[BaseStrategy] = [
+	#preload("res://scripts/upgrades/Resources/Negative/damage_bullet.tres"),
+	#preload("res://scripts/upgrades/Resources/Negative/health_player.tres"),
+	#preload("res://scripts/upgrades/Resources/Negative/multishot_player.tres"),
+	#preload("res://scripts/upgrades/Resources/Negative/pierce_bullet.tres"),
+	#preload("res://scripts/upgrades/Resources/Negative/ricochet_bullet.tres"),
+	#preload("res://scripts/upgrades/Resources/Negative/size_bullet.tres"),
+	#preload("res://scripts/upgrades/Resources/Negative/speed_bullet.tres"),
+	#preload("res://scripts/upgrades/Resources/Negative/speed_player.tres"),
+#]
+#var all_enemy_upgrades : Array[BaseEnemyStrategy] = [
+	#preload("res://scripts/upgrades/Resources/Enemy/damage_enemy.tres"),
+	#preload("res://scripts/upgrades/Resources/Enemy/health_enemy.tres"),
+	#preload("res://scripts/upgrades/Resources/Enemy/knockback_enemy.tres"),
+	#preload("res://scripts/upgrades/Resources/Enemy/speed_enemy.tres"),
+#]
 
 func load_all_upgrades(path: String) -> Array[BaseStrategy]:
 	var upgrades: Array[BaseStrategy] = []
@@ -53,21 +53,21 @@ func _ready():
 		print_debug("Preloaded upgrades count: ", all_positive_upgrades.size())
 	else:
 		# Dynamic loading for non-web build
-		var dynamically_loaded = load_all_upgrades_fallback("res://Upgrades/Resources/Positive")
+		var dynamically_loaded = load_all_upgrades_fallback("res://scripts/upgrades/Resources/Positive")
 		if dynamically_loaded.size() > 0:
 			all_positive_upgrades = dynamically_loaded
 	
 	
-	# For web builds, use preloaded resources
-	if OS.get_name() == "Web":
-		print_debug("Using preloaded upgrades for web build")
-		# all_upgrades is already populated from the preload array above
-		print_debug("Preloaded upgrades count: ", all_negative_upgrades.size())
-	else:
-		# Dynamic loading for non-web build
-		var dynamically_loaded = load_all_upgrades_fallback("res://Upgrades/Resources/Negative")
-		if dynamically_loaded.size() > 0:
-			all_negative_upgrades = dynamically_loaded
+	## For web builds, use preloaded resources
+	#if OS.get_name() == "Web":
+		#print_debug("Using preloaded upgrades for web build")
+		## all_upgrades is already populated from the preload array above
+		#print_debug("Preloaded upgrades count: ", all_negative_upgrades.size())
+	#else:
+		## Dynamic loading for non-web build
+		#var dynamically_loaded = load_all_upgrades_fallback("res://scripts/upgrades/Resources/Negative")
+		#if dynamically_loaded.size() > 0:
+			#all_negative_upgrades = dynamically_loaded
 		
 
 func load_all_upgrades_fallback(path: String) -> Array[BaseStrategy]:
@@ -93,11 +93,10 @@ func load_all_upgrades_fallback(path: String) -> Array[BaseStrategy]:
 	return upgrades
 
 
-func pick_random(iter:int, is_positive:bool=false) -> Array[BaseStrategy]:
+func pick_random(iter:int) -> Array[BaseStrategy]:
 	var out :Array[BaseStrategy] = []
 	var test_arr : Array[BaseStrategy]
-	if is_positive: test_arr = all_positive_upgrades
-	else: test_arr = all_negative_upgrades
+	test_arr = all_positive_upgrades
 	
 	for i in range(iter):
 		var rand_upgrade = test_arr[randi_range(0,test_arr.size()-1)] as BaseStrategy
@@ -109,17 +108,17 @@ func pick_random(iter:int, is_positive:bool=false) -> Array[BaseStrategy]:
 		)
 	return out
 
-func pick_random_enemy_upgrade(count:int=1) -> Array[BaseEnemyStrategy]:
-	var out : Array[BaseEnemyStrategy] = []
-	for i in range(count):
-		out.append(
-			all_enemy_upgrades[
-				randi_range(0,all_enemy_upgrades.size()-1)
-			]
-		)
-	return out
+#func pick_random_enemy_upgrade(count:int=1) -> Array[BaseEnemyStrategy]:
+	#var out : Array[BaseEnemyStrategy] = []
+	#for i in range(count):
+		#out.append(
+			#all_enemy_upgrades[
+				#randi_range(0,all_enemy_upgrades.size()-1)
+			#]
+		#)
+	#return out
 
-func _on_experience_component_level_up(new_level: int) -> void:
-	var upgrade_array : Array[BaseStrategy] = pick_random(3)
-	#Global.ui.show_upgrade(test_array)
-	Global.in_game_ui.show_upgrade(upgrade_array)
+#func _on_experience_component_level_up(new_level: int) -> void:
+	#var upgrade_array : Array[BaseStrategy] = pick_random(3)
+	##Global.ui.show_upgrade(test_array)
+	#Global.in_game_ui.show_upgrade(upgrade_array)
