@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hfi0ownhhbh8"]
 
-[ext_resource type="Script" uid="uid://rvsppgw6xtr5" path="res://scripts/room.gd" id="1_36trf"]
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_36trf"]
 [ext_resource type="PackedScene" uid="uid://2qxv63wlb60v" path="res://scenes/enemy.tscn" id="2_ffxv4"]
 
 [node name="Room" type="Node2D" unique_id=392177367 node_paths=PackedStringArray("collision_shape", "border")]
@@ -16,12 +16,6 @@ polygon = PackedVector2Array(-1000, 600, -1000, -600, 1000, -600, 1000, 600)
 
 [node name="Enemy" parent="." unique_id=1695829330 instance=ExtResource("2_ffxv4")]
 position = Vector2(488, -144)
-
-[node name="Enemy2" parent="." unique_id=1105993059 instance=ExtResource("2_ffxv4")]
-position = Vector2(-681, -174)
-
-[node name="Enemy3" parent="." unique_id=2039334267 instance=ExtResource("2_ffxv4")]
-position = Vector2(-558, 351)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=673220217]
 points = PackedVector2Array(-1000, 600, -1000, -600, 1000, -600, 1000, 600)

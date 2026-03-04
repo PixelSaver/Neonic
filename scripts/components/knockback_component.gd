@@ -15,7 +15,6 @@ func _ready() -> void:
 		return
 
 func apply_knockback(atk:Attack):
-	print("Applying knockback")
 	var kb_res := 0.0
 	if _target.has_method("get_knockback_resistance"):
 		kb_res = _target.knockback_resistance

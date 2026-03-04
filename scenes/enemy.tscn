@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2qxv63wlb60v"]
 
-[ext_resource type="Script" uid="uid://cw8y265c5i8le" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://qxkexhaypaso" path="res://assets/icon.svg" id="3_4ra3w"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="4_5uy6h"]
@@ -15,6 +15,7 @@ can_sleep = false
 contact_monitor = true
 max_contacts_reported = 5
 linear_damp = 10.0
+angular_damp = 5.0
 script = ExtResource("1_md0e3")
 health_component = NodePath("HealthComponent")
 knockback_component = NodePath("KnockbackComponent")
@@ -37,6 +38,7 @@ metadata/_custom_type_script = "uid://dgtg2a5maatww"
 
 [node name="PathfindingComponent" type="Node" parent="." unique_id=1370504580]
 script = ExtResource("5_c4w8v")
+turn_speed = 50000.0
 metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
 
 [connection signal="body_entered" from="." to="." method="_on_contact"]

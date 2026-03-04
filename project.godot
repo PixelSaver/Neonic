@@ -18,7 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
-Global="*uid://3wmkes1t64ur"
+Global="*res://scripts/global.gd"
 
 [display]
 
