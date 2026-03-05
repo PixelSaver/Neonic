@@ -1,0 +1,593 @@
+[gd_scene format=3 uid="uid://b6i2eevysimhw"]
+
+[ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/ui/start_menu/tweenable.gd" id="1_p3k0e"]
+[ext_resource type="PackedScene" path="res://scenes/ui/start_menu/tweenable.tscn" id="2_ettb2"]
+[ext_resource type="PackedScene" uid="uid://osk1uxa28atn" path="res://scenes/ui/start_menu/button_menu.tscn" id="3_m5bgy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wyh8j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
+bg_color = Color(0.168627, 0.564706, 0.992157, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhxw7"]
+bg_color = Color(0.966939, 0.966939, 0.966939, 1)
+corner_detail = 1
+shadow_offset = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.298039)
+shadow_offset = Vector2(20, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0ys"]
+bg_color = Color(0.168627, 0.564706, 0.992157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1dhk"]
+draw_center = false
+
+[node name="Control" type="Control" unique_id=1266016282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1577864565]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1335479472]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=534455146]
+modulate = Color(0.168627, 0.564706, 0.992157, 0.133333)
+texture_filter = 1
+position = Vector2(1200, 700)
+rotation = -0.261799
+scale = Vector2(30, 30)
+region_enabled = true
+region_rect = Rect2(144, 16, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1467256130]
+modulate = Color(0.168627, 0.564706, 0.992157, 0.133333)
+texture_filter = 1
+position = Vector2(102, 639)
+rotation = 0.785397
+scale = Vector2(14, 14)
+region_enabled = true
+region_rect = Rect2(176, 16, 16, 16)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=601092554]
+material = SubResource("ShaderMaterial_wyh8j")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Extrabg" type="Node2D" parent="." unique_id=188956605]
+position = Vector2(385, 261)
+rotation = -0.436332
+
+[node name="ColorRect" type="ColorRect" parent="Extrabg" unique_id=1511520900]
+offset_left = -238.454
+offset_top = -229.254
+offset_right = 228.546
+offset_bottom = 189.746
+color = Color(0.168627, 0.564706, 0.992157, 0.2)
+
+[node name="ColorRect2" type="ColorRect" parent="Extrabg" unique_id=2076106328]
+offset_left = -181.0
+offset_top = -180.0
+offset_right = 165.0
+offset_bottom = 131.0
+color = Color(0.168627, 0.564706, 0.992157, 0.2)
+
+[node name="ColorRect3" type="ColorRect" parent="Extrabg" unique_id=1264591059]
+offset_left = -120.0
+offset_top = -129.0
+offset_right = 103.0
+offset_bottom = 81.0
+color = Color(0.168627, 0.564706, 0.992157, 0.2)
+
+[node name="TiltControl" type="Control" parent="." unique_id=2124677314]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.6
+anchor_bottom = 0.9
+offset_left = 227.2
+offset_right = 227.2
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+mouse_filter = 2
+
+[node name="LineUp" type="Node2D" parent="TiltControl" unique_id=728987493]
+
+[node name="ColorRect" type="Panel" parent="TiltControl/LineUp" unique_id=433379757]
+custom_minimum_size = Vector2(20, 200)
+offset_left = 41.0
+offset_top = -767.0
+offset_right = 74.0
+offset_bottom = 1270.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect" unique_id=350576205]
+script = ExtResource("1_p3k0e")
+dir = Vector2(-1, 0)
+speed = 0.4
+
+[node name="ColorRect4" type="Panel" parent="TiltControl/LineUp" unique_id=1039826691]
+custom_minimum_size = Vector2(10, 200)
+offset_left = 54.0
+offset_top = 475.0
+offset_right = 64.0
+offset_bottom = 867.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect4" unique_id=1493640821]
+script = ExtResource("1_p3k0e")
+dir = Vector2(-1, 0)
+speed = 4.0
+
+[node name="ColorRect6" type="Panel" parent="TiltControl/LineUp" unique_id=2004361412]
+custom_minimum_size = Vector2(10, 200)
+offset_left = 46.0
+offset_top = 475.0
+offset_right = 56.0
+offset_bottom = 867.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect6" unique_id=456905704]
+script = ExtResource("1_p3k0e")
+dir = Vector2(1, 0)
+speed = 7.0
+
+[node name="ColorRect5" type="Panel" parent="TiltControl/LineUp" unique_id=606218572]
+custom_minimum_size = Vector2(20, 200)
+offset_left = 46.0
+offset_top = 443.0
+offset_right = 66.0
+offset_bottom = 867.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect5" unique_id=828601606]
+script = ExtResource("1_p3k0e")
+dir = Vector2(1, 0)
+speed = 3.0
+
+[node name="ColorRect2" type="ColorRect" parent="TiltControl/LineUp" unique_id=552972825]
+offset_left = -2.0
+offset_top = -528.0
+offset_right = 46.0
+offset_bottom = 1115.0
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect2" unique_id=1225438069]
+script = ExtResource("1_p3k0e")
+dir = Vector2(-1, 0)
+speed = 6.3
+
+[node name="ColorRect3" type="ColorRect" parent="TiltControl/LineUp" unique_id=501395244]
+offset_left = -37.1649
+offset_top = -525.072
+offset_right = -12.1649
+offset_bottom = 1117.93
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/ColorRect3" unique_id=2134659014]
+script = ExtResource("1_p3k0e")
+dir = Vector2(1, 0.2)
+speed = 1.5
+
+[node name="LineSide" type="Node2D" parent="TiltControl" unique_id=599035188]
+
+[node name="ColorRect2" type="ColorRect" parent="TiltControl/LineSide" unique_id=1846321811]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = -0.1
+anchor_right = 1.05
+anchor_bottom = 1.1
+offset_left = 102.0
+offset_top = -25.0
+offset_right = 538.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable_950" parent="TiltControl/LineSide/ColorRect2" unique_id=1339180824 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="ColorRect3" type="Panel" parent="TiltControl/LineSide" unique_id=1341371811]
+offset_left = -996.022
+offset_top = 96.2694
+offset_right = 3080.98
+offset_bottom = 135.269
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
+
+[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect3" unique_id=870319290 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="ColorRect" type="Panel" parent="TiltControl/LineSide" unique_id=1718024626]
+offset_left = -992.0
+offset_top = 111.0
+offset_right = 3085.0
+offset_bottom = 150.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ce3w2")
+
+[node name="Tweenable_762" parent="TiltControl/LineSide/ColorRect" unique_id=279101252 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Coin" parent="TiltControl/LineSide/ColorRect" unique_id=278280748]
+
+[node name="Panel5" type="Panel" parent="TiltControl/LineSide" unique_id=700191888]
+offset_left = 876.113
+offset_top = 101.918
+offset_right = 1001.11
+offset_bottom = 116.918
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_160" parent="TiltControl/LineSide/Panel5" unique_id=1059798258 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel6" type="Panel" parent="TiltControl/LineSide" unique_id=406238817]
+offset_left = 1011.11
+offset_top = 101.918
+offset_right = 1136.11
+offset_bottom = 116.918
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_249" parent="TiltControl/LineSide/Panel6" unique_id=1323206238 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel7" type="Panel" parent="TiltControl/LineSide" unique_id=2115030215]
+offset_left = 1145.11
+offset_top = 101.918
+offset_right = 1270.11
+offset_bottom = 116.918
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_617" parent="TiltControl/LineSide/Panel7" unique_id=688132612 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="bgTitle" type="Node2D" parent="TiltControl" unique_id=1910823383]
+position = Vector2(91, 50)
+
+[node name="Panel10" type="Panel" parent="TiltControl/bgTitle" unique_id=684546387]
+offset_left = -200.0
+offset_top = -23.0
+offset_right = -78.0
+offset_bottom = 73.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_709" parent="TiltControl/bgTitle/Panel10" unique_id=1808813940 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel11" type="Panel" parent="TiltControl/bgTitle" unique_id=854320303]
+offset_left = -10.0
+offset_top = -99.0
+offset_right = 50.0
+offset_bottom = -44.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_566" parent="TiltControl/bgTitle/Panel11" unique_id=589159496 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel" type="Panel" parent="TiltControl/bgTitle" unique_id=1655479367]
+offset_left = -193.0
+offset_top = -10.0
+offset_right = -84.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cp0ys")
+
+[node name="Tweenable_103" parent="TiltControl/bgTitle/Panel" unique_id=1380001853 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel2" type="Panel" parent="TiltControl/bgTitle" unique_id=1113356144]
+offset_left = 24.0
+offset_top = 63.0
+offset_right = 163.0
+offset_bottom = 138.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_854" parent="TiltControl/bgTitle/Panel2" unique_id=952186288 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel3" type="Panel" parent="TiltControl/bgTitle" unique_id=1667785176]
+offset_left = 1.0
+offset_top = -90.0
+offset_right = 44.0
+offset_bottom = -54.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_149" parent="TiltControl/bgTitle/Panel3" unique_id=739433230 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel4" type="Panel" parent="TiltControl/bgTitle" unique_id=1031549192]
+offset_left = 26.0
+offset_top = -100.0
+offset_right = 57.0
+offset_bottom = -75.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_981" parent="TiltControl/bgTitle/Panel4" unique_id=287129557 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel13" type="Panel" parent="TiltControl/bgTitle" unique_id=1113381197]
+offset_left = -20.1854
+offset_top = 32.6894
+offset_right = 10.8146
+offset_bottom = 57.6894
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_786" parent="TiltControl/bgTitle/Panel13" unique_id=2127269863 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel8" type="Panel" parent="TiltControl/bgTitle" unique_id=1276314963]
+offset_left = 92.0
+offset_top = 107.0
+offset_right = 624.0
+offset_bottom = 119.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_690" parent="TiltControl/bgTitle/Panel8" unique_id=1573076366 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel9" type="Panel" parent="TiltControl/bgTitle" unique_id=2045829623]
+offset_left = 541.0
+offset_top = 109.0
+offset_right = 745.0
+offset_bottom = 114.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_405" parent="TiltControl/bgTitle/Panel9" unique_id=253493673 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel14" type="Panel" parent="TiltControl/bgTitle" unique_id=399071187]
+offset_left = -81.0
+offset_top = 71.0
+offset_right = 131.0
+offset_bottom = 126.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_193" parent="TiltControl/bgTitle/Panel14" unique_id=1758503942 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel12" type="Panel" parent="TiltControl/bgTitle" unique_id=1561534717]
+offset_left = -59.3488
+offset_top = 141.534
+offset_right = -16.3488
+offset_bottom = 177.534
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_133" parent="TiltControl/bgTitle/Panel12" unique_id=681326154 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel15" type="Panel" parent="TiltControl/bgTitle" unique_id=612170930]
+offset_left = -90.0
+offset_top = 110.0
+offset_right = -55.0
+offset_bottom = 135.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_908" parent="TiltControl/bgTitle/Panel15" unique_id=370485435 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel16" type="Panel" parent="TiltControl/bgTitle" unique_id=1453961967]
+offset_left = -82.2078
+offset_top = 94.8604
+offset_right = -47.2078
+offset_bottom = 119.86
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_365" parent="TiltControl/bgTitle/Panel16" unique_id=2048556105 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel20" type="Panel" parent="TiltControl/bgTitle" unique_id=1394946760]
+offset_left = -116.915
+offset_top = 14.0911
+offset_right = -56.9148
+offset_bottom = 69.0911
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_109" parent="TiltControl/bgTitle/Panel20" unique_id=2080537653 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel17" type="Panel" parent="TiltControl/bgTitle" unique_id=1120868130]
+offset_left = -109.834
+offset_top = 21.1633
+offset_right = -35.8336
+offset_bottom = 84.1633
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_43" parent="TiltControl/bgTitle/Panel17" unique_id=1460244391 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel21" type="Panel" parent="TiltControl/bgTitle" unique_id=352889515]
+offset_left = -119.486
+offset_top = 56.1912
+offset_right = -74.4864
+offset_bottom = 89.1912
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_92" parent="TiltControl/bgTitle/Panel21" unique_id=952610862 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel22" type="Panel" parent="TiltControl/bgTitle" unique_id=2089264]
+offset_left = -149.834
+offset_top = 34.1633
+offset_right = -98.8336
+offset_bottom = 78.1633
+theme_override_styles/panel = SubResource("StyleBoxFlat_opfnp")
+
+[node name="Tweenable_803" parent="TiltControl/bgTitle/Panel22" unique_id=927473098 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel18" type="Panel" parent="TiltControl/bgTitle" unique_id=2098917345]
+offset_left = -144.834
+offset_top = 41.1633
+offset_right = -102.834
+offset_bottom = 70.1633
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_944" parent="TiltControl/bgTitle/Panel18" unique_id=650399326 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel23" type="Panel" parent="TiltControl/bgTitle" unique_id=887171490]
+offset_left = -149.834
+offset_top = 47.1633
+offset_right = -97.8336
+offset_bottom = 64.1633
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_421" parent="TiltControl/bgTitle/Panel23" unique_id=1434163661 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Panel19" type="Panel" parent="TiltControl/bgTitle" unique_id=1432913277]
+offset_left = -126.07
+offset_top = 61.0611
+offset_right = -84.0701
+offset_bottom = 90.0611
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhxw7")
+
+[node name="Tweenable_740" parent="TiltControl/bgTitle/Panel19" unique_id=749932091 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TiltControl" unique_id=2066113132]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="Control" parent="TiltControl/VBoxContainer" unique_id=265945855]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="TiltControl/VBoxContainer/Title" unique_id=1584676215]
+anchors_preset = 0
+offset_left = 120.0
+offset_right = 514.0
+offset_bottom = 130.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title/Control" unique_id=405519941]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 404.0
+offset_bottom = 135.0
+mouse_filter = 2
+color = Color(0.168627, 0.564706, 0.992157, 1)
+
+[node name="Tweenable_695" parent="TiltControl/VBoxContainer/Title/Control/ColorRect" unique_id=743510125 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="ColorRect" type="ColorRect" parent="TiltControl/VBoxContainer/Title" unique_id=1539474168]
+layout_mode = 0
+offset_left = 120.0
+offset_right = 514.0
+offset_bottom = 130.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Tweenable_820" parent="TiltControl/VBoxContainer/Title/ColorRect" unique_id=1889985449 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="MarginContainer" type="Panel" parent="TiltControl/VBoxContainer/Title" unique_id=268786364]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 0
+offset_left = 120.0
+offset_right = 514.0
+offset_bottom = 130.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t1dhk")
+
+[node name="GameLabel" type="RichTextLabel" parent="TiltControl/VBoxContainer/Title/MarginContainer" unique_id=999762388]
+layout_mode = 0
+offset_left = 2.47046
+offset_top = 24.3314
+offset_right = 393.47
+offset_bottom = 189.331
+mouse_filter = 2
+bbcode_enabled = true
+text = "[font_size=65]JUST A UI"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Tweenable_186" parent="TiltControl/VBoxContainer/Title/MarginContainer" unique_id=299863996 instance=ExtResource("2_ettb2")]
+script = null
+
+[node name="Spacer" type="Control" parent="TiltControl/VBoxContainer" unique_id=983416399]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ButtonCont" type="Node2D" parent="TiltControl/VBoxContainer" unique_id=2118007577]
+position = Vector2(423.448, 208.716)
+
+[node name="ButtonMenu" parent="TiltControl/VBoxContainer/ButtonCont" unique_id=1260455275 instance=ExtResource("3_m5bgy")]
+offset_left = -400.0
+offset_top = 140.0
+offset_bottom = 250.0
+theme = null
+
+[node name="RestOfIt" type="Node2D" parent="." unique_id=1763088471]
+position = Vector2(404, 207)
+rotation = 0.261799
+scale = Vector2(0.82, 0.82)
+
+[node name="ColorRect2" type="ColorRect" parent="RestOfIt" unique_id=1718864547]
+offset_left = -4.15373
+offset_top = 38.59
+offset_right = 144.846
+offset_bottom = 179.59
+color = Color(0.168627, 0.564706, 0.992157, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="RestOfIt/ColorRect2" unique_id=826995981]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="RestOfIt/ColorRect2/MarginContainer" unique_id=1167833992]
+layout_mode = 2
+
+[node name="Tweenable" type="Node" parent="RestOfIt/ColorRect2/MarginContainer/ColorRect" unique_id=2121887705]
+script = ExtResource("1_p3k0e")
+dir = Vector2(-1, 0)
+speed = 1.7
+
+[node name="Tweenable" type="Node" parent="RestOfIt/ColorRect2" unique_id=2074210418]
+script = ExtResource("1_p3k0e")
+dir = Vector2(-1, 0)
+speed = 1.3

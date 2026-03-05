@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=916800914 node_paths=PackedStringArray("collision_shape", "mirrored_line")]
 points = PackedVector2Array(103, -10, 94, -18, 78, -16, 72, -11, 61, -11, 40, -34, 18, -31, -9, -36, -33, -24, -41, 1)
-default_color = Color(2.6813314, 0, 0.2696373, 1)
+default_color = Color(2.681, 0, 0.27, 1)
 script = ExtResource("6_xwavj")
 collision_shape = NodePath("../CollisionPolygon2D")
 mirrored_line = NodePath("Mirrored")
@@ -54,7 +54,7 @@ health_component = NodePath("../HealthComponent")
 
 [node name="Leg" parent="LegManager" unique_id=844722159 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(40, -30)
-points = PackedVector2Array(-1, 0, 17.575977, -35.425034, 1.5689468, -60.797752)
+points = PackedVector2Array(-1, 0, -4.5512424, -39.84205, -26.809599, -59.955864)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -62,7 +62,7 @@ neighbors = [NodePath("../Leg2")]
 
 [node name="Leg2" parent="LegManager" unique_id=917778324 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, -35)
-points = PackedVector2Array(-1, 0, 21.678759, -32.949566, 40.243965, -60.520576)
+points = PackedVector2Array(-1, 0, 2.815993, -39.817562, -19.035053, -60.37314)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -70,7 +70,7 @@ neighbors = [NodePath("../Leg")]
 
 [node name="Leg3" parent="LegManager" unique_id=2136972939 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, 35)
-points = PackedVector2Array(-1, 0, 2.4475825, 39.85115, -19.264313, 60.55365)
+points = PackedVector2Array(-1, 0, 3.916287, 39.696728, -17.659035, 60.54152)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
@@ -79,7 +79,7 @@ neighbors = [NodePath("../Leg4")]
 
 [node name="Leg4" parent="LegManager" unique_id=1685246850 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(35, 30)
-points = PackedVector2Array(-1, 0, -9.983553, 38.978146, -30.564201, 60.805588)
+points = PackedVector2Array(-1, 0, 23.593946, 31.545803, 15.480534, 60.42785)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
