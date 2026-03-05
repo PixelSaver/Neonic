@@ -9,33 +9,46 @@ class_name ProceduralLeg
 @export var lower_length := 40.0
 @export var step_distance := 40.0
 @export var step_height := 8.0
-@export var step_speed := 8.0
+@export var step_speed := .5
 @export var resting_position := Vector2(0, -70) :
 	set(val):
 		if resting_position == val: return
 		resting_position = val
+		if Engine.is_editor_hint():
+			_update_leg_from_resting()
 @export var flip_knee := false
 @export_tool_button("Randomize leg") var update_leg_action = _randomize_leg_pos
 var _parent : RigidBody2D
 
 var foot_target : Vector2
 var foot_position : Vector2
+## Current visual foot lift
+var current_lift := 0.0
 var is_stepping := false
 var t : Tween
 
 func _ready():
-	if Engine.is_editor_hint(): return
-	if parent != null:
-		_parent = parent
-	elif get_parent() != null and get_parent() is RigidBody2D:
-		_parent = get_parent()
-	else:
-		print_tree_pretty()
-		push_error("Pathfinding component couldn't find parent.")
-	foot_position = self.to_global(points[2])
-	foot_target = self.to_global(points[2])
+	_parent = parent if parent else get_parent().get_parent()
+	#foot_position = self.to_global(points[2])
+	#foot_target = self.to_global(points[2])
 	_update_leg_from_resting()
 	_randomize_leg_pos()
+
+func get_distance_to_resting() -> float:
+	return foot_position.distance_to(resting.global_position)
+
+func take_step() -> void:
+	var v = _parent.linear_velocity
+	var w = _parent.angular_velocity
+	
+	var lookahead = 0.2
+	
+	var target = resting.global_position + (v * lookahead)
+	
+	var offset_from_center = target - _parent.global_position
+	target = _parent.global_position + offset_from_center.rotated(w * lookahead)
+	
+	_start_step(target)
 
 func _randomize_leg_pos():
 	var rng := RandomNumberGenerator.new()
@@ -61,50 +74,37 @@ func _update_leg_from_resting():
 	print("Redrawin: %s" % points[2])
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint(): 
-		update_visual()
-		return
-	
-	if foot_position.distance_to(resting.global_position) > step_distance and !is_stepping:
-		var target = resting.global_position + _parent.linear_velocity.normalized() * 40.
-		start_step(target)
 	update_visual()
 
 
-func start_step(target: Vector2):
-	# Predict where the resting point will be by the time the tween ends (0.2s)
-	var prediction_time = 0.5
-	
-	# Linear prediction
-	var velocity_offset = _parent.linear_velocity * prediction_time
-	
-	# Angular prediction (Rotation)
-	var angle_offset = _parent.angular_velocity * prediction_time
-	var predicted_resting_pos = resting.global_position.rotated(angle_offset)
-	
-	foot_target = target + velocity_offset
+func _start_step(target: Vector2):
+	foot_target = target
 	is_stepping = true
+	
 	if t: t.kill()
-	t = create_tween().set_trans(Tween.TRANS_SINE)
+	t = create_tween().set_trans(Tween.TRANS_SINE).set_parallel(true)
 	t.tween_method((func(val:Vector2): foot_position = val), foot_position, foot_target, .2)
-	t.tween_callback(func():is_stepping = false)
+	#TODO Get the current_lift to work visually
+	t.tween_property(self, "current_lift", step_height, step_speed / 2.0).set_ease(Tween.EASE_OUT)
+	t.tween_property(self, "current_lift", 0.0, step_speed / 2.0).set_ease(Tween.EASE_IN).set_delay(step_speed / 2.0)
+	
+	
+	t.chain().tween_callback(func():is_stepping = false)
 
 	update_visual()
 
 func get_body_up() -> Vector2:
-	var body = get_parent()
-	return -body.transform.y.normalized()
+	if Engine.is_editor_hint(): return -parent.transform.y.normalized()
+	return -_parent.transform.y.normalized()
 
 func update_visual():
 	var local_foot_pos = self.to_local(foot_position)
-	#var knee = solve_knee(hip, foot_position)
-	var knee = solve_knee(points[0], local_foot_pos)
+	
+	var lift_vector = self.to_local(self.global_position + get_body_up() * current_lift) - points[0]
+	var visual_foot = local_foot_pos + lift_vector
 
-	points = [
-		points[0],
-		knee,
-		local_foot_pos
-	]
+	var knee = solve_knee(points[0], visual_foot)
+	points = [points[0], knee, visual_foot]
 
 func solve_knee(hip: Vector2, foot: Vector2) -> Vector2:
 	var dir = foot - hip
