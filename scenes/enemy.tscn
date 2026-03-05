@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://2qxv63wlb60v"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Script" uid="uid://cw8y265c5i8le" path="res://scripts/enemy.gd" id="1_md0e3"]
 [ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_4ra3w"]
-[ext_resource type="Texture2D" uid="uid://qxkexhaypaso" path="res://assets/icon.svg" id="3_4ra3w"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="4_5uy6h"]
 [ext_resource type="Script" uid="uid://b1rqm1btwvqyo" path="res://scripts/components/pathfinding_component.gd" id="5_c4w8v"]
+[ext_resource type="PackedScene" uid="uid://bmrer5ryvv8c4" path="res://scenes/leg.tscn" id="6_nenq2"]
 [ext_resource type="Script" uid="uid://dovxpfgloh44e" path="res://scripts/mirrored_line.gd" id="6_xwavj"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
-radius = 80.0
 
 [node name="Enemy" type="RigidBody2D" unique_id=1695829330 node_paths=PackedStringArray("health_component", "knockback_component")]
 gravity_scale = 0.0
@@ -16,7 +13,7 @@ can_sleep = false
 contact_monitor = true
 max_contacts_reported = 5
 linear_damp = 10.0
-angular_damp = 5.0
+angular_damp = 10.0
 script = ExtResource("1_md0e3")
 health_component = NodePath("HealthComponent")
 knockback_component = NodePath("KnockbackComponent")
@@ -27,26 +24,18 @@ knockback_strength = 15.0
 script = ExtResource("2_4ra3w")
 metadata/_custom_type_script = "uid://c0opl162vnmfw"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1315943398]
-visible = false
-texture = ExtResource("3_4ra3w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=913226749]
-visible = false
-shape = SubResource("CircleShape2D_md0e3")
-
 [node name="KnockbackComponent" type="Node" parent="." unique_id=957452475]
 script = ExtResource("4_5uy6h")
 metadata/_custom_type_script = "uid://dgtg2a5maatww"
 
 [node name="PathfindingComponent" type="Node" parent="." unique_id=1370504580]
 script = ExtResource("5_c4w8v")
-turn_speed = 50000.0
+turn_speed = 30000.0
 metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=916800914 node_paths=PackedStringArray("collision_shape", "mirrored_line")]
 points = PackedVector2Array(103, -10, 94, -18, 78, -16, 72, -11, 61, -11, 40, -34, 18, -31, -9, -36, -33, -24, -41, 1)
-default_color = Color(2.844042, 0, 0.28894123, 1)
+default_color = Color(2.844, 0, 0.289, 1)
 script = ExtResource("6_xwavj")
 collision_shape = NodePath("../CollisionPolygon2D")
 mirrored_line = NodePath("Mirrored")
@@ -57,5 +46,33 @@ default_color = Color(2.844042, 0, 0.28894123, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1549397015]
 polygon = PackedVector2Array(103, -10, 94, -18, 78, -16, 72, -11, 61, -11, 40, -34, 18, -31, -9, -36, -33, -24, -41, 1, -41, -1, -33, 24, -9, 36, 18, 31, 40, 34, 61, 11, 72, 11, 78, 16, 94, 18, 103, 10)
+
+[node name="Legs" type="Node2D" parent="." unique_id=1226819589]
+
+[node name="Leg" parent="Legs" unique_id=844722159 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+position = Vector2(40, -30)
+points = PackedVector2Array(-1, 0, -1.5626892, -39.99604, -27.828457, -70.16406)
+parent = NodePath("../..")
+flip_knee = false
+
+[node name="Leg2" parent="Legs" unique_id=917778324 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+position = Vector2(-10, -35)
+points = PackedVector2Array(-1, 0, 22.961914, -32.02853, 36.26232, -69.75252)
+parent = NodePath("../..")
+flip_knee = false
+
+[node name="Leg3" parent="Legs" unique_id=2136972939 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+position = Vector2(-10, 35)
+points = PackedVector2Array(-1, 0, 22.960327, 32.029716, 10.876633, 70.160866)
+parent = NodePath("../..")
+resting_position = Vector2(0, 70)
+flip_knee = true
+
+[node name="Leg4" parent="Legs" unique_id=1685246850 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+position = Vector2(35, 30)
+points = PackedVector2Array(-1, 0, 24.979326, 30.41504, 25.353348, 70.41329)
+parent = NodePath("../..")
+resting_position = Vector2(0, 70)
+flip_knee = true
 
 [connection signal="body_entered" from="." to="." method="_on_contact"]

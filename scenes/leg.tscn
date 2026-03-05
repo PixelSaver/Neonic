@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bmrer5ryvv8c4"]
+
+[ext_resource type="Script" uid="uid://b0l04kyl4qw7s" path="res://scripts/leg.gd" id="1_thk1m"]
+
+[sub_resource type="Curve" id="Curve_thk1m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.2915966), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Leg" type="Line2D" unique_id=844722159 node_paths=PackedStringArray("resting")]
+points = PackedVector2Array(-1, 0, -0.49999857, 39.996876, 0, 0)
+width_curve = SubResource("Curve_thk1m")
+default_color = Color(2.844, 0, 0.289, 1)
+script = ExtResource("1_thk1m")
+resting = NodePath("Resting")
+
+[node name="Resting" type="Marker2D" parent="." unique_id=1695935946]
+position = Vector2(0, -70)
