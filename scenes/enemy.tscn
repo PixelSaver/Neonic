@@ -48,37 +48,42 @@ default_color = Color(2.6813314, 0, 0.2696373, 1)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1549397015]
 polygon = PackedVector2Array(103, -10, 94, -18, 78, -16, 72, -11, 61, -11, 40, -34, 18, -31, -9, -36, -33, -24, -41, 1, -41, -1, -33, 24, -9, 36, 18, 31, 40, 34, 61, 11, 72, 11, 78, 16, 94, 18, 103, 10)
 
-[node name="LegManager" type="Node2D" parent="." unique_id=1226819589]
+[node name="LegManager" type="Node2D" parent="." unique_id=1226819589 node_paths=PackedStringArray("health_component")]
 script = ExtResource("6_md484")
+health_component = NodePath("../HealthComponent")
 
-[node name="Leg" parent="LegManager" unique_id=844722159 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+[node name="Leg" parent="LegManager" unique_id=844722159 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(40, -30)
-points = PackedVector2Array(-1, 0, 17.932898, -35.23557, 1, -60)
+points = PackedVector2Array(-1, 0, 17.575977, -35.425034, 1.5689468, -60.797752)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
+neighbors = [NodePath("../Leg2")]
 
-[node name="Leg2" parent="LegManager" unique_id=917778324 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+[node name="Leg2" parent="LegManager" unique_id=917778324 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, -35)
-points = PackedVector2Array(-1, 0, 17.932898, -35.23557, 1, -60)
+points = PackedVector2Array(-1, 0, 21.678759, -32.949566, 40.243965, -60.520576)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
+neighbors = [NodePath("../Leg")]
 
-[node name="Leg3" parent="LegManager" unique_id=2136972939 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+[node name="Leg3" parent="LegManager" unique_id=2136972939 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, 35)
-points = PackedVector2Array(-1, 0, 17.932898, 35.23557, 1, 60)
+points = PackedVector2Array(-1, 0, 2.4475825, 39.85115, -19.264313, 60.55365)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
 flip_knee = true
+neighbors = [NodePath("../Leg4")]
 
-[node name="Leg4" parent="LegManager" unique_id=1685246850 node_paths=PackedStringArray("parent") instance=ExtResource("6_nenq2")]
+[node name="Leg4" parent="LegManager" unique_id=1685246850 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(35, 30)
-points = PackedVector2Array(-1, 0, 17.932898, 35.23557, 1, 60)
+points = PackedVector2Array(-1, 0, -9.983553, 38.978146, -30.564201, 60.805588)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
 flip_knee = true
+neighbors = [NodePath("../Leg3")]
 
 [connection signal="body_entered" from="." to="." method="_on_contact"]

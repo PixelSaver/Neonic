@@ -18,6 +18,8 @@ class_name ProceduralLeg
 			_update_leg_from_resting()
 @export var flip_knee := false
 @export_tool_button("Randomize leg") var update_leg_action = _randomize_leg_pos
+## Neighbors will not step at the same time
+@export var neighbors : Array[ProceduralLeg] = [] 
 var _parent : RigidBody2D
 
 var foot_target : Vector2
