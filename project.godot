@@ -13,6 +13,8 @@ config_version=5
 config/name="Neonic"
 run/main_scene="uid://bwg4h8wm2h1ry"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0.05882353, 0.05882353, 0.05882353, 1)
+boot_splash/show_image=false
 config/icon="res://assets/icon.svg"
 
 [autoload]

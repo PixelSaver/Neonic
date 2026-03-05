@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b6i2eevysimhw"]
 
-[ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/ui/start_menu/tweenable.gd" id="1_p3k0e"]
-[ext_resource type="PackedScene" path="res://scenes/ui/start_menu/tweenable.tscn" id="2_ettb2"]
-[ext_resource type="PackedScene" uid="uid://osk1uxa28atn" path="res://scenes/ui/start_menu/button_menu.tscn" id="3_m5bgy"]
+[ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/tweens/tweenable.gd" id="1_p3k0e"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://scenes/tweens/tweenable.tscn" id="2_ettb2"]
+[ext_resource type="PackedScene" uid="uid://c36pww6tpy7mo" path="res://scenes/ui/start_menu/button_menu.tscn" id="3_m5bgy"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wyh8j"]
 
