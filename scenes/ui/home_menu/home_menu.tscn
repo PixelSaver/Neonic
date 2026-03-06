@@ -6,7 +6,13 @@
 [ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="3_c3q6c"]
 [ext_resource type="Script" uid="uid://bhuajf4cwjgp5" path="res://scenes/ui/utilities/radial_cont.gd" id="5_i3qdv"]
 [ext_resource type="PackedScene" uid="uid://dh0lf0j54xlsx" path="res://scenes/ui/home_menu/radial_selection.tscn" id="5_lherp"]
+[ext_resource type="Script" uid="uid://bkeo7rlw45pxc" path="res://scenes/ui/utilities/spline_line.gd" id="5_os4em"]
 [ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="6_i3qdv"]
+[ext_resource type="Script" uid="uid://rpabkj42rhiy" path="res://scenes/ui/utilities/box_line.gd" id="9_r7x5e"]
+
+[sub_resource type="Curve" id="Curve_os4em"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
 
 [node name="HomeMenu" type="Control" unique_id=256416712 node_paths=PackedStringArray("line")]
 layout_mode = 3
@@ -32,6 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Control" type="Control" parent="Control" unique_id=2107551331]
+top_level = true
 layout_mode = 2
 
 [node name="Line2D" type="Line2D" parent="Control/Control" unique_id=675198767]
@@ -43,6 +50,25 @@ joint_mode = 1
 script = ExtResource("2_loroy")
 size = 100.0
 _points = PackedVector2Array(-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="SplineLine" type="Line2D" parent="Control/Control" unique_id=1704627286]
+points = PackedVector2Array(-50, 0, -54.644012, -0.11850357, -59.20288, -0.46902466, -63.67935, -1.0440788, -68.07617, -1.8361816, -72.39609, -2.8378487, -76.641846, -4.0415955, -80.81619, -5.4399376, -84.921875, -7.0253906, -88.96164, -8.79047, -92.93823, -10.727692, -96.8544, -12.829571, -100.71289, -15.088623, -104.51645, -17.497364, -108.26782, -20.04831, -111.96976, -22.733974, -115.625, -25.546875, -119.2363, -28.479527, -122.8064, -31.524445, -126.33804, -34.674145, -129.83398, -37.921143, -133.29697, -41.257957, -136.72974, -44.677094, -140.13504, -48.171074, -143.51563, -51.73242, -146.87424, -55.353645, -150.21362, -59.027252, -153.53653, -62.745766, -155.19266, -64.61953, -156.8457, -66.50171, -158.496, -68.39137, -160.14389, -70.28759, -161.78972, -72.189415, -163.43384, -74.09592, -165.07658, -76.006165, -166.71829, -77.91921, -168.35931, -79.834145, -170, -81.75, -171.64069, -83.665855, -173.28171, -85.58079, -174.92342, -87.493835, -176.56616, -89.40408, -178.21028, -91.310585, -179.85611, -93.21241, -181.504, -95.10863, -183.1543, -96.99829, -184.80734, -98.88048, -186.46347, -100.754234, -189.78638, -104.47275, -193.12576, -108.146355, -196.48438, -111.76758, -199.86496, -115.328926, -203.27026, -118.82291, -206.70303, -122.24204, -210.16602, -125.57886, -213.66196, -128.82587, -217.1936, -131.97556, -220.7637, -135.02048, -224.375, -137.95313, -228.03024, -140.76602, -231.73218, -143.45169, -235.48355, -146.00262, -239.28711, -148.41138, -243.1456, -150.67044, -247.06177, -152.77231, -251.03836, -154.70953, -255.07813, -156.47461, -259.1838, -158.06006, -263.35815, -159.4584, -267.6039, -160.66216, -271.92383, -161.66382, -276.32065, -162.45592, -280.79712, -163.03098, -285.356, -163.3815, -290, -163.5)
+width_curve = SubResource("Curve_os4em")
+end_cap_mode = 2
+script = ExtResource("5_os4em")
+start_pos = Vector2(810, 486)
+end_pos = Vector2(570, 322.5)
+handle_length = -100.0
+metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
+
+[node name="BoxLine" type="Line2D" parent="Control/Control" unique_id=300323166 node_paths=PackedStringArray("target")]
+position = Vector2(-575, -163.5)
+points = PackedVector2Array(285, 0, 285, 322.5, -285, 322.5, -285, -322.5, 285, -322.5, 285, 0)
+closed = true
+script = ExtResource("9_r7x5e")
+target = NodePath("../../../HBoxContainer/Left/Control")
+flip_h = true
+metadata/_custom_type_script = "uid://rpabkj42rhiy"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=570676093]
 layout_mode = 1

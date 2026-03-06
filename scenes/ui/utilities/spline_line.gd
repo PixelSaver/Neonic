@@ -33,9 +33,11 @@ var start_handle : Vector2
 var end_handle : Vector2
 
 func _ready():
+	await get_tree().process_frame
 	_update_curve()
 
 func _update_curve():
+	if not width_curve: width_curve = Curve.new()
 	width_curve.clear_points()
 	if is_equal_approx(display_proportion, 0.0):
 		width_curve.add_point(Vector2(0, 0))
@@ -51,11 +53,24 @@ func _update_curve():
 	curve.clear_points()
 
 	start_handle = start_pos + Vector2.RIGHT * handle_length
-	end_handle = end_pos + Vector2.LEFT * handle_length
+	end_handle   = end_pos   + Vector2.LEFT  * handle_length
 
-	curve.add_point(start_pos, Vector2.ZERO, start_handle - start_pos)
-	curve.add_point(end_pos, end_handle - end_pos, Vector2.ZERO)
+	var start_local = to_local(start_pos)
+	var end_local   = to_local(end_pos)
 
+	var start_handle_local = to_local(start_handle)
+	var end_handle_local   = to_local(end_handle)
+
+	curve.add_point(
+		start_local,
+		Vector2.ZERO,
+		start_handle_local - start_local
+	)
+	curve.add_point(
+		end_local,
+		end_handle_local - end_local,
+		Vector2.ZERO
+	)
 	points = curve.get_baked_points()
 
 	queue_redraw()
