@@ -59,9 +59,11 @@ handle_length = -100.0
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BoxLine" type="Line2D" parent="Control/Control2" unique_id=300323166 node_paths=PackedStringArray("target")]
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+position = Vector2(285, 322.5)
+points = PackedVector2Array(285, 0, 285, 322.5, -285, 322.5, -285, -322.5, 285, -322.5, 285, 0)
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
+joint_mode = 1
 script = ExtResource("9_r7x5e")
 target = NodePath("../../../HBoxContainer/Left/Control/RadialContainer")
 flip_h = true
@@ -99,6 +101,7 @@ size_flags_vertical = 3
 
 [node name="RadialContainer" parent="HBoxContainer/Left/Control" unique_id=1346308268 instance=ExtResource("5_lherp")]
 layout_mode = 1
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
 [node name="WeaponEntry7" parent="HBoxContainer/Left/Control/RadialContainer" unique_id=1548476173 instance=ExtResource("6_i3qdv")]
 layout_mode = 2
