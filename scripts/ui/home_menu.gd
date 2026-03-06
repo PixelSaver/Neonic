@@ -4,6 +4,7 @@ class_name HomeMenu
 @export var duration : float = 1.0
 var all_tweenables : Array[Tweenable] = []
 @export var line: ToolLine
+@export var home_anim : HomeAnimationHelper
 
 func _ready() -> void:
 	all_tweenables = PixelMenu.get_all_tweenables(self)
@@ -19,9 +20,8 @@ func start_anim():
 	t.tween_property(self, "modulate:a", 1, duration*1.5)
 	line.size = 0
 	t.tween_property(line, "size", 100, duration * 0.2)
-	#for tween in all_tweenables:
-		#tween.get_parent().position = tween.get_final_local_pos()
-		#t.tween_property(tween.get_parent(), "position", tween.og_pos, duration)
+	t.tween_method(home_anim.anim_splines, 0.0, 1.0, duration*0.4).set_ease(Tween.EASE_IN_OUT)
+	t.tween_method(home_anim.anim_boxes, 0.0, 1.0, duration*0.4).set_ease(Tween.EASE_IN_OUT).set_delay(duration*0.4)
 	
 	t.chain().tween_callback(func(): is_animating = false)
 

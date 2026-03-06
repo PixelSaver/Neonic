@@ -14,13 +14,18 @@ class_name BoxLine
 	set(v):
 		flip_h = v
 		_update_points()
+var og_max_y : float = 0.0
 
 func _ready() -> void:
 	_update_points()
+	og_max_y = target.size.y
 
 func _update_points():
 	if not target:
 		return
+	
+	if !Engine.is_editor_hint(): 
+		pass
 	
 	var flip = -1 if flip_h else 1
 	global_position = target.global_position + target.size * Vector2(outline_proportion.x * 0.5 * flip, 0.5) + target.size*Vector2(1,0)*(1 if flip_h else 0)
