@@ -4,15 +4,7 @@
 [ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_m0hmm"]
 [ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/tweens/tweenable.gd" id="2_km2yg"]
 [ext_resource type="PackedScene" uid="uid://c36pww6tpy7mo" path="res://scenes/ui/start_menu/button_menu.tscn" id="4_km2yg"]
-
-[sub_resource type="Environment" id="Environment_m0hmm"]
-background_mode = 3
-ambient_light_source = 1
-reflected_light_source = 1
-glow_enabled = true
-glow_intensity = 2.0
-glow_bloom = 0.2
-glow_hdr_scale = 4.0
+[ext_resource type="Environment" uid="uid://cf8ptqbonv20l" path="res://assets/neon_environment.tres" id="5_s1kfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km2yg"]
 bg_color = Color(0, 0.493, 3.294, 1)
@@ -44,9 +36,6 @@ script = ExtResource("1_irhji")
 all_parents = [NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineRight"), NodePath("TiltControl/Menu"), NodePath("TiltControl/Menu/Panel/MarginContainer"), NodePath("TiltControl/Menu/Panel/MarginContainer/Control"), NodePath("TiltControl/Buttons")]
 button_cont = NodePath("TiltControl/Buttons")
 duration = 0.7
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=517338984]
-environment = SubResource("Environment_m0hmm")
 
 [node name="TiltControl" type="Control" parent="." unique_id=391487918]
 layout_mode = 1
@@ -359,7 +348,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
 [node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel8" unique_id=1927780021]
 script = ExtResource("2_km2yg")
 dir = Vector2(0, 1)
-speed = 1.1190257446162177
+speed = 1.1190257446162175
 
 [node name="Panel9" type="Panel" parent="TiltControl/Menu" unique_id=1563083356]
 layout_mode = 1
@@ -537,3 +526,6 @@ script = ExtResource("2_km2yg")
 dir = Vector2(-1, 0)
 speed = 1.6232133350004434
 metadata/_custom_type_script = "uid://dbt3qfyyv7ra1"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=570540602]
+environment = ExtResource("5_s1kfm")

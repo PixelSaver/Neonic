@@ -52,7 +52,7 @@ func end_anim():
 	)
 
 func _get_tween() -> Tween:
-	return create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT).set_parallel(true)
+	return create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
 
 func _on_button_pressed(but:ButtonMenu):
 	match but._name.to_lower():

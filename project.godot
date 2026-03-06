@@ -120,3 +120,4 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 viewport/hdr_2d=true
 environment/defaults/default_clear_color=Color(0.0579964, 0.057996333, 0.05799634, 1)
+environment/defaults/default_environment="uid://cf8ptqbonv20l"
