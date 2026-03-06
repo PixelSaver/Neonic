@@ -11,13 +11,13 @@ gravity_scale = 0.0
 can_sleep = false
 linear_damp = 10.0
 script = ExtResource("1_3vyb7")
-gun_spacing = -10.0
 line = NodePath("Line2D")
 collision_shape = NodePath("CollisionPolygon2D")
 health_component = NodePath("HealthComponent")
 knockback_component = NodePath("KnockbackComponent")
 gun = NodePath("GunCenter/Gun")
 gun_center = NodePath("GunCenter")
+gun_spacing = -10.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=208179252]
 script = ExtResource("2_g2els")

@@ -46,7 +46,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u00pm")
 [node name="Panel2" type="Panel" parent="Selector/Panel" unique_id=1804664265]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
+anchor_left = 0.05
 anchor_top = 0.1
 anchor_right = 0.9
 anchor_bottom = 0.9
@@ -57,7 +57,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u00pm")
 [node name="Panel3" type="Panel" parent="Selector/Panel/Panel2" unique_id=413098236]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
+anchor_left = 0.05
 anchor_top = 0.1
 anchor_right = 0.9
 anchor_bottom = 0.9
