@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dh0lf0j54xlsx"]
+
+[ext_resource type="Script" uid="uid://oopbff7jy0sm" path="res://scenes/ui/home_menu/radial_selector.gd" id="1_pae36"]
+[ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="2_bh3h1"]
+[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="2_gw4jw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ho8n5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00pm"]
+bg_color = Color(1, 1, 1, 0.4)
+
+[node name="RadialContainer" type="Container" unique_id=1346308268 node_paths=PackedStringArray("selector", "excluded")]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_pae36")
+selector = NodePath("Selector")
+offset = Vector2(-40, -10)
+radius = 1000.0
+separation = 110.0
+circle_center = Vector2(-740, 0)
+target_scroll_angle = -0.534
+excluded = [NodePath("Selector")]
+metadata/_custom_type_script = "uid://bhuajf4cwjgp5"
+
+[node name="Selector" type="Panel" parent="." unique_id=749251668]
+modulate = Color(0, 0.493, 3.294, 1)
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ho8n5")
+
+[node name="Panel" type="Panel" parent="Selector" unique_id=2121529567]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_right = 1.32
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00pm")
+
+[node name="Panel2" type="Panel" parent="Selector/Panel" unique_id=1804664265]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00pm")
+
+[node name="Panel3" type="Panel" parent="Selector/Panel/Panel2" unique_id=413098236]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u00pm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Selector" unique_id=1429899043]
+environment = ExtResource("2_bh3h1")
+
+[node name="WeaponEntry" parent="." unique_id=1548476173 instance=ExtResource("2_gw4jw")]
+layout_mode = 2
+
+[node name="WeaponEntry2" parent="." unique_id=722881799 instance=ExtResource("2_gw4jw")]
+layout_mode = 2
+
+[node name="WeaponEntry3" parent="." unique_id=1824882213 instance=ExtResource("2_gw4jw")]
+layout_mode = 2
+
+[node name="WeaponEntry4" parent="." unique_id=1783263663 instance=ExtResource("2_gw4jw")]
+layout_mode = 2
+
+[node name="WeaponEntry5" parent="." unique_id=830498755 instance=ExtResource("2_gw4jw")]
+layout_mode = 2
+
+[node name="WeaponEntry6" parent="." unique_id=190021974 instance=ExtResource("2_gw4jw")]
+layout_mode = 2

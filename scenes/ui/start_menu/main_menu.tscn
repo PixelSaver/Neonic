@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://db3neuan44p1s" path="res://scenes/ui/start_menu/main_menu.gd" id="2_xt57n"]
 [ext_resource type="Texture2D" path="res://Assets/Art/icons-keyboard-16x16-1bit-ansdor.png" id="3_os7au"]
 [ext_resource type="Shader" path="res://Shaders/stripes.gdshader" id="4_n0kcp"]
-[ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/ui/start_menu/tweenable.gd" id="5_37xt4"]
-[ext_resource type="PackedScene" path="res://scenes/ui/start_menu/tweenable.tscn" id="6_mdh17"]
+[ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/tweens/tweenable.gd" id="5_37xt4"]
+[ext_resource type="PackedScene" uid="uid://benst4a406d87" path="res://scenes/tweens/tweenable.tscn" id="6_mdh17"]
 [ext_resource type="PackedScene" path="res://Scenes/coin.tscn" id="7_x3jur"]
 [ext_resource type="Theme" path="res://Assets/settings_theme.tres" id="8_sixgq"]
-[ext_resource type="PackedScene" path="res://scenes/ui/start_menu/button_menu.tscn" id="9_bjx7c"]
+[ext_resource type="PackedScene" uid="uid://c36pww6tpy7mo" path="res://scenes/ui/start_menu/button_menu.tscn" id="9_bjx7c"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/generic-error.wav" id="10_3o84h"]
 [ext_resource type="Script" path="res://addons/maaacks_ui_sound_controller/base/scripts/ui_sound_controller.gd" id="11_4jfpt"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/glass_002.ogg" id="12_gxpfx"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" path="res://Assets/Audio/key-caps.mp3" id="16_mtk40"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/ruleset-select-osu.wav" id="17_qy48e"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/glitch_reverb.mp3" id="18_xt57n"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wyh8j"]
 shader = ExtResource("4_n0kcp")

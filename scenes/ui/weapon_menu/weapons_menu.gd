@@ -1,15 +1,12 @@
 extends PixelMenu
-class_name StartMenu
+class_name WeaponsMenu
 
+@export var all_parents : Array[Node] = []
 @export var duration : float = 1.0
-@export var button_cont : Control
 var all_tweenables : Array[Tweenable] = []
 
 func _ready() -> void:
-	all_tweenables = PixelMenu.get_all_tweenables(self)
-	for _but in button_cont.get_children():
-		var but = _but as ButtonMenu
-		but.self_pressed.connect(_on_button_pressed)
+	all_tweenables = PixelMenu.get_all_tweenables(all_parents)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("1"):
@@ -51,16 +48,4 @@ func end_anim():
 	)
 
 func _get_tween() -> Tween:
-	return create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)
-
-func _on_button_pressed(but:ButtonMenu):
-	match but._name.to_lower():
-		"play":
-			end_anim()
-			Global.game_state = Global.State.WEAPONS
-		"settings":
-			pass
-		"credits":
-			pass
-		"quit":
-			get_tree().quit()
+	return create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT).set_parallel(true)

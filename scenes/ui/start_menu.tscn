@@ -2,30 +2,29 @@
 
 [ext_resource type="Script" uid="uid://bnshc31hk47ra" path="res://scripts/ui/start_menu.gd" id="1_irhji"]
 [ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_m0hmm"]
-[ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/ui/start_menu/tweenable.gd" id="2_km2yg"]
-
-[sub_resource type="Environment" id="Environment_m0hmm"]
-background_mode = 3
-ambient_light_source = 1
-reflected_light_source = 1
-glow_enabled = true
-glow_intensity = 2.0
-glow_bloom = 0.2
-glow_hdr_scale = 4.0
+[ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/tweens/tweenable.gd" id="2_km2yg"]
+[ext_resource type="PackedScene" uid="uid://c36pww6tpy7mo" path="res://scenes/ui/start_menu/button_menu.tscn" id="4_km2yg"]
+[ext_resource type="Environment" path="res://assets/neon_environment.tres" id="5_s1kfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km2yg"]
 bg_color = Color(0, 0.493, 3.294, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0hmm"]
+bg_color = Color(2.454227, 2.454227, 2.454227, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i11hm"]
+bg_color = Color(0, 0.49341857, 3.2944162, 0.39100003)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0g8l"]
 bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0hmm"]
-bg_color = Color(2.454227, 2.454227, 2.454227, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2t0al"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1kfm"]
 bg_color = Color(2.6813314, 0, 0.27073556, 1)
 
-[node name="StartMenu" type="Control" unique_id=1558721094]
+[node name="StartMenu" type="Control" unique_id=1558721094 node_paths=PackedStringArray("button_cont")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,15 +33,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_m0hmm")
 script = ExtResource("1_irhji")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=517338984]
-environment = SubResource("Environment_m0hmm")
+duration = 0.7
+button_cont = NodePath("TiltControl/Buttons")
 
 [node name="TiltControl" type="Control" parent="." unique_id=391487918]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 150.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.17453292
@@ -57,72 +57,59 @@ layout_mode = 0
 offset_left = 183.77814
 offset_top = -530.5293
 offset_right = 223.77814
-offset_bottom = 985.0005
+offset_bottom = 1188.3958
 theme_override_styles/panel = SubResource("StyleBoxFlat_km2yg")
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineUp/Panel" unique_id=1458152389]
 script = ExtResource("2_km2yg")
 dir = Vector2(-1, 0)
-speed = 0.4
+speed = 0.1
 
-[node name="Menu" type="Control" parent="TiltControl" unique_id=943288178]
-layout_mode = 1
-anchor_left = 0.15
-anchor_top = 0.1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Panel5" type="Panel" parent="TiltControl/LineUp" unique_id=491417838]
+modulate = Color(1, 1, 1, 0.70000005)
+layout_mode = 0
+offset_left = 122.01521
+offset_top = -495.67688
+offset_right = 161.77675
+offset_bottom = 1213.6754
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
 
-[node name="Panel" type="Panel" parent="TiltControl/Menu" unique_id=1728874395]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.254
-anchor_bottom = 0.15
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/Panel5" unique_id=1404623111]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 1.0
+
+[node name="Panel2" type="Panel" parent="TiltControl/LineUp" unique_id=543450177]
+modulate = Color(1, 1, 1, 0.90000004)
+layout_mode = 0
+offset_left = 150.4697
+offset_top = -530.5293
+offset_right = 167.59787
+offset_bottom = 1188.3958
 theme_override_styles/panel = SubResource("StyleBoxFlat_km2yg")
 
-[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel" unique_id=269463219]
+[node name="Tweenable" type="Node" parent="TiltControl/LineUp/Panel2" unique_id=1234237782]
 script = ExtResource("2_km2yg")
-dir = Vector2(-1, 0)
-speed = 0.4
-
-[node name="MarginContainer" type="MarginContainer" parent="TiltControl/Menu/Panel" unique_id=315695275]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Panel" type="Panel" parent="TiltControl/Menu/Panel/MarginContainer" unique_id=882628811]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_x0g8l")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TiltControl/Menu/Panel/MarginContainer" unique_id=480591835]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0.493, 3.294, 1)
-bbcode_enabled = true
-text = "Neonic"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel/MarginContainer/RichTextLabel" unique_id=1834745979]
-script = ExtResource("2_km2yg")
-dir = Vector2(-1, 0)
-speed = 0.4
+dir = Vector2(1, 0)
+speed = 0.2
 
 [node name="LineRight" type="Control" parent="TiltControl" unique_id=655172661]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Panel13" type="Panel" parent="TiltControl/LineRight" unique_id=2075986894]
+layout_mode = 0
+offset_left = 301.37463
+offset_top = 224.47719
+offset_right = 887.6647
+offset_bottom = 262.80893
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineRight/Panel13" unique_id=679406069]
+script = ExtResource("2_km2yg")
+dir = Vector2(0, 1)
+speed = 0.9
 
 [node name="Panel3" type="Panel" parent="TiltControl/LineRight" unique_id=1005388975]
 layout_mode = 0
@@ -134,8 +121,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineRight/Panel3" unique_id=957416445]
 script = ExtResource("2_km2yg")
-dir = Vector2(-1, 0)
-speed = 0.4
+dir = Vector2(1, 0)
+speed = 1.4130257096493126
 
 [node name="Panel4" type="Panel" parent="TiltControl/LineRight" unique_id=209907208]
 layout_mode = 0
@@ -147,8 +134,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
 
 [node name="Tweenable" type="Node" parent="TiltControl/LineRight/Panel4" unique_id=1297554319]
 script = ExtResource("2_km2yg")
-dir = Vector2(-1, 0)
-speed = 0.4
+dir = Vector2(0, -1)
+speed = 1.3017146814404694
 
 [node name="Panel5" type="Panel" parent="TiltControl/LineRight" unique_id=1177681119]
 layout_mode = 0
@@ -161,7 +148,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
 [node name="Tweenable" type="Node" parent="TiltControl/LineRight/Panel5" unique_id=903155935]
 script = ExtResource("2_km2yg")
 dir = Vector2(-1, 0)
-speed = 0.4
+speed = 0.9625234277376558
+
+[node name="Panel7" type="Panel" parent="TiltControl/LineRight" unique_id=1042088380]
+layout_mode = 0
+offset_left = 812.1084
+offset_top = 254.76901
+offset_right = 1424.7374
+offset_bottom = 279.769
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/LineRight/Panel7" unique_id=9371697]
+script = ExtResource("2_km2yg")
+dir = Vector2(1, 0)
+speed = 0.5471639326984425
 
 [node name="Panel" type="Panel" parent="TiltControl/LineRight" unique_id=357792614]
 layout_mode = 0
@@ -174,7 +174,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_km2yg")
 [node name="Tweenable" type="Node" parent="TiltControl/LineRight/Panel" unique_id=770339921]
 script = ExtResource("2_km2yg")
 dir = Vector2(-1, 0)
-speed = 0.4
+speed = 20.0
 
 [node name="Panel6" type="Panel" parent="TiltControl/LineRight" unique_id=1619767306]
 layout_mode = 0
@@ -189,7 +189,230 @@ script = ExtResource("2_km2yg")
 dir = Vector2(-1, 0)
 speed = 0.4
 
+[node name="Menu" type="Control" parent="TiltControl" unique_id=943288178]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel7" type="Panel" parent="TiltControl/Menu" unique_id=752545713]
+layout_mode = 0
+offset_left = 337.20184
+offset_top = -4.1419373
+offset_right = 375.86658
+offset_bottom = 34.52281
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel7" unique_id=1922363673]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 2.0
+
+[node name="Panel2" type="Panel" parent="TiltControl/Menu" unique_id=168033050]
+layout_mode = 0
+offset_left = -287.9592
+offset_top = -21.852947
+offset_right = -37.959198
+offset_bottom = 228.14705
+theme_override_styles/panel = SubResource("StyleBoxFlat_i11hm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel2" unique_id=1840879633]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, -1)
+speed = 0.8
+
+[node name="Panel3" type="Panel" parent="TiltControl/Menu" unique_id=1506265960]
+layout_mode = 0
+offset_left = -245.15521
+offset_top = 20.951038
+offset_right = -80.76318
+offset_bottom = 185.34306
+theme_override_styles/panel = SubResource("StyleBoxFlat_i11hm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel3" unique_id=1591012793]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 1)
+speed = 0.8
+
+[node name="Panel4" type="Panel" parent="TiltControl/Menu" unique_id=1051001088]
+layout_mode = 0
+offset_left = -205.11755
+offset_top = 60.988728
+offset_right = -120.80087
+offset_bottom = 145.3054
+theme_override_styles/panel = SubResource("StyleBoxFlat_i11hm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel4" unique_id=705038743]
+script = ExtResource("2_km2yg")
+dir = Vector2(1, 1)
+speed = 0.8
+
+[node name="Panel5" type="Panel" parent="TiltControl/Menu" unique_id=8326604]
+layout_mode = 0
+offset_left = -28.514
+offset_top = -39.82
+offset_right = 51.486
+offset_bottom = 40.180008
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel5" unique_id=1611660623]
+script = ExtResource("2_km2yg")
+dir = Vector2(0, -1)
+speed = 0.9
+
+[node name="Panel" type="Panel" parent="TiltControl/Menu" unique_id=1728874395]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.254
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_km2yg")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel" unique_id=269463219]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 1.2
+
+[node name="MarginContainer" type="MarginContainer" parent="TiltControl/Menu/Panel" unique_id=315695275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="TiltControl/Menu/Panel/MarginContainer" unique_id=1596364714]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="TiltControl/Menu/Panel/MarginContainer/Control" unique_id=882628811]
+layout_mode = 0
+offset_right = 351.0
+offset_bottom = 111.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x0g8l")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel/MarginContainer/Control/Panel" unique_id=1135098929]
+script = ExtResource("2_km2yg")
+dir = Vector2(1, 0)
+speed = 2.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TiltControl/Menu/Panel/MarginContainer" unique_id=480591835]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.493, 3.294, 1)
+bbcode_enabled = true
+text = "Neonic"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel/MarginContainer/RichTextLabel" unique_id=1834745979]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 0.9
+
+[node name="Panel6" type="Panel" parent="TiltControl/Menu" unique_id=933649987]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.254
+anchor_bottom = 0.15
+offset_left = -22.404564
+offset_top = -33.137466
+offset_right = -326.42557
+offset_bottom = -97.03045
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_km2yg")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel6" unique_id=458955034]
+script = ExtResource("2_km2yg")
+dir = Vector2(0, 1)
+speed = 0.6433432250066062
+
+[node name="Panel8" type="Panel" parent="TiltControl/Menu" unique_id=1678601886]
+layout_mode = 0
+offset_left = -125.19638
+offset_top = 91.60733
+offset_right = -38.16394
+offset_bottom = 178.6398
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel8" unique_id=1927780021]
+script = ExtResource("2_km2yg")
+dir = Vector2(0, 1)
+speed = 1.1190257446162175
+
+[node name="Panel9" type="Panel" parent="TiltControl/Menu" unique_id=1563083356]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.254
+anchor_bottom = 0.15
+offset_left = -117.95781
+offset_top = 109.24097
+offset_right = -413.31665
+offset_bottom = 36.262512
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_km2yg")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel9" unique_id=1292969690]
+script = ExtResource("2_km2yg")
+dir = Vector2(0, -1)
+speed = 0.4415144477342
+
+[node name="Panel12" type="Panel" parent="TiltControl/Menu" unique_id=1394071905]
+layout_mode = 0
+offset_left = -85.694695
+offset_top = 131.35173
+offset_right = -8.101006
+offset_bottom = 193.4367
+theme_override_styles/panel = SubResource("StyleBoxFlat_2t0al")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel12" unique_id=1049643377]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 1.3327667635624838
+
+[node name="Panel10" type="Panel" parent="TiltControl/Menu" unique_id=585985791]
+layout_mode = 0
+offset_left = -104.11341
+offset_top = 118.637375
+offset_right = -50.51821
+offset_bottom = 166.8707
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel10" unique_id=2039037793]
+script = ExtResource("2_km2yg")
+dir = Vector2(1, 0)
+speed = 2.1
+
+[node name="Panel11" type="Panel" parent="TiltControl/Menu" unique_id=1452371339]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.254
+anchor_bottom = 0.15
+offset_left = -156.42961
+offset_top = 162.10188
+offset_right = -396.06177
+offset_bottom = 49.03148
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_km2yg")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Menu/Panel11" unique_id=865908743]
+script = ExtResource("2_km2yg")
+dir = Vector2(1, 0)
+speed = 1.530595111091833
+
 [node name="Palette" type="Control" parent="TiltControl" unique_id=1708493231]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -220,15 +443,92 @@ script = ExtResource("2_km2yg")
 dir = Vector2(-1, 0)
 speed = 0.4
 
-[node name="Panel4" type="Panel" parent="TiltControl/Palette" unique_id=491417838]
+[node name="Panel5" type="Panel" parent="TiltControl/Palette" unique_id=948418868]
 layout_mode = 0
-offset_left = 256.23572
-offset_top = -130.47714
-offset_right = 296.23572
-offset_bottom = -90.47714
-theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+offset_left = 356.80267
+offset_top = -153.28693
+offset_right = 396.80267
+offset_bottom = -113.28693
+theme_override_styles/panel = SubResource("StyleBoxFlat_2t0al")
 
-[node name="Tweenable" type="Node" parent="TiltControl/Palette/Panel4" unique_id=1404623111]
+[node name="Tweenable" type="Node" parent="TiltControl/Palette/Panel5" unique_id=160954998]
 script = ExtResource("2_km2yg")
 dir = Vector2(-1, 0)
 speed = 0.4
+
+[node name="Panel4" type="Panel" parent="TiltControl/Palette" unique_id=448954546]
+layout_mode = 0
+offset_left = 271.93555
+offset_top = -139.33797
+offset_right = 311.93555
+offset_bottom = -99.33797
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0hmm")
+
+[node name="Tweenable" type="Node" parent="TiltControl/Palette/Panel4" unique_id=1273349555]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 0.4
+
+[node name="Buttons" type="VBoxContainer" parent="TiltControl" unique_id=214921180]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.298
+anchor_right = 1.0
+anchor_bottom = 0.868
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" parent="TiltControl/Buttons" unique_id=1925605486 instance=ExtResource("4_km2yg")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme = null
+
+[node name="Tweenable" type="Node" parent="TiltControl/Buttons/Play" unique_id=573085025]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 1.193692106912781
+metadata/_custom_type_script = "uid://dbt3qfyyv7ra1"
+
+[node name="Settings" parent="TiltControl/Buttons" unique_id=1743347407 instance=ExtResource("4_km2yg")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme = null
+_name = "Settings"
+
+[node name="Tweenable" type="Node" parent="TiltControl/Buttons/Settings" unique_id=95687844]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 2.634955570904044
+metadata/_custom_type_script = "uid://dbt3qfyyv7ra1"
+
+[node name="Credits" parent="TiltControl/Buttons" unique_id=1318031259 instance=ExtResource("4_km2yg")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme = null
+_name = "Credits"
+
+[node name="Tweenable" type="Node" parent="TiltControl/Buttons/Credits" unique_id=183142215]
+script = ExtResource("2_km2yg")
+dir = Vector2(1, 0)
+speed = 2.0036244162531043
+metadata/_custom_type_script = "uid://dbt3qfyyv7ra1"
+
+[node name="Quit" parent="TiltControl/Buttons" unique_id=251961326 instance=ExtResource("4_km2yg")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme = null
+_name = "Quit"
+
+[node name="Tweenable" type="Node" parent="TiltControl/Buttons/Quit" unique_id=69601082]
+script = ExtResource("2_km2yg")
+dir = Vector2(-1, 0)
+speed = 1.6232133350004434
+metadata/_custom_type_script = "uid://dbt3qfyyv7ra1"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=570540602]
+environment = ExtResource("5_s1kfm")

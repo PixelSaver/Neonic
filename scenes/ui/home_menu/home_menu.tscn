@@ -1,12 +1,125 @@
 [gd_scene format=3 uid="uid://c8xcs8462e0r1"]
 
+[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_2p3gy"]
 [ext_resource type="Script" uid="uid://buq87yc5dpfwv" path="res://scripts/ui/home_menu.gd" id="1_vt2s1"]
+[ext_resource type="Script" uid="uid://bqljlqm5iusbh" path="res://scripts/ui/tool_line.gd" id="2_loroy"]
+[ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="3_c3q6c"]
+[ext_resource type="Script" uid="uid://bhuajf4cwjgp5" path="res://scenes/ui/utilities/radial_cont.gd" id="5_i3qdv"]
+[ext_resource type="PackedScene" uid="uid://dh0lf0j54xlsx" path="res://scenes/ui/home_menu/radial_selection.tscn" id="5_lherp"]
+[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="6_i3qdv"]
 
-[node name="HomeMenu" type="Control" unique_id=256416712]
+[node name="HomeMenu" type="Control" unique_id=256416712 node_paths=PackedStringArray("line")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_2p3gy")
 script = ExtResource("1_vt2s1")
+duration = 3.0
+line = NodePath("Control/Control/Line2D")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741655757]
+environment = ExtResource("3_c3q6c")
+
+[node name="Control" type="CenterContainer" parent="." unique_id=236673020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Control" unique_id=2107551331]
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="Control/Control" unique_id=675198767]
+points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+closed = true
+width = 15.0
+default_color = Color(0, 0.493, 3.294, 1)
+joint_mode = 1
+script = ExtResource("2_loroy")
+size = 100.0
+_points = PackedVector2Array(-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=570676093]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="VBoxContainer" parent="HBoxContainer" unique_id=1584532665]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/Left" unique_id=30050071]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RadialContainer" parent="HBoxContainer/Left/Control" unique_id=1346308268 instance=ExtResource("5_lherp")]
+layout_mode = 1
+
+[node name="WeaponEntry7" parent="HBoxContainer/Left/Control/RadialContainer" unique_id=1548476173 instance=ExtResource("6_i3qdv")]
+layout_mode = 2
+
+[node name="WeaponEntry8" parent="HBoxContainer/Left/Control/RadialContainer" unique_id=957663136 instance=ExtResource("6_i3qdv")]
+layout_mode = 2
+
+[node name="WeaponEntry9" parent="HBoxContainer/Left/Control/RadialContainer" unique_id=2115113017 instance=ExtResource("6_i3qdv")]
+layout_mode = 2
+
+[node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Left/Control" unique_id=1447449595]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/Left/Control/TextureRect" unique_id=348613491]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Left/Control/TextureRect/AspectRatioContainer" unique_id=1164675215]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Left" unique_id=1306965350]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Text" type="VBoxContainer" parent="HBoxContainer/Left/MarginContainer" unique_id=1336245421]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Left/MarginContainer/Text" unique_id=1306759490]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "TITLE"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/Left/MarginContainer/Text" unique_id=1180049294]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "description: lorem ipsum and stuff"
+fit_content = true
+
+[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=1715130507]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="VBoxContainer" parent="HBoxContainer" unique_id=51876549]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RadialContainer" type="Container" parent="HBoxContainer/Right" unique_id=186782029]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_i3qdv")
+metadata/_custom_type_script = "uid://bhuajf4cwjgp5"

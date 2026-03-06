@@ -73,7 +73,6 @@ func _update_leg_from_resting():
 	foot_target = resting.global_position
 	update_visual()
 	self.queue_redraw()
-	print("Redrawin: %s" % points[2])
 
 func _process(_delta: float) -> void:
 	update_visual()

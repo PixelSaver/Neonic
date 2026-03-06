@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://kca5iso7j3xp"]
+
+[ext_resource type="Script" uid="uid://bajoyks5tcfsk" path="res://scripts/ui/weapon_entry.gd" id="1_a8p2y"]
+[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_p0gxk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qybc6"]
+bg_color = Color(0, 0, 0, 0.70000005)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.493, 3.294, 1)
+
+[node name="WeaponEntry" type="CenterContainer" unique_id=1548476173 node_paths=PackedStringArray("title_label", "description_label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p0gxk")
+script = ExtResource("1_a8p2y")
+title_label = NodePath("ColorRect/MarginContainer/VBoxContainer/Title")
+description_label = NodePath("ColorRect/MarginContainer/VBoxContainer/Description")
+description = "Lorem Ipsum Dolore Lorem Ipsum Dolore"
+
+[node name="ColorRect" type="Panel" parent="." unique_id=1285939566]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_qybc6")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=382910035]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer" unique_id=1484945864]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer" unique_id=1807413439]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "Weapon"
+fit_content = true
+scroll_active = false
+
+[node name="Description" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer" unique_id=1800962391]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Lorem Ipsum Dolore Lorem Ipsum Dolore"
+fit_content = true
+scroll_active = false

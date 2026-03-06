@@ -1,71 +1,31 @@
-[gd_scene format=3 uid="uid://osk1uxa28atn"]
+[gd_scene format=3 uid="uid://c36pww6tpy7mo"]
 
-[ext_resource type="Theme" uid="uid://cfg0aev5q3svs" path="res://Assets/main_menu_theme.tres" id="1_0kpiu"]
-[ext_resource type="Script" uid="uid://b04dl4m1n72ab" path="res://Scenes/MainMenu/button_menu.gd" id="2_smycg"]
-[ext_resource type="Script" uid="uid://dphkmqhipj8ve" path="res://Scripts/input_handler.gd" id="3_xwm5q"]
-[ext_resource type="Script" uid="uid://bipc024nm7jxt" path="res://Scripts/shatter_component.gd" id="4_e00a3"]
+[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_ifm0c"]
+[ext_resource type="Script" uid="uid://b04dl4m1n72ab" path="res://scenes/ui/start_menu/button_menu.gd" id="2_smycg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n45e2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5py82"]
+bg_color = Color(1, 1, 1, 0.5)
 
-[node name="ButtonMenu" type="Button" node_paths=PackedStringArray("shatter_comp", "button_border", "button_text", "button_bg", "hbox", "mouse_catch")]
-material = SubResource("ShaderMaterial_n45e2")
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -403.0
-offset_right = -3.0
-offset_bottom = 110.0
-grow_horizontal = 0
-theme = ExtResource("1_0kpiu")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f6lj"]
+draw_center = false
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 1, 1, 1)
+
+[node name="ButtonMenu" type="Button" unique_id=1925605486 node_paths=PackedStringArray("label")]
+modulate = Color(0, 0.493, 3.294, 1)
+custom_minimum_size = Vector2(400, 100)
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("1_ifm0c")
+theme_override_font_sizes/font_size = 60
+flat = true
 script = ExtResource("2_smycg")
-shatter_comp = NodePath("ShatterComponent")
-button_border = NodePath("HBoxContainer/ButtonBG/MarginContainer/ButtonBorder")
-button_text = NodePath("HBoxContainer/ButtonBG/MarginContainer/ButtonBorder/MarginContainer/ButtonText")
-button_bg = NodePath("HBoxContainer/ButtonBG")
-pos_offset = Vector2(50, 0)
-hbox = NodePath("HBoxContainer")
-mouse_catch = NodePath("ColorRect")
+label = NodePath("HBoxContainer/MarginContainer2/ButtonBorder/ButtonText")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(400, 110)
-layout_mode = 0
-offset_right = 400.0
-offset_bottom = 110.0
-
-[node name="MarginContainer" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -65.0
-offset_bottom = 65.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 0
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MarginContainer/MarginContainer"]
-clip_contents = true
-layout_mode = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer"]
-layout_mode = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer/ColorRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=520980259]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,74 +33,83 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer" unique_id=2054784851]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MarginContainer3" unique_id=143511685]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer/MarginContainer3/AspectRatioContainer" unique_id=53606729]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer3/AspectRatioContainer/ColorRect2" unique_id=1388877215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer3/AspectRatioContainer/ColorRect2/MarginContainer" unique_id=955851451]
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.5019608)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer3/AspectRatioContainer/ColorRect2/MarginContainer/ColorRect" unique_id=2027695929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer/MarginContainer/AspectRatioContainer/ColorRect/MarginContainer"]
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer3/AspectRatioContainer/ColorRect2/MarginContainer/ColorRect/MarginContainer" unique_id=1793944139]
 layout_mode = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5py82")
 
-[node name="ButtonBG" type="ColorRect" parent="HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=1427326996]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ButtonBG"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -4.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_stretch_ratio = 5.0
 mouse_filter = 2
 
-[node name="ButtonBorder" type="Panel" parent="HBoxContainer/ButtonBG/MarginContainer"]
+[node name="ButtonBorder" type="Panel" parent="HBoxContainer/MarginContainer2" unique_id=493795952]
 layout_mode = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6f6lj")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ButtonBG/MarginContainer/ButtonBorder"]
+[node name="ButtonText" type="RichTextLabel" parent="HBoxContainer/MarginContainer2/ButtonBorder" unique_id=19376374]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="ButtonText" type="RichTextLabel" parent="HBoxContainer/ButtonBG/MarginContainer/ButtonBorder/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 55
 text = "Play"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0)
-
-[node name="InputHandler" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_xwm5q")
-metadata/_custom_type_script = "uid://dphkmqhipj8ve"
-
-[node name="ShatterComponent" type="Node" parent="."]
-script = ExtResource("4_e00a3")
-
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

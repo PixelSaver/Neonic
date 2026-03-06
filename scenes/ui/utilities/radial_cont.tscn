@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://smirxkthwbug"]
+
+[ext_resource type="Script" uid="uid://bhuajf4cwjgp5" path="res://scenes/ui/utilities/radial_cont.gd" id="1_1dgmo"]
+
+[node name="RadialCont" type="Container" unique_id=747638657]
+size_flags_vertical = 3
+script = ExtResource("1_1dgmo")
+radius = 1300.0
+separation = 200.0
+circle_center = Vector2(-1100, 0)
