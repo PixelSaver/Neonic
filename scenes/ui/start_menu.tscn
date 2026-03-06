@@ -25,7 +25,7 @@ bg_color = Color(2.454227, 2.454227, 2.454227, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1kfm"]
 bg_color = Color(2.6813314, 0, 0.27073556, 1)
 
-[node name="StartMenu" type="Control" unique_id=1558721094 node_paths=PackedStringArray("all_parents")]
+[node name="StartMenu" type="Control" unique_id=1558721094]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_m0hmm")
 script = ExtResource("1_irhji")
-all_parents = [NodePath("TiltControl/LineUp"), NodePath("TiltControl/LineRight"), NodePath("TiltControl/Menu"), NodePath("TiltControl/Menu/Panel/MarginContainer")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=517338984]
 environment = SubResource("Environment_m0hmm")

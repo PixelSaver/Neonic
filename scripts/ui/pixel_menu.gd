@@ -9,17 +9,15 @@ func start_anim():
 func end_anim():
 	pass
 
-static func get_all_tweenables(all_parents:Array[Node]) -> Array[Tweenable]:
-	var out : Array[Tweenable] = []
-	for parent in all_parents:
-		for child in parent.get_children():
-			var n = child as Control
-			if child.get_child_count() == 0: continue
-			var tweenable_index = n.get_children().find_custom(
-				func(_child) -> bool:
-					return _child is Tweenable
-			)
-			if tweenable_index == -1: continue
-			var tweenable = n.get_children()[tweenable_index]
-			out.append(tweenable)
+static func get_all_tweenables(root: Node) -> Array[Tweenable]:
+	var out: Array[Tweenable] = []
+	_dfs_collect(root, out)
 	return out
+
+static func _dfs_collect(node: Node, out: Array[Tweenable]) -> void:
+	for child in node.get_children():
+		if child is Tweenable:
+			out.append(child)
+		
+		if child.get_child_count() > 0:
+			_dfs_collect(child, out)

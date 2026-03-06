@@ -1,5 +1,5 @@
 extends PixelMenu
-class_name StartMenu
+class_name HomeMenu
 
 @export var duration : float = 1.0
 var all_tweenables : Array[Tweenable] = []
@@ -16,7 +16,6 @@ func start_anim():
 	is_animating = true
 	var t = _get_tween()
 	t.tween_property(self, "modulate:a", 1, duration*1.5)
-	print("all_tweenables: %s" % str(all_tweenables))
 	
 	for tween in all_tweenables:
 		tween.get_parent().position = tween.get_final_local_pos()
@@ -29,7 +28,6 @@ func end_anim():
 	is_animating = true
 	var t = _get_tween()
 	t.tween_property(self, "modulate:a", 1, duration*1.5)
-	print("all_tweenables: %s" % str(all_tweenables))
 	
 	for tween in all_tweenables:
 		tween.get_parent().global_position = tween.get_final_global_pos()
