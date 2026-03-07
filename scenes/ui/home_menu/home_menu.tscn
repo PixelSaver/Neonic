@@ -14,7 +14,7 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="HomeMenu" type="Control" unique_id=256416712 node_paths=PackedStringArray("line", "home_anim")]
+[node name="HomeMenu" type="Control" unique_id=256416712 node_paths=PackedStringArray("line", "home_anim", "play_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +26,7 @@ script = ExtResource("1_vt2s1")
 duration = 2.0
 line = NodePath("Control/Center/Line2D")
 home_anim = NodePath("Control")
+play_button = NodePath("HBoxContainer/Center/HomeMenuButton")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741655757]
 environment = ExtResource("3_c3q6c")
