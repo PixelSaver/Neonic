@@ -20,11 +20,10 @@ size_flags_vertical = 3
 script = ExtResource("1_pae36")
 selector = NodePath("Selector")
 offset = Vector2(-170, -60)
-radius = 1000.0
+radius = 1150.0
 separation = 110.0
 circle_center = Vector2(-740, 0)
-flip = true
-target_scroll_angle = -0.534
+target_scroll_angle = -0.4232032386575026
 excluded = [NodePath("Selector")]
 metadata/_custom_type_script = "uid://bhuajf4cwjgp5"
 

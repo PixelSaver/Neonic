@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dkhkelesidg0d" path="res://scenes/ui/home_menu/home_anim.gd" id="4_v44lq"]
 [ext_resource type="PackedScene" uid="uid://dh0lf0j54xlsx" path="res://scenes/ui/home_menu/radial_selection.tscn" id="5_lherp"]
 [ext_resource type="Script" uid="uid://bkeo7rlw45pxc" path="res://scenes/ui/utilities/spline_line.gd" id="5_os4em"]
-[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="6_i3qdv"]
 [ext_resource type="Script" uid="uid://rpabkj42rhiy" path="res://scenes/ui/utilities/box_line.gd" id="9_r7x5e"]
 
 [sub_resource type="Curve" id="Curve_os4em"]
@@ -38,8 +37,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_v44lq")
-spline_lines = [NodePath("Control2/SplineLine")]
-box_lines = [NodePath("Control2/BoxLine")]
+spline_lines = [NodePath("Control2/SplineLine"), NodePath("Control2/SplineLine2")]
+box_lines = [NodePath("Control2/BoxLine"), NodePath("Control2/BoxLine2")]
 test_t = 1.0
 
 [node name="Control2" type="Control" parent="Control" unique_id=2107551331]
@@ -55,6 +54,7 @@ script = ExtResource("5_os4em")
 start_pos = Vector2(810, 486)
 end_pos = Vector2(570, 322.5)
 handle_length = -100.0
+flip = null
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BoxLine" type="Line2D" parent="Control/Control2" unique_id=300323166 node_paths=PackedStringArray("target")]
@@ -65,6 +65,27 @@ joint_mode = 1
 script = ExtResource("9_r7x5e")
 target = NodePath("../../../HBoxContainer/Left/Control/RadialContainer")
 flip_h = true
+metadata/_custom_type_script = "uid://rpabkj42rhiy"
+
+[node name="SplineLine2" type="Line2D" parent="Control/Control2" unique_id=1053013803]
+points = PackedVector2Array(910, 486, 914.64325, 485.88147, 919.19995, 485.53094, 923.6729, 484.95593, 928.06494, 484.16382, 932.3788, 483.16214, 936.6172, 481.95844, 940.78296, 480.56006, 944.8789, 478.9746, 948.90784, 477.20953, 952.87256, 475.27228, 956.7759, 473.17044, 960.6206, 470.91138, 964.4094, 468.50262, 968.14526, 465.95172, 971.83075, 463.26605, 975.46875, 460.45313, 979.0621, 457.52045, 982.6135, 454.47552, 986.126, 451.32587, 989.60205, 448.07886, 993.0446, 444.74203, 996.45654, 441.32294, 999.84045, 437.82892, 1003.1992, 434.26758, 1006.53564, 430.64633, 1009.85254, 426.97272, 1013.15283, 423.25424, 1016.43896, 419.4983, 1018.07764, 417.6086, 1019.714, 415.7124, 1021.3482, 413.81058, 1022.9807, 411.9041, 1024.6117, 409.99384, 1026.2417, 408.0808, 1027.871, 406.16583, 1029.5, 404.25, 1031.1289, 402.33417, 1032.7583, 400.4192, 1034.3883, 398.50616, 1036.0193, 396.5959, 1037.6519, 394.68942, 1039.2859, 392.7876, 1040.9222, 390.8914, 1042.561, 389.0017, 1045.8472, 385.24576, 1049.1475, 381.52728, 1052.4644, 377.85364, 1055.8008, 374.23242, 1059.1597, 370.67108, 1062.5435, 367.17706, 1065.9553, 363.75793, 1069.398, 360.42114, 1072.874, 357.17413, 1076.3865, 354.02444, 1079.9379, 350.97952, 1083.5313, 348.04688, 1087.1693, 345.23398, 1090.8547, 342.5483, 1094.5906, 339.99738, 1098.3794, 337.58862, 1102.2241, 335.3296, 1106.1274, 333.2277, 1110.0922, 331.29047, 1114.1211, 329.5254, 1118.217, 327.93994, 1122.3828, 326.5416, 1126.6212, 325.33786, 1130.935, 324.33618, 1135.327, 323.5441, 1139.8, 322.96906, 1144.3567, 322.6185, 1149, 322.5)
+width_curve = SubResource("Curve_os4em")
+default_color = Color(0, 0.493, 3.294, 1)
+end_cap_mode = 2
+script = ExtResource("5_os4em")
+start_pos = Vector2(910, 486)
+end_pos = Vector2(1149, 322.5)
+flip = null
+metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
+
+[node name="BoxLine2" type="Line2D" parent="Control/Control2" unique_id=1885639617 node_paths=PackedStringArray("target")]
+position = Vector2(1434.5, 322.5)
+points = PackedVector2Array(285.5, 0, 285.5, 322.5, -285.5, 322.5, -285.5, -322.5, 285.5, -322.5, 285.5, 0)
+closed = true
+default_color = Color(0, 0.493, 3.294, 1)
+joint_mode = 1
+script = ExtResource("9_r7x5e")
+target = NodePath("../../../HBoxContainer/Right/Control/RadialContainer")
 metadata/_custom_type_script = "uid://rpabkj42rhiy"
 
 [node name="Control" type="Control" parent="Control" unique_id=1862614720]
@@ -100,15 +121,6 @@ size_flags_vertical = 3
 [node name="RadialContainer" parent="HBoxContainer/Left/Control" unique_id=1346308268 instance=ExtResource("5_lherp")]
 layout_mode = 1
 pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="WeaponEntry7" parent="HBoxContainer/Left/Control/RadialContainer" unique_id=1548476173 instance=ExtResource("6_i3qdv")]
-layout_mode = 2
-
-[node name="WeaponEntry8" parent="HBoxContainer/Left/Control/RadialContainer" unique_id=957663136 instance=ExtResource("6_i3qdv")]
-layout_mode = 2
-
-[node name="WeaponEntry9" parent="HBoxContainer/Left/Control/RadialContainer" unique_id=2115113017 instance=ExtResource("6_i3qdv")]
-layout_mode = 2
 
 [node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Left/Control" unique_id=1447449595]
 layout_mode = 1
@@ -161,23 +173,15 @@ clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RadialContainer" parent="HBoxContainer/Right/Control" unique_id=2056183302 instance=ExtResource("5_lherp")]
+[node name="RadialContainer" parent="HBoxContainer/Right/Control" unique_id=1946186936 instance=ExtResource("5_lherp")]
 layout_mode = 1
-pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="WeaponEntry7" parent="HBoxContainer/Right/Control/RadialContainer" unique_id=1053268358 instance=ExtResource("6_i3qdv")]
-layout_mode = 2
-
-[node name="WeaponEntry8" parent="HBoxContainer/Right/Control/RadialContainer" unique_id=1571125035 instance=ExtResource("6_i3qdv")]
-layout_mode = 2
-
-[node name="WeaponEntry9" parent="HBoxContainer/Right/Control/RadialContainer" unique_id=1314289771 instance=ExtResource("6_i3qdv")]
-layout_mode = 2
+flip = true
 
 [node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Right/Control" unique_id=2125265506]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_left = 0.45
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
