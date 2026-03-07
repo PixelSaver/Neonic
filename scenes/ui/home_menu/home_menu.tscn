@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dh0lf0j54xlsx" path="res://scenes/ui/home_menu/radial_selection.tscn" id="5_lherp"]
 [ext_resource type="Script" uid="uid://bkeo7rlw45pxc" path="res://scenes/ui/utilities/spline_line.gd" id="5_os4em"]
 [ext_resource type="Script" uid="uid://rpabkj42rhiy" path="res://scenes/ui/utilities/box_line.gd" id="9_r7x5e"]
+[ext_resource type="PackedScene" uid="uid://cm0yefoqekqho" path="res://scenes/ui/home_menu/home_menu_button.tscn" id="10_2sido"]
 
 [sub_resource type="Curve" id="Curve_os4em"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
@@ -29,16 +30,18 @@ home_anim = NodePath("Control")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741655757]
 environment = ExtResource("3_c3q6c")
 
-[node name="Control" type="CenterContainer" parent="." unique_id=236673020 node_paths=PackedStringArray("spline_lines", "box_lines", "title")]
+[node name="Control" type="CenterContainer" parent="." unique_id=236673020 node_paths=PackedStringArray("spline_lines", "box_lines", "special_controls", "title")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
 script = ExtResource("4_v44lq")
 spline_lines = [NodePath("RadialStuff/SplineLine"), NodePath("RadialStuff/SplineLine2"), NodePath("BottomStuff/SplineLine"), NodePath("BottomStuff/SplineLine2")]
 box_lines = [NodePath("RadialStuff/BoxLine"), NodePath("RadialStuff/BoxLine2"), NodePath("BottomStuff/BoxLine"), NodePath("BottomStuff/BoxLine2")]
+special_controls = [NodePath("../HBoxContainer/Center/HomeMenuButton")]
 test_t = 1.0
 title = NodePath("../HBoxContainer/Center/RichTextLabel")
 
@@ -51,6 +54,7 @@ points = PackedVector2Array(810, 486, 805.35596, 485.88147, 800.7971, 485.53094,
 width_curve = SubResource("Curve_os4em")
 default_color = Color(0, 0.493, 3.294, 1)
 end_cap_mode = 2
+antialiased = true
 script = ExtResource("5_os4em")
 start_pos = Vector2(810, 486)
 end_pos = Vector2(570, 322.5)
@@ -63,6 +67,7 @@ points = PackedVector2Array(285, 0, 285, 322.5, -285, 322.5, -285, -322.5, 285, 
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
+antialiased = true
 script = ExtResource("9_r7x5e")
 target = NodePath("../../../HBoxContainer/Left/Control/RadialContainer")
 flip_h = true
@@ -73,6 +78,7 @@ points = PackedVector2Array(910, 486, 914.64325, 485.88147, 919.19995, 485.53094
 width_curve = SubResource("Curve_os4em")
 default_color = Color(0, 0.493, 3.294, 1)
 end_cap_mode = 2
+antialiased = true
 script = ExtResource("5_os4em")
 start_pos = Vector2(910, 486)
 end_pos = Vector2(1149, 322.5)
@@ -84,6 +90,7 @@ points = PackedVector2Array(285.5, 0, 285.5, 322.5, -285.5, 322.5, -285.5, -322.
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
+antialiased = true
 script = ExtResource("9_r7x5e")
 target = NodePath("../../../HBoxContainer/Right/Control/RadialContainer")
 metadata/_custom_type_script = "uid://rpabkj42rhiy"
@@ -97,9 +104,21 @@ closed = true
 width = 15.0
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
+antialiased = true
 script = ExtResource("2_loroy")
 size = 100.0
 _points = PackedVector2Array(-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5)
+
+[node name="SplineLine" type="Line2D" parent="Control/Center" unique_id=1711931375]
+points = PackedVector2Array(0, 50, 4.351921, 50.180473, 8.046814, 50.714294, 11.105873, 51.590065, 13.550293, 52.796387, 16.679993, 56.15509, 17.605469, 60.69922, 17.29461, 63.38732, 16.496277, 66.337585, 15.231667, 69.538605, 13.521973, 72.979004, 11.38839, 76.64737, 8.852112, 80.53229, 7.439589, 82.5524, 5.934334, 84.622375, 4.339002, 86.74081, 2.65625, 88.90625, 0.88872004, 91.11729, -0.9609451, 93.3725, -2.8900914, 95.67044, -4.896057, 98.009705, -6.9762073, 100.38887, -9.127892, 102.80649, -11.348459, 105.26117, -13.635254, 107.751465, -15.985632, 110.27595, -18.39695, 112.83322, -20.86655, 115.42182, -23.391785, 118.040344, -25.970001, 120.68736, -28.59856, 123.36145, -31.274809, 126.06119, -33.996094, 128.78516, -36.759766, 131.53192, -39.563183, 134.30005, -42.403687, 137.08812, -45.278625, 139.89471, -48.18536, 142.71841, -51.121235, 145.55777, -54.08361, 148.41139, -57.069824, 151.27783, -60.077232, 154.15567, -63.10319, 157.04349, -66.145035, 159.93983, -69.200134, 162.84332, -72.26582, 165.75252, -75.33946, 168.66595, -78.41842, 171.58228, -81.5, 174.5, -84.58158, 177.41772, -87.66054, 180.33405, -90.73417, 183.24748, -93.799866, 186.15668, -96.854965, 189.06017, -99.896805, 191.95651, -102.92277, 194.84433, -105.930176, 197.72217, -108.91639, 200.58862, -111.87877, 203.44223, -114.81464, 206.28159, -117.721375, 209.10529, -120.59632, 211.91188, -123.43681, 214.69995, -126.240234, 217.46808, -129.0039, 220.21484, -131.72519, 222.93881, -134.40144, 225.63855, -137.03, 228.31264, -139.60822, 230.95966, -142.13345, 233.57819, -144.60304, 236.16678, -147.01437, 238.72406, -149.36475, 241.24854, -151.65154, 243.73883, -153.87212, 246.19351, -156.02379, 248.61113, -158.10394, 250.9903, -160.10992, 253.32956, -162.03905, 255.6275, -163.88873, 257.88272, -165.65625, 260.09375, -167.33899, 262.2592, -168.93434, 264.37762, -170.43958, 266.44757, -171.85211, 268.4677, -174.38838, 272.35263, -176.52197, 276.021, -178.23167, 279.4614, -179.49628, 282.6624, -180.2946, 285.61267, -180.60547, 288.30078, -179.68, 292.8449, -176.5503, 296.2036, -174.10588, 297.40994, -171.04681, 298.2857, -167.35191, 298.81955, -163, 299)
+width_curve = SubResource("Curve_os4em")
+default_color = Color(0, 0.493, 3.294, 1)
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("5_os4em")
+start_pos = Vector2(860, 536)
+end_pos = Vector2(697, 785)
+metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BottomStuff" type="Control" parent="Control" unique_id=163483864]
 layout_mode = 2
@@ -110,6 +129,7 @@ points = PackedVector2Array(285, 0, 285, 161.5, -285, 161.5, -285, -161.5, 285, 
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
+antialiased = true
 script = ExtResource("9_r7x5e")
 target = NodePath("../../../HBoxContainer/Left/MarginContainer")
 flip_h = true
@@ -121,6 +141,7 @@ points = PackedVector2Array(285.5, 0, 285.5, 161.5, -285.5, 161.5, -285.5, -161.
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
+antialiased = true
 script = ExtResource("9_r7x5e")
 target = NodePath("../../../HBoxContainer/Right/MarginContainer")
 metadata/_custom_type_script = "uid://rpabkj42rhiy"
@@ -130,6 +151,7 @@ points = PackedVector2Array(-50, 0, -54.644012, 0.23519516, -59.20288, 0.9308777
 width_curve = SubResource("Curve_os4em")
 default_color = Color(0, 0.493, 3.294, 1)
 end_cap_mode = 2
+antialiased = true
 script = ExtResource("5_os4em")
 start_pos = Vector2(810, 486)
 end_pos = Vector2(570, 810.5)
@@ -141,6 +163,7 @@ points = PackedVector2Array(50, 0, 54.643288, 0.23519516, 59.200012, 0.9308777, 
 width_curve = SubResource("Curve_os4em")
 default_color = Color(0, 0.493, 3.294, 1)
 end_cap_mode = 2
+antialiased = true
 script = ExtResource("5_os4em")
 start_pos = Vector2(910, 486)
 end_pos = Vector2(1149, 810.5)
@@ -153,6 +176,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Left" type="VBoxContainer" parent="HBoxContainer" unique_id=1584532665]
 layout_mode = 2
@@ -165,7 +189,7 @@ size_flags_vertical = 3
 
 [node name="RadialContainer" parent="HBoxContainer/Left/Control" unique_id=1346308268 instance=ExtResource("5_lherp")]
 layout_mode = 1
-pivot_offset_ratio = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0, 0.5)
 
 [node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Left/Control" unique_id=1447449595]
 layout_mode = 1
@@ -213,6 +237,7 @@ fit_content = true
 [node name="Center" type="Control" parent="HBoxContainer" unique_id=1715130507]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Center" unique_id=1909989619]
 layout_mode = 1
@@ -221,6 +246,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0.493, 3.294, 1)
 bbcode_enabled = true
 text = "| Neonic HQ |"
@@ -229,17 +255,33 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HomeMenuButton" parent="HBoxContainer/Center" unique_id=46854580 instance=ExtResource("10_2sido")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.8
+anchor_right = 0.8
+anchor_bottom = 0.9
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0.5, 0)
+
 [node name="Right" type="VBoxContainer" parent="HBoxContainer" unique_id=51876549]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="HBoxContainer/Right" unique_id=1813755612]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="RadialContainer" parent="HBoxContainer/Right/Control" unique_id=1946186936 instance=ExtResource("5_lherp")]
 layout_mode = 1
+pivot_offset_ratio = Vector2(0, 0.5)
 flip = true
 
 [node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Right/Control" unique_id=2125265506]
@@ -262,6 +304,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -270,9 +313,11 @@ theme_override_constants/margin_bottom = 5
 [node name="Text" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer" unique_id=826739663]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Right/MarginContainer/Text" unique_id=1754119279]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "TITLE"
@@ -281,6 +326,7 @@ fit_content = true
 [node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/Right/MarginContainer/Text" unique_id=53475597]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "description: lorem ipsum and stuff"

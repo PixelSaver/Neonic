@@ -15,6 +15,7 @@ class_name BoxLine
 		flip_h = v
 		_update_points()
 @export var target_pivot_ratio = Vector2(0.0, 0.5)
+@export var is_centered := false
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -29,9 +30,10 @@ func _update_points():
 		target.scale.y = outline_proportion.y
 	
 	var flip = -1 if flip_h else 1
-	global_position = target.global_position + target.size * \
-		Vector2(outline_proportion.x * 0.5 * flip, 0.5 * target.scale.y) + \
-		target.size * Vector2(1,0) * (1 if flip_h else 0)
+	if not is_centered:
+		global_position = target.global_position + target.size * \
+			Vector2(outline_proportion.x * 0.5 * flip, 0.5 * target.scale.y) + \
+			target.size * Vector2(1,0) * (1 if flip_h else 0)
 	self.closed = true
 	var rect = target.size
 	var w = rect.x

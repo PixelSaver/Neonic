@@ -2,8 +2,10 @@
 extends CenterContainer
 class_name HomeAnimationHelper
 
+
 @export var spline_lines: Array[SplineLine] = []
 @export var box_lines: Array[BoxLine] = []
+@export var special_controls: Array[Control] = []
 @export_range(0.0, 1.0) var test_t : float = 0.0 :
 	set(v):
 		test_t = v
@@ -33,3 +35,9 @@ func anim_boxes(t:float):
 			box.outline_proportion = Vector2((t*2.0), 0.0)
 		else:
 			box.outline_proportion = Vector2(1.0, ((t-0.5)*2.0))
+	
+	for control in special_controls:
+		if t <= 0.5:
+			control.scale = Vector2((t*2.0), 0.1)
+		else:
+			control.scale = Vector2(1.0, ((t-0.5)*2.0))

@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_m0hmm"]
 [ext_resource type="Script" uid="uid://dbt3qfyyv7ra1" path="res://scenes/tweens/tweenable.gd" id="2_km2yg"]
 [ext_resource type="PackedScene" uid="uid://c36pww6tpy7mo" path="res://scenes/ui/start_menu/button_menu.tscn" id="4_km2yg"]
-[ext_resource type="Environment" path="res://assets/neon_environment.tres" id="5_s1kfm"]
+[ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="5_s1kfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km2yg"]
 bg_color = Color(0, 0.493, 3.294, 1)

@@ -11,10 +11,6 @@ func _ready() -> void:
 		var but = _but as ButtonMenu
 		but.self_pressed.connect(_on_button_pressed)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("1"):
-		start_anim()
-
 func start_anim():
 	if is_animating: return
 	is_animating = true
