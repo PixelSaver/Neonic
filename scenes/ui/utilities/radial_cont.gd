@@ -36,6 +36,9 @@ class_name RadialContainer
 @export var excluded: Array[Node] = []
 var scroll_angle := 0.0
 
+func _ready() -> void:
+	self.scroll_angle = (_get_layout_children().size()-1) * get_theta()
+	self.target_scroll_angle = self.scroll_angle
 
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
@@ -80,11 +83,10 @@ func get_closest_position() -> Vector2:
 	var idx = get_closest_idx()
 	
 	var angle = scroll_angle + (idx * theta)
-	
 	if flip: angle += PI
 	
 	var center = circle_center + size * Vector2(0.0, 0.5)
-	center.x += get_dir()
+	center = get_global_transform() * get_actual_center()
 	return center + Vector2(cos(angle), sin(angle)) * radius
 
 func scroll_to_index(idx:int) :
@@ -115,18 +117,22 @@ func lerp_to_closest():
 
 func _update_children():
 	var children = _get_layout_children()
-	var angle := scroll_angle
 	var theta = get_theta()
+	var center = get_actual_center()
 	
 	for i in range(children.size()):
 		var child = children[i]
+		var current_angle = scroll_angle + (i * theta)
 		
-		var current_angle = angle + (i * theta)
-		if flip: current_angle += PI
+		# Rotate 180 degrees if flipped
+		if flip: 
+			current_angle += PI
 		
-		var pos = (circle_center + self.size * Vector2(0.0, 0.5)) + Vector2(cos(current_angle), sin(current_angle)) * radius
-		var child_rect = Rect2(pos, child.get_combined_minimum_size())
-		fit_child_in_rect(child, child_rect)
+		var pos = center + Vector2(cos(current_angle), sin(current_angle)) * radius
+		
+		# Center the child on the point
+		var child_size = child.get_combined_minimum_size()
+		fit_child_in_rect(child, Rect2(pos - (child_size / 2.0), child_size))
 
 func _gui_input(event: InputEvent) -> void:
 	var scroll_strength = 0.1
@@ -140,5 +146,11 @@ func _gui_input(event: InputEvent) -> void:
 	elif event.is_action_released("scroll_up") and event.is_action_released("scroll_down"):
 		lerp_to_closest()
 
+func get_actual_center() -> Vector2:
+	var center = circle_center + (size * Vector2(0.0, 0.5))
+	if flip:
+		# Width - X
+		center.x = size.x - circle_center.x
+	return center
 func get_dir() -> float:
 	return -1.0 if flip else 1.0
