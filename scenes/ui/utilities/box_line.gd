@@ -14,10 +14,12 @@ class_name BoxLine
 	set(v):
 		flip_h = v
 		_update_points()
+@export var target_pivot_ratio = Vector2(0.0, 0.5)
 
 func _ready() -> void:
+	await get_tree().process_frame
 	_update_points()
-	target.pivot_offset_ratio = Vector2.ONE * 0.5
+	target.pivot_offset_ratio = target_pivot_ratio
 
 func _update_points():
 	if not target:
