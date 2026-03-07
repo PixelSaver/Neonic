@@ -22,14 +22,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2p3gy")
 script = ExtResource("1_vt2s1")
-duration = 3.0
+duration = 2.0
 line = NodePath("Control/Center/Line2D")
 home_anim = NodePath("Control")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741655757]
 environment = ExtResource("3_c3q6c")
 
-[node name="Control" type="CenterContainer" parent="." unique_id=236673020 node_paths=PackedStringArray("spline_lines", "box_lines")]
+[node name="Control" type="CenterContainer" parent="." unique_id=236673020 node_paths=PackedStringArray("spline_lines", "box_lines", "title")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +40,7 @@ script = ExtResource("4_v44lq")
 spline_lines = [NodePath("RadialStuff/SplineLine"), NodePath("RadialStuff/SplineLine2"), NodePath("BottomStuff/SplineLine"), NodePath("BottomStuff/SplineLine2")]
 box_lines = [NodePath("RadialStuff/BoxLine"), NodePath("RadialStuff/BoxLine2"), NodePath("BottomStuff/BoxLine"), NodePath("BottomStuff/BoxLine2")]
 test_t = 1.0
+title = NodePath("../HBoxContainer/Center/RichTextLabel")
 
 [node name="RadialStuff" type="Control" parent="Control" unique_id=2107551331]
 top_level = true
@@ -57,7 +58,8 @@ handle_length = -100.0
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BoxLine" type="Line2D" parent="Control/RadialStuff" unique_id=300323166 node_paths=PackedStringArray("target")]
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+position = Vector2(285, 322.5)
+points = PackedVector2Array(285, 0, 285, 322.5, -285, 322.5, -285, -322.5, 285, -322.5, 285, 0)
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
@@ -202,14 +204,30 @@ fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/Left/MarginContainer/Text" unique_id=1180049294]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "description: lorem ipsum and stuff"
 fit_content = true
 
-[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=1715130507]
+[node name="Center" type="Control" parent="HBoxContainer" unique_id=1715130507]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Center" unique_id=1909989619]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.493, 3.294, 1)
+bbcode_enabled = true
+text = "| Neonic HQ |"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Right" type="VBoxContainer" parent="HBoxContainer" unique_id=51876549]
 layout_mode = 2
@@ -262,6 +280,7 @@ fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/Right/MarginContainer/Text" unique_id=53475597]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "description: lorem ipsum and stuff"

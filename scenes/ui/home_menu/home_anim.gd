@@ -8,10 +8,18 @@ class_name HomeAnimationHelper
 	set(v):
 		test_t = v
 		if Engine.is_editor_hint():
-			anim_boxes(v)
-			anim_splines(v)
+			anim_title(v)
+@export var title : RichTextLabel
 
-
+func anim_title(t:float):
+	t = clampf(t, 0.0, 1.0)
+	var full_text = "Neonic HQ"
+	
+	var visible_count = int(round(t * full_text.length()))
+	
+	var revealed = full_text.substr(0, visible_count)
+	
+	title.text = "| " + revealed + " |"
 
 func anim_splines(t:float):
 	t = clampf(t, 0.0, 1.0)
