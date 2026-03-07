@@ -19,7 +19,7 @@ script = ExtResource("1_md0e3")
 health_component = NodePath("HealthComponent")
 knockback_component = NodePath("KnockbackComponent")
 speed = 50.0
-knockback_strength = 15.0
+knockback_strength = 800.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1467516213]
 script = ExtResource("2_4ra3w")
@@ -54,7 +54,7 @@ health_component = NodePath("../HealthComponent")
 
 [node name="Leg" parent="LegManager" unique_id=844722159 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(40, -30)
-points = PackedVector2Array(-1, 0, -4.5512424, -39.84205, -26.809599, -59.955864)
+points = PackedVector2Array(-1, 0, 22.228313, -32.564484, 35.74273, -59.34807)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -62,7 +62,7 @@ neighbors = [NodePath("../Leg2")]
 
 [node name="Leg2" parent="LegManager" unique_id=917778324 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, -35)
-points = PackedVector2Array(-1, 0, 2.815993, -39.817562, -19.035053, -60.37314)
+points = PackedVector2Array(-1, 0, 21.422966, -33.12417, 7.865654, -59.88607)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -70,7 +70,7 @@ neighbors = [NodePath("../Leg")]
 
 [node name="Leg3" parent="LegManager" unique_id=2136972939 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, 35)
-points = PackedVector2Array(-1, 0, 3.916287, 39.696728, -17.659035, 60.54152)
+points = PackedVector2Array(-1, 0, 5.4227276, 39.480988, -17.093378, 59.305847)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
@@ -79,7 +79,7 @@ neighbors = [NodePath("../Leg4")]
 
 [node name="Leg4" parent="LegManager" unique_id=1685246850 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(35, 30)
-points = PackedVector2Array(-1, 0, 23.593946, 31.545803, 15.480534, 60.42785)
+points = PackedVector2Array(-1, 0, 20.410036, 33.787724, 36.3041, 59.477753)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)

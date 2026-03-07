@@ -7,7 +7,7 @@ class_name Enemy
 @export_category("Tweakables")
 @export var speed : float = 100.
 @export var damage : float = 1.0
-@export var knockback_strength : float = 100000.0
+@export var knockback_strength : float = 100.0
 @export var knockback_resistance : float = 0.0
 func get_knockback_resistance() -> float: return knockback_resistance
 
@@ -27,6 +27,7 @@ func _physics_process(_delta: float) -> void:
 		
 
 func _on_contact(body: Node) -> void:
+	#TODO Apply an attack cooldown so that constant contact still means damage
 	if body is not Player: return 
 	var player = body as Player
 	player.health_component.damage(_get_attack(player))

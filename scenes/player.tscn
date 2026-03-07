@@ -4,6 +4,19 @@
 [ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cft4so0m0iimv" path="res://scenes/gun.tscn" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://8kmgel1ahfjn" path="res://scripts/components/weapon_data.gd" id="5_qlg0r"]
+
+[sub_resource type="Resource" id="Resource_qlg0r"]
+script = ExtResource("5_qlg0r")
+points = Array[Vector2]([Vector2(1, 0.3), Vector2(0, 0), Vector2(1, -0.3)])
+gun_size = Vector2(14, 14)
+fire_rate = 0.7
+spread = 0.7
+explosiveness = 0.95
+bullets_per_cycle = 5
+bullet_knockback = 0.3
+line_joint = 0
+metadata/_custom_type_script = "uid://8kmgel1ahfjn"
 
 [node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component", "knockback_component", "gun", "gun_center")]
 z_index = 100
@@ -41,3 +54,4 @@ metadata/_custom_type_script = "uid://dgtg2a5maatww"
 [node name="Gun" parent="GunCenter" unique_id=187595378 node_paths=PackedStringArray("parent") instance=ExtResource("4_dqkch")]
 position = Vector2(70, 0)
 parent = NodePath("../..")
+weapon_data = SubResource("Resource_qlg0r")

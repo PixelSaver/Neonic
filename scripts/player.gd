@@ -71,8 +71,8 @@ func _process(_delta:float) -> void:
 	var mouse_global = get_global_mouse_position()
 	gun_center.look_at(mouse_global)
 	
-	if Input.is_action_just_pressed("shoot"):
-		gun.fire(0, _get_attack())
+	if Input.is_action_pressed("shoot"):
+		gun.fire(_get_attack())
 
 func _get_attack() -> Attack:
 	var atk = Attack.new()

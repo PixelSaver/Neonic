@@ -9,5 +9,5 @@ class_name Attack
 ## Set the knockback using the position, normalizes the direction, and then multiplies by the kb_strength
 func calc_knockback(attacker:Node2D, attacked:Node2D, kb_strength:float) -> Vector2:
 	var dir = attacked.global_position - attacker.global_position
-	knockback = dir * kb_strength
+	knockback = dir.normalized() * kb_strength
 	return knockback
