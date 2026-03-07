@@ -20,6 +20,8 @@ func start_anim():
 	t.tween_property(self, "modulate:a", 1, duration*1.5)
 	line.size = 0
 	t.tween_property(line, "size", 100, duration * 0.2)
+	home_anim.anim_boxes(0)
+	home_anim.anim_splines(0)
 	t.tween_method(home_anim.anim_splines, 0.0, 1.0, duration*0.4).set_ease(Tween.EASE_OUT)
 	t.tween_method(home_anim.anim_boxes, 0.0, 1.0, duration*0.4).set_ease(Tween.EASE_IN_OUT).set_delay(duration*0.35)
 	

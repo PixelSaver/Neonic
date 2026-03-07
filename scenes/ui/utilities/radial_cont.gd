@@ -74,14 +74,17 @@ func get_theta() -> float:
 func get_closest_position() -> Vector2:
 	var children = _get_layout_children()
 	if children.is_empty():
-		return Vector2.ZERO
+		return global_position
 	
 	var theta = get_theta()
 	var idx = get_closest_idx()
 	
-	var angle = scroll_angle + (idx * theta * (1 if not flip else -1))
+	var angle = scroll_angle + (idx * theta)
+	
+	if flip: angle += PI
 	
 	var center = circle_center + size * Vector2(0.0, 0.5)
+	center.x += get_dir()
 	return center + Vector2(cos(angle), sin(angle)) * radius
 
 func scroll_to_index(idx:int) :
@@ -95,7 +98,7 @@ func get_closest_idx() -> int:
 	if children.is_empty():
 		return -1
 	
-	var idx = round(-scroll_angle / theta)
+	var idx = round(-(scroll_angle) / theta)
 	idx = clamp(idx, 0, children.size() - 1)
 	return idx
 
@@ -117,8 +120,9 @@ func _update_children():
 	
 	for i in range(children.size()):
 		var child = children[i]
-		# Use the current item's specific angle
-		var current_angle = angle + (i * theta * (1 if not flip else -1))
+		
+		var current_angle = angle + (i * theta)
+		if flip: current_angle += PI
 		
 		var pos = (circle_center + self.size * Vector2(0.0, 0.5)) + Vector2(cos(current_angle), sin(current_angle)) * radius
 		var child_rect = Rect2(pos, child.get_combined_minimum_size())
@@ -135,3 +139,6 @@ func _gui_input(event: InputEvent) -> void:
 		target_scroll_angle -= scroll_strength
 	elif event.is_action_released("scroll_up") and event.is_action_released("scroll_down"):
 		lerp_to_closest()
+
+func get_dir() -> float:
+	return -1.0 if flip else 1.0

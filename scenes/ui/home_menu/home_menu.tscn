@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bqljlqm5iusbh" path="res://scenes/ui/utilities/tool_line.gd" id="2_loroy"]
 [ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="3_c3q6c"]
 [ext_resource type="Script" uid="uid://dkhkelesidg0d" path="res://scenes/ui/home_menu/home_anim.gd" id="4_v44lq"]
-[ext_resource type="Script" uid="uid://bhuajf4cwjgp5" path="res://scenes/ui/utilities/radial_cont.gd" id="5_i3qdv"]
 [ext_resource type="PackedScene" uid="uid://dh0lf0j54xlsx" path="res://scenes/ui/home_menu/radial_selection.tscn" id="5_lherp"]
 [ext_resource type="Script" uid="uid://bkeo7rlw45pxc" path="res://scenes/ui/utilities/spline_line.gd" id="5_os4em"]
 [ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="6_i3qdv"]
@@ -59,8 +58,7 @@ handle_length = -100.0
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BoxLine" type="Line2D" parent="Control/Control2" unique_id=300323166 node_paths=PackedStringArray("target")]
-position = Vector2(285, 322.5)
-points = PackedVector2Array(285, 0, 285, 322.5, -285, 322.5, -285, -322.5, 285, -322.5, 285, 0)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
@@ -158,8 +156,58 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RadialContainer" type="Container" parent="HBoxContainer/Right" unique_id=186782029]
+[node name="Control" type="Control" parent="HBoxContainer/Right" unique_id=1813755612]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("5_i3qdv")
-metadata/_custom_type_script = "uid://bhuajf4cwjgp5"
+
+[node name="RadialContainer" parent="HBoxContainer/Right/Control" unique_id=2056183302 instance=ExtResource("5_lherp")]
+layout_mode = 1
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="WeaponEntry7" parent="HBoxContainer/Right/Control/RadialContainer" unique_id=1053268358 instance=ExtResource("6_i3qdv")]
+layout_mode = 2
+
+[node name="WeaponEntry8" parent="HBoxContainer/Right/Control/RadialContainer" unique_id=1571125035 instance=ExtResource("6_i3qdv")]
+layout_mode = 2
+
+[node name="WeaponEntry9" parent="HBoxContainer/Right/Control/RadialContainer" unique_id=1314289771 instance=ExtResource("6_i3qdv")]
+layout_mode = 2
+
+[node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Right/Control" unique_id=2125265506]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/Right/Control/TextureRect" unique_id=1401107300]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Right/Control/TextureRect/AspectRatioContainer" unique_id=1790238801]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Right" unique_id=33409727]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Text" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer" unique_id=826739663]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Right/MarginContainer/Text" unique_id=1754119279]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "TITLE"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/Right/MarginContainer/Text" unique_id=53475597]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "description: lorem ipsum and stuff"
+fit_content = true
