@@ -105,7 +105,14 @@ func get_closest_position() -> Vector2:
 func scroll_to_index(idx:int) :
 	var children = _get_layout_children()
 	idx = clamp(idx, 0, children.size() - 1)
-	target_scroll_angle = idx * get_theta()
+	target_scroll_angle = - idx * get_theta()
+
+func scroll_to_child(child: Control):
+	var children = _get_layout_children()
+	var idx := children.find(child)
+	if idx != -1:
+		scroll_to_index(idx)
+		_on_scrolled()
 
 func get_closest_idx() -> int:
 	var theta = get_theta()
