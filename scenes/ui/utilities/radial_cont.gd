@@ -34,11 +34,14 @@ class_name RadialContainer
 			_update_children()
 @export_category("Container Exclusion")
 @export var excluded: Array[Node] = []
+@export var max_lerp_cooldown := 0.6
 var scroll_angle := 0.0
+var _lerp_cooldown : float 
 
 func _ready() -> void:
 	self.scroll_angle = 0
 	self.target_scroll_angle = self.scroll_angle
+	_lerp_cooldown = max_lerp_cooldown
 
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
@@ -55,6 +58,7 @@ func _get_layout_children() -> Array[Control]:
 	return result
 
 func _process(delta: float) -> void:
+	print("Lerp cooldown: %s" % _lerp_cooldown)
 	var children = _get_layout_children()
 	if children.size() <= 1: return
 		
@@ -69,6 +73,11 @@ func _process(delta: float) -> void:
 	
 	scroll_angle = lerpf(scroll_angle, target_scroll_angle, delta * 10.0)
 	_update_children()
+	
+	if Engine.is_editor_hint(): return
+	_lerp_cooldown -= delta
+	if _lerp_cooldown < 0.0:
+		lerp_to_closest()
 
 ## Angle separation between two children
 func get_theta() -> float:
@@ -111,9 +120,10 @@ func lerp_to_closest():
 		return
 	
 	var idx = round(-scroll_angle / theta)
-	idx = clamp(idx, 0, children.size() - 1)
-	var target_theta = idx * get_theta()
-	target_scroll_angle = lerp(target_scroll_angle, target_theta, .01)
+	idx = clampi(idx, 0, children.size() - 1)
+
+	var snap = - idx * theta
+	target_scroll_angle = lerpf(target_scroll_angle, snap, 0.03)
 
 func _update_children():
 	var children = _get_layout_children()
@@ -133,16 +143,19 @@ func _update_children():
 		fit_child_in_rect(child, Rect2(pos - (child_size / 2.0), child_size))
 
 func _gui_input(event: InputEvent) -> void:
-	var scroll_strength = 0.1
+	var scroll_strength = 0.05
 	if target_scroll_angle > 0 or target_scroll_angle < -(_get_layout_children().size() - 1) * get_theta():
-		scroll_strength = 0.05
+		scroll_strength = 0.025
 		
 	if event.is_action_pressed("scroll_up"):
 		target_scroll_angle += scroll_strength 
+		_on_scrolled()
 	elif event.is_action_pressed("scroll_down"):
 		target_scroll_angle -= scroll_strength 
-	elif event.is_action_released("scroll_up") and event.is_action_released("scroll_down"):
-		lerp_to_closest()
+		_on_scrolled()
+
+func _on_scrolled():
+	_lerp_cooldown = max_lerp_cooldown
 
 func get_actual_center() -> Vector2:
 	var center = circle_center + (size * Vector2(0.0, 0.5))

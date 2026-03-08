@@ -57,11 +57,11 @@ func end_anim():
 
 	t.tween_method(home_anim.anim_splines, 1.0, 0.0, duration * 0.5)\
 		.set_ease(Tween.EASE_IN)
+	t.tween_method(home_anim.anim_title, 1.0, 0.0, duration * 0.3)\
+		.set_ease(Tween.EASE_IN)
 
 	t.chain()
 
-	t.tween_method(home_anim.anim_title, 1.0, 0.0, duration * 0.3)\
-		.set_ease(Tween.EASE_IN)
 	t.tween_property(line, "size", 1000, duration * 0.2)
 	t.tween_property(self, "modulate:a", 0.0, duration * 0.2)
 	

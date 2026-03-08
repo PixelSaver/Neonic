@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_xxhir")
-weapon_name = "Sniper"
-weapon_description = "One and done... Unless you miss!"
-points = Array[Vector2]([Vector2(1, 0), Vector2(0, 0.15), Vector2(0, -0.15)])
-line_joint = 2
-gun_size = Vector2(20, 20)
 fire_rate = 1.0
 damage = 10.1
 spread = 0.0
 bullet_speed = 3000.0
+entity_name = "Sniper"
+entity_description = "One and done."
+points = Array[Vector2]([Vector2(1, 0), Vector2(0, 0.15), Vector2(0, -0.15)])
+line_joint = 2
+gun_size = Vector2(20, 20)
 metadata/_custom_type_script = "uid://8kmgel1ahfjn"

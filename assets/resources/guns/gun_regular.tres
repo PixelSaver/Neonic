@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_m365r")
-weapon_name = "Basic"
-weapon_description = "The default gun."
+entity_name = "Default"
+entity_description = "Back to the basics."
 points = Array[Vector2]([Vector2(0, 0.5), Vector2(1.5, 0), Vector2(0, -0.5)])
 line_joint = 2
 gun_size = Vector2(10, 10)

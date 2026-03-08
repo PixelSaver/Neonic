@@ -7,6 +7,7 @@ class_name RadialSelector
 var selector_target_global_position : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	super()
 	var dynamic_offset = offset
 	if flip: 
 		dynamic_offset.x *= -1.

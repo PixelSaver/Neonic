@@ -7,9 +7,9 @@ class_name WeaponEntry
 @export var description_label : RichTextLabel
 @export_category("Details")
 ## The visual placed to show what it is
-@export var weapon_data : WeaponData :
+@export var entity_data : EntityData :
 	set(val):
-		weapon_data = val
+		entity_data = val
 		if Engine.is_editor_hint():
 			_update_details()
 
@@ -17,5 +17,5 @@ func _ready():
 	_update_details()
 
 func _update_details() -> void:
-	title_label.text = weapon_data.weapon_name
-	description_label.text = weapon_data.weapon_description
+	title_label.text = entity_data.entity_name
+	description_label.text = entity_data.entity_description

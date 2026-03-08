@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://oopbff7jy0sm" path="res://scenes/ui/home_menu/radial_selector.gd" id="1_pae36"]
 [ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="2_bh3h1"]
+[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="3_u00pm"]
+[ext_resource type="Resource" uid="uid://dwvkpuhddinch" path="res://assets/resources/guns/gun_regular.tres" id="4_8q3sy"]
+[ext_resource type="Resource" uid="uid://dm8sade1oc7rv" path="res://assets/resources/guns/gun_shotgun.tres" id="5_5iey5"]
+[ext_resource type="Resource" uid="uid://djssvlfob4egc" path="res://assets/resources/guns/gun_sniper.tres" id="6_buo00"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ho8n5"]
 
@@ -22,8 +26,9 @@ offset = Vector2(-170, -60)
 radius = 1150.0
 separation = 110.0
 circle_center = Vector2(-740, 0)
-target_scroll_angle = -0.4232032386575026
+target_scroll_angle = -0.09568867625180759
 excluded = [NodePath("Selector")]
+max_lerp_cooldown = null
 metadata/_custom_type_script = "uid://bhuajf4cwjgp5"
 
 [node name="Selector" type="Panel" parent="." unique_id=749251668]
@@ -66,3 +71,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u00pm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Selector" unique_id=1429899043]
 environment = ExtResource("2_bh3h1")
+
+[node name="WeaponEntry" parent="." unique_id=1548476173 instance=ExtResource("3_u00pm")]
+layout_mode = 2
+entity_data = ExtResource("4_8q3sy")
+
+[node name="WeaponEntry2" parent="." unique_id=554010567 instance=ExtResource("3_u00pm")]
+layout_mode = 2
+entity_data = ExtResource("5_5iey5")
+
+[node name="WeaponEntry3" parent="." unique_id=1010620384 instance=ExtResource("3_u00pm")]
+layout_mode = 2
+entity_data = ExtResource("6_buo00")
