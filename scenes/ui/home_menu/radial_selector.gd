@@ -15,10 +15,6 @@ func _ready() -> void:
 	selector_target_global_position = get_closest_position() + dynamic_offset
 	scroll_to_index(0)
 
-func _update_children():
-	super()
-	if Engine.is_editor_hint(): return
-
 func _process(delta: float) -> void:
 	super(delta)
 	var dynamic_offset = offset

@@ -32,6 +32,10 @@ class_name RadialContainer
 		queue_sort() 
 		if Engine.is_editor_hint():
 			_update_children()
+@export var drag_sensitivity := 0.0005
+## Proportion taken off the scale of neighboring children.
+## Children farther away from current angle are this much smaller
+@export var scale_multiplier := 0.1
 @export_category("Container Exclusion")
 @export var excluded: Array[Node] = []
 @export var max_lerp_cooldown := 0.6
@@ -41,7 +45,6 @@ var _lerp_cooldown : float
 # Dragging
 var _dragging := false
 var _last_mouse_pos := Vector2.ZERO
-@export var drag_sensitivity := 0.0005
 
 func _ready() -> void:
 	self.scroll_angle = 0
@@ -144,14 +147,24 @@ func _update_children():
 	for i in range(children.size()):
 		var child = children[i]
 		var current_angle = scroll_angle + (i * theta)
+		# Distance from selected idx# angular distance from center
+		var angle_dist = abs(current_angle)
 		
 		if flip: 
 			current_angle = PI - current_angle
 		
 		var pos = center + Vector2(cos(current_angle), sin(current_angle)) * radius
 		
+		
+		var dist = angle_dist / theta
+		
+		var _scale = pow(1.0 / (1.0 + dist * scale_multiplier), 1.5)
+		
+		child.pivot_offset_ratio = Vector2(0.0, 0.5)
+		
 		var child_size = child.get_combined_minimum_size()
 		fit_child_in_rect(child, Rect2(pos - (child_size / 2.0), child_size))
+		child.scale = Vector2(_scale, _scale)
 
 func _gui_input(event: InputEvent) -> void:
 	var scroll_strength = 0.05

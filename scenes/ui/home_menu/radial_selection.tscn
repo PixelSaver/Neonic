@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u00pm"]
 bg_color = Color(1, 1, 1, 0.4)
 
-[node name="RadialContainer" type="Container" unique_id=1346308268 node_paths=PackedStringArray("selector", "excluded")]
+[node name="RadialContainer" type="Container" unique_id=711486681 node_paths=PackedStringArray("selector", "excluded")]
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,10 +22,10 @@ offset = Vector2(-170, -60)
 radius = 1150.0
 separation = 110.0
 circle_center = Vector2(-740, 0)
-target_scroll_angle = -0.09568867625180759
+flip = true
+drag_sensitivity = 1e-06
 excluded = [NodePath("Selector")]
-max_lerp_cooldown = null
-metadata/_custom_type_script = "uid://bhuajf4cwjgp5"
+metadata/_custom_type_script = "uid://oopbff7jy0sm"
 
 [node name="Selector" type="Panel" parent="." unique_id=749251668]
 modulate = Color(0, 0.493, 3.294, 1)

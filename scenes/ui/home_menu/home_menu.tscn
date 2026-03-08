@@ -206,19 +206,18 @@ entity_showcase = NodePath("GunShowcase")
 layout_mode = 1
 anchors_preset = -1
 pivot_offset_ratio = Vector2(0, 0.5)
-target_scroll_angle = 0.0
+flip = false
 excluded = [NodePath("Selector"), NodePath("../GunShowcase")]
-max_lerp_cooldown = 0.6
 
-[node name="WeaponEntry4" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=1548476173 instance=ExtResource("9_rky0u")]
+[node name="WeaponEntry7" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=1548476173 instance=ExtResource("9_rky0u")]
 layout_mode = 2
 entity_data = ExtResource("10_bnd2k")
 
-[node name="WeaponEntry5" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=1439544585 instance=ExtResource("9_rky0u")]
+[node name="WeaponEntry8" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=1439544585 instance=ExtResource("9_rky0u")]
 layout_mode = 2
 entity_data = ExtResource("11_lvn86")
 
-[node name="WeaponEntry6" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=607262942 instance=ExtResource("9_rky0u")]
+[node name="WeaponEntry9" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=607262942 instance=ExtResource("9_rky0u")]
 layout_mode = 2
 entity_data = ExtResource("12_cp36n")
 
@@ -235,7 +234,6 @@ grow_vertical = 2
 
 [node name="Line2D2" parent="HBoxContainer/Left/ShowcaseCont/GunShowcase/Control" parent_id_path=PackedInt32Array(1450300248, 672266255) index="0" unique_id=870862008]
 points = PackedVector2Array(15, 0, 0, -5, 0, 5)
-joint_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Left" unique_id=1306965350]
 layout_mode = 2
@@ -317,19 +315,16 @@ metadata/_custom_type_script = "uid://c7q2khleposwo"
 [node name="RadialContainer" parent="HBoxContainer/Right/ShowcaseController" unique_id=1946186936 instance=ExtResource("5_lherp")]
 layout_mode = 1
 pivot_offset_ratio = Vector2(0, 0.5)
-flip = true
-target_scroll_angle = 0.0
-max_lerp_cooldown = 0.6
 
-[node name="WeaponEntry4" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1010850413 instance=ExtResource("9_rky0u")]
+[node name="WeaponEntry7" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1010850413 instance=ExtResource("9_rky0u")]
 layout_mode = 2
 entity_data = ExtResource("10_bnd2k")
 
-[node name="WeaponEntry5" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1946508598 instance=ExtResource("9_rky0u")]
+[node name="WeaponEntry8" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1946508598 instance=ExtResource("9_rky0u")]
 layout_mode = 2
 entity_data = ExtResource("11_lvn86")
 
-[node name="WeaponEntry6" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=18056799 instance=ExtResource("9_rky0u")]
+[node name="WeaponEntry9" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=18056799 instance=ExtResource("9_rky0u")]
 layout_mode = 2
 entity_data = ExtResource("12_cp36n")
 
