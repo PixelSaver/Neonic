@@ -38,6 +38,11 @@ class_name RadialContainer
 var scroll_angle := 0.0
 var _lerp_cooldown : float 
 
+# Dragging
+var _dragging := false
+var _last_mouse_pos := Vector2.ZERO
+@export var drag_sensitivity := 0.0005
+
 func _ready() -> void:
 	self.scroll_angle = 0
 	self.target_scroll_angle = self.scroll_angle
@@ -58,7 +63,6 @@ func _get_layout_children() -> Array[Control]:
 	return result
 
 func _process(delta: float) -> void:
-	print("Lerp cooldown: %s" % _lerp_cooldown)
 	var children = _get_layout_children()
 	if children.size() <= 1: return
 		
@@ -147,6 +151,22 @@ func _gui_input(event: InputEvent) -> void:
 	if target_scroll_angle > 0 or target_scroll_angle < -(_get_layout_children().size() - 1) * get_theta():
 		scroll_strength = 0.025
 		
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				_dragging = true
+				_last_mouse_pos = event.position
+				_on_scrolled()
+			else:
+				_dragging = false
+	elif event is InputEventMouseMotion and _dragging:
+		var delta : Vector2 = event.relative
+		_last_mouse_pos = event.position
+		
+		#TODO Generalize to x and y if exporting this
+		target_scroll_angle += delta.y * drag_sensitivity
+		_on_scrolled()
+
 	if event.is_action_pressed("scroll_up"):
 		target_scroll_angle += scroll_strength 
 		_on_scrolled()
