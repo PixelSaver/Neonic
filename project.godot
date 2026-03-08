@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Neonic"
-run/main_scene="uid://bwg4h8wm2h1ry"
+run/main_scene="uid://dx1ta1v0qbj8m"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.05882353, 0.05882353, 0.05882353, 1)
 boot_splash/show_image=false

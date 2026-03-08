@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dm8sade1oc7rv"]
+
+[ext_resource type="Script" uid="uid://8kmgel1ahfjn" path="res://scripts/components/weapon_data.gd" id="1_q4uuy"]
+
+[resource]
+script = ExtResource("1_q4uuy")
+weapon_name = "Shotgun"
+weapon_description = "Up close and personal."
+points = Array[Vector2]([Vector2(0, 0), Vector2(0.5, 0.25), Vector2(0.5, -0.25)])
+line_joint = 0
+gun_size = Vector2(20, 20)
+fire_rate = 0.7
+spread = 0.7
+explosiveness = 0.95
+bullets_per_cycle = 5
+bullet_knockback = 0.3
+metadata/_custom_type_script = "uid://8kmgel1ahfjn"

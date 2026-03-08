@@ -21,7 +21,6 @@ theme = ExtResource("1_p0gxk")
 script = ExtResource("1_a8p2y")
 title_label = NodePath("ColorRect/MarginContainer/VBoxContainer/Title")
 description_label = NodePath("ColorRect/MarginContainer/VBoxContainer/Description")
-description = "Lorem Ipsum Dolore Lorem Ipsum Dolore"
 
 [node name="ColorRect" type="Panel" parent="." unique_id=1285939566]
 custom_minimum_size = Vector2(300, 100)

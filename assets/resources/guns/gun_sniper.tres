@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://djssvlfob4egc"]
+
+[ext_resource type="Script" uid="uid://8kmgel1ahfjn" path="res://scripts/components/weapon_data.gd" id="1_xxhir"]
+
+[resource]
+script = ExtResource("1_xxhir")
+weapon_name = "Sniper"
+weapon_description = "One and done... Unless you miss!"
+points = Array[Vector2]([Vector2(1, 0), Vector2(0, 0.15), Vector2(0, -0.15)])
+line_joint = 2
+gun_size = Vector2(20, 20)
+fire_rate = 1.0
+damage = 10.1
+spread = 0.0
+bullet_speed = 3000.0
+metadata/_custom_type_script = "uid://8kmgel1ahfjn"

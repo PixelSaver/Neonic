@@ -2,11 +2,7 @@
 
 [ext_resource type="Script" uid="uid://by72b73wjl0nk" path="res://scenes/ui/home_menu/gun_showcase.gd" id="1_fo8md"]
 [ext_resource type="Script" uid="uid://bqljlqm5iusbh" path="res://scenes/ui/utilities/tool_line.gd" id="2_8yw2d"]
-[ext_resource type="Script" uid="uid://8kmgel1ahfjn" path="res://scripts/components/weapon_data.gd" id="2_uik6s"]
-
-[sub_resource type="Resource" id="Resource_2yibm"]
-script = ExtResource("2_uik6s")
-metadata/_custom_type_script = "uid://8kmgel1ahfjn"
+[ext_resource type="Resource" uid="uid://dm8sade1oc7rv" path="res://assets/resources/guns/gun_shotgun.tres" id="2_uik6s"]
 
 [node name="GunShowcase" type="CenterContainer" unique_id=1450300248 node_paths=PackedStringArray("line")]
 clip_contents = true
@@ -15,18 +11,20 @@ offset_right = 200.0
 offset_bottom = 200.0
 script = ExtResource("1_fo8md")
 line = NodePath("Control/Line2D2")
-weapon_data = SubResource("Resource_2yibm")
+weapon_data = ExtResource("2_uik6s")
 
 [node name="Control" type="Control" parent="." unique_id=672266255]
 layout_mode = 2
 
 [node name="Line2D2" type="Line2D" parent="Control" unique_id=870862008]
+position = Vector2(-50, 50)
+rotation = -0.7853982
 scale = Vector2(5, 5)
-points = PackedVector2Array(15, 0, 0, -5, 0, 5)
+points = PackedVector2Array(0, 0, 10, 5, 10, -5)
 closed = true
 width = 7.0
 default_color = Color(0, 0.49312025, 3.2944162, 1)
-joint_mode = 2
+joint_mode = 1
 antialiased = true
 script = ExtResource("2_8yw2d")
 _points = PackedVector2Array(15, 0, 0, -5, 0, 5)

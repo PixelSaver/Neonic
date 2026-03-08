@@ -7,15 +7,9 @@ class_name WeaponEntry
 @export var description_label : RichTextLabel
 @export_category("Details")
 ## The visual placed to show what it is
-@export var scene : PackedScene
-@export var title : String = "Weapon" :
+@export var weapon_data : WeaponData :
 	set(val):
-		title = val
-		if Engine.is_editor_hint():
-			_update_details()
-@export var description : String = "Lorem Ipsum Dolore" :
-	set(val):
-		description = val
+		weapon_data = val
 		if Engine.is_editor_hint():
 			_update_details()
 
@@ -23,5 +17,5 @@ func _ready():
 	_update_details()
 
 func _update_details() -> void:
-	title_label.text = title
-	description_label.text = description
+	title_label.text = weapon_data.weapon_name
+	description_label.text = weapon_data.weapon_description

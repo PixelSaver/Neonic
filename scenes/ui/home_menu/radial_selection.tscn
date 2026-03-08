@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://oopbff7jy0sm" path="res://scenes/ui/home_menu/radial_selector.gd" id="1_pae36"]
 [ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="2_bh3h1"]
-[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="2_gw4jw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ho8n5"]
 
@@ -67,21 +66,3 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u00pm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Selector" unique_id=1429899043]
 environment = ExtResource("2_bh3h1")
-
-[node name="WeaponEntry" parent="." unique_id=1548476173 instance=ExtResource("2_gw4jw")]
-layout_mode = 2
-
-[node name="WeaponEntry2" parent="." unique_id=722881799 instance=ExtResource("2_gw4jw")]
-layout_mode = 2
-
-[node name="WeaponEntry3" parent="." unique_id=1824882213 instance=ExtResource("2_gw4jw")]
-layout_mode = 2
-
-[node name="WeaponEntry4" parent="." unique_id=1783263663 instance=ExtResource("2_gw4jw")]
-layout_mode = 2
-
-[node name="WeaponEntry5" parent="." unique_id=830498755 instance=ExtResource("2_gw4jw")]
-layout_mode = 2
-
-[node name="WeaponEntry6" parent="." unique_id=190021974 instance=ExtResource("2_gw4jw")]
-layout_mode = 2

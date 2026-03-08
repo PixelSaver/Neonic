@@ -7,8 +7,14 @@
 [ext_resource type="Script" uid="uid://dkhkelesidg0d" path="res://scenes/ui/home_menu/home_anim.gd" id="4_v44lq"]
 [ext_resource type="PackedScene" uid="uid://dh0lf0j54xlsx" path="res://scenes/ui/home_menu/radial_selection.tscn" id="5_lherp"]
 [ext_resource type="Script" uid="uid://bkeo7rlw45pxc" path="res://scenes/ui/utilities/spline_line.gd" id="5_os4em"]
+[ext_resource type="Script" uid="uid://c7q2khleposwo" path="res://scenes/ui/home_menu/showcase_controller.gd" id="8_bnd2k"]
 [ext_resource type="Script" uid="uid://rpabkj42rhiy" path="res://scenes/ui/utilities/box_line.gd" id="9_r7x5e"]
+[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="9_rky0u"]
+[ext_resource type="PackedScene" uid="uid://coem5vumln4d2" path="res://scenes/ui/home_menu/gun_showcase.tscn" id="9_v44lq"]
 [ext_resource type="PackedScene" uid="uid://cm0yefoqekqho" path="res://scenes/ui/home_menu/home_menu_button.tscn" id="10_2sido"]
+[ext_resource type="Resource" uid="uid://dwvkpuhddinch" path="res://assets/resources/guns/gun_regular.tres" id="10_bnd2k"]
+[ext_resource type="Resource" uid="uid://dm8sade1oc7rv" path="res://assets/resources/guns/gun_shotgun.tres" id="11_lvn86"]
+[ext_resource type="Resource" uid="uid://djssvlfob4egc" path="res://assets/resources/guns/gun_sniper.tres" id="12_cp36n"]
 
 [sub_resource type="Curve" id="Curve_os4em"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
@@ -60,6 +66,7 @@ script = ExtResource("5_os4em")
 start_pos = Vector2(810, 486)
 end_pos = Vector2(570, 322.5)
 handle_length = -100.0
+display_handles = false
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BoxLine" type="Line2D" parent="Control/RadialStuff" unique_id=300323166 node_paths=PackedStringArray("target")]
@@ -70,7 +77,7 @@ default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
 antialiased = true
 script = ExtResource("9_r7x5e")
-target = NodePath("../../../HBoxContainer/Left/Control/RadialContainer")
+target = NodePath("../../../HBoxContainer/Left/ShowcaseCont")
 flip_h = true
 metadata/_custom_type_script = "uid://rpabkj42rhiy"
 
@@ -83,6 +90,7 @@ antialiased = true
 script = ExtResource("5_os4em")
 start_pos = Vector2(910, 486)
 end_pos = Vector2(1149, 322.5)
+display_handles = false
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BoxLine2" type="Line2D" parent="Control/RadialStuff" unique_id=1885639617 node_paths=PackedStringArray("target")]
@@ -93,7 +101,7 @@ default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
 antialiased = true
 script = ExtResource("9_r7x5e")
-target = NodePath("../../../HBoxContainer/Right/Control/RadialContainer")
+target = NodePath("../../../HBoxContainer/Right/ShowcaseController")
 metadata/_custom_type_script = "uid://rpabkj42rhiy"
 
 [node name="Center" type="Control" parent="Control" unique_id=1862614720]
@@ -119,6 +127,7 @@ antialiased = true
 script = ExtResource("5_os4em")
 start_pos = Vector2(860, 536)
 end_pos = Vector2(697, 785)
+display_handles = false
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="BottomStuff" type="Control" parent="Control" unique_id=163483864]
@@ -157,6 +166,7 @@ script = ExtResource("5_os4em")
 start_pos = Vector2(810, 486)
 end_pos = Vector2(570, 810.5)
 handle_length = -100.0
+display_handles = false
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="SplineLine2" type="Line2D" parent="Control/BottomStuff" unique_id=754472937]
@@ -168,6 +178,7 @@ antialiased = true
 script = ExtResource("5_os4em")
 start_pos = Vector2(910, 486)
 end_pos = Vector2(1149, 810.5)
+display_handles = false
 metadata/_custom_type_script = "uid://bkeo7rlw45pxc"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=570676093]
@@ -183,29 +194,42 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Control" type="Control" parent="HBoxContainer/Left" unique_id=30050071]
+[node name="ShowcaseCont" type="Control" parent="HBoxContainer/Left" unique_id=30050071 node_paths=PackedStringArray("radial_selector", "gun_showcase")]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("8_bnd2k")
+radial_selector = NodePath("RadialContainer")
+gun_showcase = NodePath("GunShowcase")
 
-[node name="RadialContainer" parent="HBoxContainer/Left/Control" unique_id=1346308268 instance=ExtResource("5_lherp")]
+[node name="RadialContainer" parent="HBoxContainer/Left/ShowcaseCont" unique_id=1346308268 node_paths=PackedStringArray("excluded") instance=ExtResource("5_lherp")]
 layout_mode = 1
+anchors_preset = -1
 pivot_offset_ratio = Vector2(0, 0.5)
+target_scroll_angle = 0.0
+excluded = [NodePath("Selector"), NodePath("../GunShowcase")]
 
-[node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Left/Control" unique_id=1447449595]
+[node name="WeaponEntry" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=1548476173 instance=ExtResource("9_rky0u")]
+layout_mode = 2
+weapon_data = ExtResource("10_bnd2k")
+
+[node name="WeaponEntry2" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=1439544585 instance=ExtResource("9_rky0u")]
+layout_mode = 2
+weapon_data = ExtResource("11_lvn86")
+
+[node name="WeaponEntry3" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=607262942 instance=ExtResource("9_rky0u")]
+layout_mode = 2
+weapon_data = ExtResource("12_cp36n")
+
+[node name="GunShowcase" parent="HBoxContainer/Left/ShowcaseCont" unique_id=1450300248 instance=ExtResource("9_v44lq")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/Left/Control/TextureRect" unique_id=348613491]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Left/Control/TextureRect/AspectRatioContainer" unique_id=1164675215]
-layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Left" unique_id=1306965350]
 layout_mode = 2
@@ -274,32 +298,44 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Control" type="Control" parent="HBoxContainer/Right" unique_id=1813755612]
+[node name="ShowcaseController" type="Control" parent="HBoxContainer/Right" unique_id=1762125460 node_paths=PackedStringArray("radial_selector", "gun_showcase")]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
+script = ExtResource("8_bnd2k")
+radial_selector = NodePath("RadialContainer")
+gun_showcase = NodePath("GunShowcase")
+metadata/_custom_type_script = "uid://c7q2khleposwo"
 
-[node name="RadialContainer" parent="HBoxContainer/Right/Control" unique_id=1946186936 instance=ExtResource("5_lherp")]
+[node name="RadialContainer" parent="HBoxContainer/Right/ShowcaseController" unique_id=1946186936 instance=ExtResource("5_lherp")]
 layout_mode = 1
 pivot_offset_ratio = Vector2(0, 0.5)
 flip = true
+target_scroll_angle = 0.0
 
-[node name="TextureRect" type="CenterContainer" parent="HBoxContainer/Right/Control" unique_id=2125265506]
+[node name="WeaponEntry" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1417130818 instance=ExtResource("9_rky0u")]
+layout_mode = 2
+weapon_data = ExtResource("10_bnd2k")
+
+[node name="WeaponEntry2" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=770839220 instance=ExtResource("9_rky0u")]
+layout_mode = 2
+weapon_data = ExtResource("11_lvn86")
+
+[node name="WeaponEntry3" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=872935505 instance=ExtResource("9_rky0u")]
+layout_mode = 2
+weapon_data = ExtResource("12_cp36n")
+
+[node name="GunShowcase" parent="HBoxContainer/Right/ShowcaseController" unique_id=1140793899 instance=ExtResource("9_v44lq")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.45
+anchor_left = 0.55
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/Right/Control/TextureRect" unique_id=1401107300]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Right/Control/TextureRect/AspectRatioContainer" unique_id=1790238801]
-layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Right" unique_id=33409727]
 layout_mode = 2

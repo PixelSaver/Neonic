@@ -1,5 +1,6 @@
 @tool
 extends RadialContainer
+class_name RadialSelector
 
 @export var selector : Control
 @export var offset : Vector2 = Vector2(0, 0)
@@ -11,6 +12,7 @@ func _ready() -> void:
 		dynamic_offset.x *= -1.
 		dynamic_offset.x -= selector.size.x
 	selector_target_global_position = get_closest_position() + dynamic_offset
+	scroll_to_index(0)
 
 func _update_children():
 	super()

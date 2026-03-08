@@ -37,7 +37,7 @@ class_name RadialContainer
 var scroll_angle := 0.0
 
 func _ready() -> void:
-	self.scroll_angle = (_get_layout_children().size()-1) * get_theta()
+	self.scroll_angle = 0
 	self.target_scroll_angle = self.scroll_angle
 
 func _notification(what):
@@ -83,7 +83,7 @@ func get_closest_position() -> Vector2:
 	var idx = get_closest_idx()
 	
 	var angle = scroll_angle + (idx * theta)
-	if flip: angle += PI
+	if flip: angle = PI - angle
 	
 	var center = circle_center + size * Vector2(0.0, 0.5)
 	center = get_global_transform() * get_actual_center()
@@ -124,13 +124,11 @@ func _update_children():
 		var child = children[i]
 		var current_angle = scroll_angle + (i * theta)
 		
-		# Rotate 180 degrees if flipped
 		if flip: 
-			current_angle += PI
+			current_angle = PI - current_angle
 		
 		var pos = center + Vector2(cos(current_angle), sin(current_angle)) * radius
 		
-		# Center the child on the point
 		var child_size = child.get_combined_minimum_size()
 		fit_child_in_rect(child, Rect2(pos - (child_size / 2.0), child_size))
 
@@ -140,17 +138,14 @@ func _gui_input(event: InputEvent) -> void:
 		scroll_strength = 0.05
 		
 	if event.is_action_pressed("scroll_up"):
-		target_scroll_angle += scroll_strength
+		target_scroll_angle += scroll_strength 
 	elif event.is_action_pressed("scroll_down"):
-		target_scroll_angle -= scroll_strength
+		target_scroll_angle -= scroll_strength 
 	elif event.is_action_released("scroll_up") and event.is_action_released("scroll_down"):
 		lerp_to_closest()
 
 func get_actual_center() -> Vector2:
 	var center = circle_center + (size * Vector2(0.0, 0.5))
 	if flip:
-		# Width - X
 		center.x = size.x - circle_center.x
 	return center
-func get_dir() -> float:
-	return -1.0 if flip else 1.0

@@ -16,9 +16,10 @@ func _update_showcase() -> void:
 		self.hide()
 		return
 	self.show()
-		
+	if not line: return
+	line.global_rotation = -PI/4.
+	line.position = Vector2(-50,50)
 	line.clear_points()
-	line.position = Vector2.ZERO
 	line.closed = weapon_data.line_closed
 	line.begin_cap_mode = weapon_data.line_cap_front
 	line.end_cap_mode = weapon_data.line_cap_back
