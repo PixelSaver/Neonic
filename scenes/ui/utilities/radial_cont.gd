@@ -160,7 +160,7 @@ func _update_children():
 		
 		var _scale = pow(1.0 / (1.0 + dist * scale_multiplier), 1.5)
 		
-		child.pivot_offset_ratio = Vector2(0.0, 0.5)
+		child.pivot_offset_ratio = Vector2(0.0, 0.5) if not flip else Vector2(1.0, 0.5)
 		
 		var child_size = child.get_combined_minimum_size()
 		fit_child_in_rect(child, Rect2(pos - (child_size / 2.0), child_size))

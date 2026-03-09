@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buhm4nrt6xo4w" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_g2els"]
+[ext_resource type="Resource" uid="uid://cstqfqhdt11ev" path="res://assets/resources/bodies/body_default.tres" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cft4so0m0iimv" path="res://scenes/gun.tscn" id="4_dqkch"]
 
@@ -18,6 +19,7 @@ knockback_component = NodePath("KnockbackComponent")
 gun = NodePath("GunCenter/Gun")
 gun_center = NodePath("GunCenter")
 gun_spacing = -10.0
+body_data = ExtResource("2_qlg0r")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=208179252]
 script = ExtResource("2_g2els")

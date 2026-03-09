@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://coem5vumln4d2"]
 
 [ext_resource type="Script" uid="uid://by72b73wjl0nk" path="res://scenes/ui/home_menu/entity_showcase.gd" id="1_664lg"]
-[ext_resource type="Resource" uid="uid://cstqfqhdt11ev" path="res://assets/resources/bodies/body_default.tres" id="2_664lg"]
+[ext_resource type="Resource" uid="uid://c3abcv6xhpb63" path="res://assets/resources/bodies/body_star.tres" id="2_664lg"]
 
 [node name="EntityShowcase" type="CenterContainer" unique_id=1450300248 node_paths=PackedStringArray("line")]
 clip_contents = true
@@ -18,7 +18,8 @@ layout_mode = 2
 
 [node name="Line2D" type="Line2D" parent="Control" unique_id=1708362535]
 rotation = -0.7853982
-points = PackedVector2Array(-40, -40, -40, 40, 40, 40, 40, -40)
+points = PackedVector2Array(0, 60, -13.5, 18.539999, -57.059998, 18.539999, -21.78, -7.08, -35.28, -48.54, 0, -22.92, 35.28, -48.54, 21.78, -7.08, 57.059998, 18.539999, 13.5, 18.539999)
 closed = true
+width = 7.0
 default_color = Color(0, 0.493, 3.294, 1)
-joint_mode = 1
+joint_mode = 2

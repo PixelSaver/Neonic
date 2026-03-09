@@ -11,3 +11,5 @@ class_name WeaponData
 @export var bullet_speed := 1500.0
 @export var bullet_lifetime := 3.0
 @export var bullet_knockback := 1.0
+
+#TODO Balance guns!!!

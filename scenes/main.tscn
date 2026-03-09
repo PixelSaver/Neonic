@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://bwg4h8wm2h1ry"]
 
 [ext_resource type="PackedScene" uid="uid://hnmw2l6ff5iw" path="res://scenes/ui.tscn" id="1_o5qli"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_o6xl0"]
+[ext_resource type="Script" uid="uid://d18pakdk3t7lk" path="res://scenes/main.gd" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b3dxlqyn1r8rn" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_tefeu"]
+[ext_resource type="Resource" uid="uid://c3abcv6xhpb63" path="res://assets/resources/bodies/body_star.tres" id="5_choun"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://hfi0ownhhbh8" path="res://scenes/room.tscn" id="6_tefeu"]
-[ext_resource type="Script" path="res://scripts/bullet_manager.gd" id="8_tipki"]
-[ext_resource type="Script" path="res://scripts/upgrade_manager.gd" id="9_85g3d"]
+[ext_resource type="Resource" uid="uid://dwvkpuhddinch" path="res://assets/resources/guns/gun_regular.tres" id="6_ya4ey"]
+[ext_resource type="Script" uid="uid://ojkhfdq2hceo" path="res://scripts/bullet_manager.gd" id="8_tipki"]
+[ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="9_85g3d"]
 
 [sub_resource type="Environment" id="Environment_o5qli"]
 background_mode = 3
@@ -55,6 +57,8 @@ environment = SubResource("Environment_o5qli")
 
 [node name="Player" parent="." unique_id=1294409382 instance=ExtResource("2_0wfyh")]
 gun_spacing = 10.0
+body_data = ExtResource("5_choun")
+weapon_data = ExtResource("6_ya4ey")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=629698645 node_paths=PackedStringArray("follow_target")]
 top_level = true

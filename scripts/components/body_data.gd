@@ -10,3 +10,6 @@ class_name BodyData
 @export var skill = null
 @export var ultimate = null
 @export var ultimate_energy_required := 0.0
+
+#TODO Actually give bodies different stats
+#BUG Star shape gets caught in the boundaries

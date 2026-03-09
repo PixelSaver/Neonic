@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BodyData" format=3 uid="uid://bfgb4olqjq0is"]
+
+[ext_resource type="Script" uid="uid://u0ne15vhegdl" path="res://scripts/components/body_data.gd" id="1_8iqg5"]
+
+[resource]
+script = ExtResource("1_8iqg5")
+skill = null
+ultimate = null
+entity_name = "Triangle"
+entity_description = "The trifecta of... something"
+points = Array[Vector2]([Vector2(1, 0), Vector2(-0.5, 0.866), Vector2(-0.5, -0.866)])
+line_width = 10.0
+line_joint = 2
+size = Vector2(60, 60)
+editor_scale = 1.0
+editor_offset = Vector2(0, 0)
+metadata/_custom_type_script = "uid://u0ne15vhegdl"

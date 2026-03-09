@@ -17,11 +17,6 @@ const POINTS = [
 @export var gun : Gun
 @export var gun_center : Node2D
 @export_group("Player Shape")
-@export var player_size : float = 80 : 
-	set(val):
-		player_size = val
-		if Engine.is_editor_hint():
-			_update_size()
 @export_group("Player Movement")
 @export var acceleration : float = 15000
 @export_group("Tweakables")
@@ -34,6 +29,14 @@ func get_knockback_resistance() -> float: return knockback_resistance
 		gun_spacing = val
 		if Engine.is_editor_hint():
 			_update_gun_hold_pos()
+@export_category("Body")
+@export_tool_button("Update player icon") var action_update = _update_size()
+@export var body_data : BodyData
+@export var weapon_data : WeaponData : 
+	set(v):
+		weapon_data = v
+		if gun:
+			gun.weapon_data = weapon_data
 var bullet_upgrades : Array[BaseBulletStrategy] = []
 var player_upgrades : Array[BasePlayerStrategy] = []
 
@@ -49,19 +52,22 @@ func _ready() -> void:
 
 func _update_size():
 	if not is_inside_tree(): return
-	if !Engine.is_editor_hint(): return
+	#if !Engine.is_editor_hint(): return
 	
 	# Line
-	line.position = Vector2.ZERO
-	line.closed = true
 	line.clear_points()
-	for point in POINTS:
-		line.add_point(point * player_size / 2.)
+	line.position = Vector2.ZERO
+	line.closed = body_data.line_closed
+	line.begin_cap_mode = body_data.line_cap_front
+	line.end_cap_mode = body_data.line_cap_back
+	line.joint_mode = body_data.line_joint 
+	line.width = body_data.line_width
 	line.queue_redraw()
 	
 	var points : PackedVector2Array = []
-	for point in POINTS:
-		points.append(point * player_size / 2.)
+	for point in body_data.points:
+		points.append(point * body_data.size)
+	line.points = points
 	collision_shape.polygon = (points)
 	
 	_update_gun_hold_pos()
@@ -81,7 +87,7 @@ func _get_attack() -> Attack:
 	return atk
 
 func _update_gun_hold_pos():
-	gun.position = Vector2(player_size + gun_spacing, 0)
+	gun.position = Vector2((body_data.size.x+body_data.size.y)/2. + gun_spacing, 0)
 
 func _physics_process(_delta:float):
 	if not is_inside_tree(): return

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bawneitvaw23a"]
+
+[ext_resource type="Script" uid="uid://u7hbj5m3mswn" path="res://scripts/room_manager.gd" id="1_vyxlf"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_p3gtf"]
+[ext_resource type="PackedScene" uid="uid://hnmw2l6ff5iw" path="res://scenes/ui.tscn" id="3_yb5u0"]
+[ext_resource type="PackedScene" uid="uid://b3dxlqyn1r8rn" path="res://scenes/player.tscn" id="4_i2wdx"]
+[ext_resource type="Resource" uid="uid://c3abcv6xhpb63" path="res://assets/resources/bodies/body_star.tres" id="5_7oyl4"]
+[ext_resource type="Resource" uid="uid://dwvkpuhddinch" path="res://assets/resources/guns/gun_regular.tres" id="6_8gq5o"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_yeis2"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_1etkx"]
+[ext_resource type="PackedScene" uid="uid://hfi0ownhhbh8" path="res://scenes/room.tscn" id="9_iiwnb"]
+[ext_resource type="Script" uid="uid://ojkhfdq2hceo" path="res://scripts/bullet_manager.gd" id="10_jkfvm"]
+[ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
+
+[sub_resource type="Environment" id="Environment_gkwb2"]
+background_mode = 3
+ambient_light_source = 1
+reflected_light_source = 1
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.2
+glow_hdr_scale = 4.0
+
+[sub_resource type="Resource" id="Resource_gkqgh"]
+script = ExtResource("8_1etkx")
+
+[node name="RoomManager" type="Control" unique_id=242911744]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vyxlf")
+metadata/_custom_type_script = "uid://u7hbj5m3mswn"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=36547595]
+physics_interpolation_mode = 1
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1868520051]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_p3gtf")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2062936308]
+visible = false
+
+[node name="UI" parent="CanvasLayer" unique_id=1052533720 instance=ExtResource("3_yb5u0")]
+visible = false
+
+[node name="BG" type="ColorRect" parent="CanvasLayer" unique_id=808212251]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.087457694, 0.08745768, 0.08745768, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1282443079]
+environment = SubResource("Environment_gkwb2")
+
+[node name="Player" parent="." unique_id=1294409382 instance=ExtResource("4_i2wdx")]
+gun_spacing = 10.0
+body_data = ExtResource("5_7oyl4")
+weapon_data = ExtResource("6_8gq5o")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=353093909 node_paths=PackedStringArray("follow_target")]
+top_level = true
+script = ExtResource("7_yeis2")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_gkqgh")
+follow_damping = true
+lookahead = true
+lookahead_time = Vector2(0.05, 0.05)
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Room" parent="." unique_id=392177367 instance=ExtResource("9_iiwnb")]
+
+[node name="BulletManager" type="Node2D" parent="." unique_id=1228174791]
+script = ExtResource("10_jkfvm")
+
+[node name="UpgradeManager" type="Node" parent="." unique_id=437382507]
+script = ExtResource("11_o3s6b")
+
+[editable path="CanvasLayer/UI"]

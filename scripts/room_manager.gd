@@ -1,0 +1,2 @@
+extends PixelMenu
+class_name RoomManager

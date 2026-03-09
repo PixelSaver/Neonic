@@ -14,7 +14,8 @@ enum State {
 }
 var scenes = {
 	State.START : preload("res://scenes/ui/start_menu.tscn"),
-	State.HQ : preload("res://scenes/ui/home_menu/home_menu.tscn")
+	State.HQ : preload("res://scenes/ui/home_menu/home_menu.tscn"),
+	#State.FIGHT : preload("res://scenes/main.tscn")
 }
 var game_state : State = State.START
 var is_animating = false

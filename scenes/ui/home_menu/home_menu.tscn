@@ -15,6 +15,9 @@
 [ext_resource type="Resource" uid="uid://dwvkpuhddinch" path="res://assets/resources/guns/gun_regular.tres" id="10_bnd2k"]
 [ext_resource type="Resource" uid="uid://dm8sade1oc7rv" path="res://assets/resources/guns/gun_shotgun.tres" id="11_lvn86"]
 [ext_resource type="Resource" uid="uid://djssvlfob4egc" path="res://assets/resources/guns/gun_sniper.tres" id="12_cp36n"]
+[ext_resource type="Resource" uid="uid://cstqfqhdt11ev" path="res://assets/resources/bodies/body_default.tres" id="16_lvn86"]
+[ext_resource type="Resource" uid="uid://bfgb4olqjq0is" path="res://assets/resources/bodies/body_triangle.tres" id="17_cp36n"]
+[ext_resource type="Resource" uid="uid://c3abcv6xhpb63" path="res://assets/resources/bodies/body_star.tres" id="18_atbu8"]
 
 [sub_resource type="Curve" id="Curve_os4em"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
@@ -317,15 +320,15 @@ target_scroll_angle = 0.0
 
 [node name="WeaponEntry7" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1010850413 instance=ExtResource("9_rky0u")]
 layout_mode = 2
-entity_data = ExtResource("10_bnd2k")
+entity_data = ExtResource("16_lvn86")
 
 [node name="WeaponEntry8" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1946508598 instance=ExtResource("9_rky0u")]
 layout_mode = 2
-entity_data = ExtResource("11_lvn86")
+entity_data = ExtResource("17_cp36n")
 
 [node name="WeaponEntry9" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=18056799 instance=ExtResource("9_rky0u")]
 layout_mode = 2
-entity_data = ExtResource("12_cp36n")
+entity_data = ExtResource("18_atbu8")
 
 [node name="GunShowcase" parent="HBoxContainer/Right/ShowcaseController" unique_id=1140793899 instance=ExtResource("9_v44lq")]
 layout_mode = 1
