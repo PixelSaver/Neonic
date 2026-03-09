@@ -2,6 +2,8 @@
 extends Node2D
 class_name Room
 
+signal room_cleared
+
 @export_group("Script Exports")
 @export var collision_shape : CollisionPolygon2D
 @export_group("Room Variables")
