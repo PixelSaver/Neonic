@@ -5,6 +5,7 @@ class_name Room
 signal room_cleared
 
 @export_group("Script Exports")
+@export var enemy_container : Node2D
 @export var collision_shape : CollisionPolygon2D
 @export var border : Line2D : 
 	set(val):
@@ -53,3 +54,12 @@ func _update_col():
 	collision_shape.build_mode = CollisionPolygon2D.BUILD_SOLIDS
 	collision_shape.queue_redraw()
 	border.queue_redraw()
+
+func clear_enemies():
+	for child in enemy_container.get_children():
+		child.queue_free()
+
+func spawn_enemies():
+	for spawn in wave_data.enemies:
+		var inst = spawn.enemy_scene.instantiate()
+		enemy_container.add_child(inst)
