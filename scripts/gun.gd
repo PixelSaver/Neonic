@@ -42,7 +42,7 @@ func _update_weapon():
 	line.width = weapon_data.line_width
 	
 	for point in weapon_data.points:
-		line.add_point(point * weapon_data.gun_size)
+		line.add_point(point * weapon_data.size)
 	line.queue_redraw()
 	
 	_cooldown = weapon_data.fire_rate

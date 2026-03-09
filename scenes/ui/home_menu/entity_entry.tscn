@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kca5iso7j3xp"]
 
-[ext_resource type="Script" uid="uid://bajoyks5tcfsk" path="res://scripts/ui/weapon_entry.gd" id="1_a8p2y"]
-[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_p0gxk"]
+[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_5xwgo"]
+[ext_resource type="Script" uid="uid://bajoyks5tcfsk" path="res://scripts/ui/entity_entry.gd" id="2_eq0ji"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qybc6"]
 bg_color = Color(0, 0, 0, 0.70000005)
@@ -11,14 +11,14 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0.493, 3.294, 1)
 
-[node name="WeaponEntry" type="CenterContainer" unique_id=1548476173 node_paths=PackedStringArray("title_label", "description_label")]
+[node name="EntityEntry" type="CenterContainer" unique_id=1548476173 node_paths=PackedStringArray("title_label", "description_label")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_p0gxk")
-script = ExtResource("1_a8p2y")
+theme = ExtResource("1_5xwgo")
+script = ExtResource("2_eq0ji")
 title_label = NodePath("ColorRect/MarginContainer/VBoxContainer/Title")
 description_label = NodePath("ColorRect/MarginContainer/VBoxContainer/Description")
 

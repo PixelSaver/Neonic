@@ -18,6 +18,7 @@ func _ready():
 	_parent = get_parent() as RadialContainer
 	_update_details()
 
+
 func _update_details() -> void:
 	title_label.text = entity_data.entity_name
 	description_label.text = entity_data.entity_description

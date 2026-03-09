@@ -13,5 +13,5 @@ entity_name = "Shotgun"
 entity_description = "Up close and personal."
 points = Array[Vector2]([Vector2(0, 0), Vector2(1, 0.5), Vector2(1, -0.5)])
 line_joint = 0
-gun_size = Vector2(10, 10)
+size = Vector2(10, 10)
 metadata/_custom_type_script = "uid://8kmgel1ahfjn"

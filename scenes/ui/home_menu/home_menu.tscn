@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://bkeo7rlw45pxc" path="res://scenes/ui/utilities/spline_line.gd" id="5_os4em"]
 [ext_resource type="Script" uid="uid://c7q2khleposwo" path="res://scenes/ui/home_menu/showcase_controller.gd" id="8_bnd2k"]
 [ext_resource type="Script" uid="uid://rpabkj42rhiy" path="res://scenes/ui/utilities/box_line.gd" id="9_r7x5e"]
-[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/weapon_entry.tscn" id="9_rky0u"]
-[ext_resource type="PackedScene" uid="uid://coem5vumln4d2" path="res://scenes/ui/home_menu/gun_showcase.tscn" id="9_v44lq"]
+[ext_resource type="PackedScene" uid="uid://kca5iso7j3xp" path="res://scenes/ui/home_menu/entity_entry.tscn" id="9_rky0u"]
+[ext_resource type="PackedScene" uid="uid://coem5vumln4d2" path="res://scenes/ui/home_menu/entity_showcase.tscn" id="9_v44lq"]
 [ext_resource type="PackedScene" uid="uid://cm0yefoqekqho" path="res://scenes/ui/home_menu/home_menu_button.tscn" id="10_2sido"]
 [ext_resource type="Resource" uid="uid://dwvkpuhddinch" path="res://assets/resources/guns/gun_regular.tres" id="10_bnd2k"]
 [ext_resource type="Resource" uid="uid://dm8sade1oc7rv" path="res://assets/resources/guns/gun_shotgun.tres" id="11_lvn86"]
@@ -207,6 +207,7 @@ layout_mode = 1
 anchors_preset = -1
 pivot_offset_ratio = Vector2(0, 0.5)
 flip = false
+target_scroll_angle = 0.0
 excluded = [NodePath("Selector"), NodePath("../GunShowcase")]
 
 [node name="WeaponEntry7" parent="HBoxContainer/Left/ShowcaseCont/RadialContainer" unique_id=1548476173 instance=ExtResource("9_rky0u")]
@@ -222,7 +223,6 @@ layout_mode = 2
 entity_data = ExtResource("12_cp36n")
 
 [node name="GunShowcase" parent="HBoxContainer/Left/ShowcaseCont" unique_id=1450300248 instance=ExtResource("9_v44lq")]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
@@ -231,9 +231,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Line2D2" parent="HBoxContainer/Left/ShowcaseCont/GunShowcase/Control" parent_id_path=PackedInt32Array(1450300248, 672266255) index="0" unique_id=870862008]
-points = PackedVector2Array(15, 0, 0, -5, 0, 5)
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Left" unique_id=1306965350]
 layout_mode = 2
@@ -315,6 +312,8 @@ metadata/_custom_type_script = "uid://c7q2khleposwo"
 [node name="RadialContainer" parent="HBoxContainer/Right/ShowcaseController" unique_id=1946186936 instance=ExtResource("5_lherp")]
 layout_mode = 1
 pivot_offset_ratio = Vector2(0, 0.5)
+offset = Vector2(-160, -60)
+target_scroll_angle = 0.0
 
 [node name="WeaponEntry7" parent="HBoxContainer/Right/ShowcaseController/RadialContainer" unique_id=1010850413 instance=ExtResource("9_rky0u")]
 layout_mode = 2
@@ -329,7 +328,6 @@ layout_mode = 2
 entity_data = ExtResource("12_cp36n")
 
 [node name="GunShowcase" parent="HBoxContainer/Right/ShowcaseController" unique_id=1140793899 instance=ExtResource("9_v44lq")]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.55

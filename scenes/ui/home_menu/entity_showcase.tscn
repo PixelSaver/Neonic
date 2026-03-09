@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://coem5vumln4d2"]
+
+[ext_resource type="Script" uid="uid://by72b73wjl0nk" path="res://scenes/ui/home_menu/entity_showcase.gd" id="1_664lg"]
+[ext_resource type="Resource" uid="uid://cstqfqhdt11ev" path="res://assets/resources/bodies/body_default.tres" id="2_664lg"]
+
+[node name="EntityShowcase" type="CenterContainer" unique_id=1450300248 node_paths=PackedStringArray("line")]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+mouse_filter = 2
+script = ExtResource("1_664lg")
+line = NodePath("Control/Line2D")
+entity_data = ExtResource("2_664lg")
+
+[node name="Control" type="Control" parent="." unique_id=672266255]
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="Control" unique_id=1708362535]
+rotation = -0.7853982
+points = PackedVector2Array(-40, -40, -40, 40, 40, 40, 40, -40)
+closed = true
+default_color = Color(0, 0.493, 3.294, 1)
+joint_mode = 1

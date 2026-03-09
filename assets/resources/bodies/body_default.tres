@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BodyData" format=3 uid="uid://cstqfqhdt11ev"]
+
+[ext_resource type="Script" uid="uid://u0ne15vhegdl" path="res://scripts/components/body_data.gd" id="1_nw86o"]
+
+[resource]
+script = ExtResource("1_nw86o")
+skill = null
+ultimate = null
+entity_name = "Default"
+entity_description = "Just about average."
+points = Array[Vector2]([Vector2(-0.5, -0.5), Vector2(-0.5, 0.5), Vector2(0.5, 0.5), Vector2(0.5, -0.5)])
+line_width = 10.0
+size = Vector2(80, 80)
+editor_scale = 1.0
+editor_offset = Vector2(0, 0)
+metadata/_custom_type_script = "uid://u0ne15vhegdl"

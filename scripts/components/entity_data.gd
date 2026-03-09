@@ -12,5 +12,7 @@ class_name EntityData
 @export var line_cap_front : Line2D.LineCapMode = Line2D.LINE_CAP_NONE
 @export var line_cap_back : Line2D.LineCapMode = Line2D.LINE_CAP_NONE
 @export var line_joint : Line2D.LineJointMode = Line2D.LINE_JOINT_BEVEL
-@export var gun_size: Vector2 = Vector2(2,2)
+@export var size: Vector2 = Vector2(2,2)
 @export var editor_scale := 5.0
+@export var editor_offset := Vector2(-50, 50)
+@export var editor_rotation := -PI/4.

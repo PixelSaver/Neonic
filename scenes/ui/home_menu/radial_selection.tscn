@@ -23,6 +23,7 @@ radius = 1150.0
 separation = 110.0
 circle_center = Vector2(-740, 0)
 flip = true
+target_scroll_angle = 0.09568867625180759
 drag_sensitivity = 1e-06
 excluded = [NodePath("Selector")]
 metadata/_custom_type_script = "uid://oopbff7jy0sm"

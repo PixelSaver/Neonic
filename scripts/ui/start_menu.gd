@@ -10,6 +10,7 @@ func _ready() -> void:
 	for _but in button_cont.get_children():
 		var but = _but as ButtonMenu
 		but.self_pressed.connect(_on_button_pressed)
+	#HACK Waiting 4 frames to start anim
 	await get_tree().process_frame
 	await get_tree().process_frame
 	await get_tree().process_frame
