@@ -32,6 +32,14 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://scenes/ui/": "green",
+"res://scripts/": "orange",
+"res://scripts/upgrades/": "yellow"
+}
+
 [input]
 
 left={

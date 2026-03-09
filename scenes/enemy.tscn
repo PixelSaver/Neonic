@@ -56,7 +56,7 @@ health_component = NodePath("../HealthComponent")
 
 [node name="Leg" parent="LegManager" unique_id=844722159 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(40, -30)
-points = PackedVector2Array(-1, 0, -1.9057814, -39.989742, -23.840435, -60.456085)
+points = PackedVector2Array(-1, 0, 7.3114758, -39.126965, -14.139711, -60.09948)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -64,7 +64,7 @@ neighbors = [NodePath("../Leg2")]
 
 [node name="Leg2" parent="LegManager" unique_id=917778324 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, -35)
-points = PackedVector2Array(-1, 0, 6.9273458, -39.206596, -14.880985, -59.807487)
+points = PackedVector2Array(-1, 0, 23.28198, -31.786558, 11.393852, -59.330566)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -72,7 +72,7 @@ neighbors = [NodePath("../Leg")]
 
 [node name="Leg3" parent="LegManager" unique_id=2136972939 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(-10, 35)
-points = PackedVector2Array(-1, 0, 20.640442, 33.64062, 34.13913, 60.432137)
+points = PackedVector2Array(-1, 0, 24.980932, 30.413666, 25.625496, 60.40674)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
@@ -81,7 +81,7 @@ neighbors = [NodePath("../Leg4")]
 
 [node name="Leg4" parent="LegManager" unique_id=1685246850 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("6_nenq2")]
 position = Vector2(35, 30)
-points = PackedVector2Array(-1, 0, 23.243307, 31.816065, 15.688004, 60.849106)
+points = PackedVector2Array(-1, 0, 21.411587, 33.13187, 39.062607, 59.820847)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
