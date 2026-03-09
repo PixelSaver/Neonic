@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bawneitvaw23a"]
 
-[ext_resource type="Script" uid="uid://u7hbj5m3mswn" path="res://scripts/room_manager.gd" id="1_vyxlf"]
+[ext_resource type="Script" uid="uid://u7hbj5m3mswn" path="res://scripts/ui/room_manager.gd" id="1_vyxlf"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_p3gtf"]
 [ext_resource type="PackedScene" uid="uid://hnmw2l6ff5iw" path="res://scenes/ui.tscn" id="3_yb5u0"]
 [ext_resource type="PackedScene" uid="uid://b3dxlqyn1r8rn" path="res://scenes/player.tscn" id="4_i2wdx"]
@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_yeis2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_1etkx"]
 [ext_resource type="PackedScene" uid="uid://hfi0ownhhbh8" path="res://scenes/room.tscn" id="9_iiwnb"]
-[ext_resource type="Script" uid="uid://ojkhfdq2hceo" path="res://scripts/bullet_manager.gd" id="10_jkfvm"]
-[ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
+[ext_resource type="Script" path="res://scripts/bullet_manager.gd" id="10_jkfvm"]
+[ext_resource type="Script" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
 
 [sub_resource type="Environment" id="Environment_gkwb2"]
 background_mode = 3
