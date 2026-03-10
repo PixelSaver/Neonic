@@ -10,6 +10,8 @@ signal room_cleared
 @export var border : Line2D : 
 	set(val):
 		border = val
+@export_group("Editor helpers")
+@export_tool_button("Save enemies as new wave") var action_save_wave = _save_children_as_wave
 @export_group("Room Variables")
 @export_tool_button("Reload collision") var action_reload = _update_col
 @export var points : PackedVector2Array :
@@ -25,10 +27,6 @@ signal room_cleared
 
 func _ready() -> void:
 	_update_col()
-
-#func _process(_delta: float) -> void:
-	#if Engine.is_editor_hint():
-		#_update_col()
 
 func _update_col():
 	if not is_inside_tree(): return
@@ -55,11 +53,68 @@ func _update_col():
 	collision_shape.queue_redraw()
 	border.queue_redraw()
 
+func _save_children_as_wave():
+	if not Engine.is_editor_hint(): return
+	
+	if wave_data == null:
+		push_warning("No WaveData assigned.")
+	
+	var next_wave := 0
+	for spawn in wave_data.enemies:
+		next_wave = max(next_wave, spawn.wave + 1)
+	
+	for child in enemy_container.get_children():
+		var enemy = child as Enemy
+		if enemy == null: continue
+		
+		var spawn = EnemySpawn.new()
+		spawn.wave = next_wave
+		spawn.position = enemy.position
+		spawn.enemy_type = enemy.enemy_type
+		
+		wave_data.enemies.append(spawn)
+	print("Saved wave", next_wave, " with ", enemy_container.get_child_count(), " enemies.")
+
 func clear_enemies():
 	for child in enemy_container.get_children():
-		child.queue_free()
+		var e = child as Enemy
+		if e:
+			Global.unregister_enemy(e)
+			e.queue_free()
+
+func _group_waves() -> Dictionary:
+	var waves := {}
+	
+	for spawn in wave_data.enemies:
+		if not waves.has(spawn.wave):
+			waves[spawn.wave] = []
+		waves[spawn.wave].append(spawn)
+	return waves
 
 func spawn_enemies():
-	for spawn in wave_data.enemies:
-		var inst = spawn.enemy_scene.instantiate()
+	print("Spawning")
+	var waves = _group_waves()
+	var wave_idxes = waves.keys()
+	wave_idxes.sort()
+	
+	await _run_waves(wave_idxes, waves)
+	
+func _run_waves(wave_indices, waves) -> void:
+	for wave_idx in wave_indices:
+		var delay := -1.0
+		# Check if idx is in wave_delays
+		if wave_idx < wave_data.wave_delays.size():
+			delay = wave_data.wave_delays[wave_idx]
+			
+		if delay >= 0:
+			await get_tree().create_timer(delay).timeout
+		else:
+			#TODO All enemies dead
+			await Global.all_enemies_cleared
+		_spawn_waves(waves[wave_idx])
+
+func _spawn_waves(spawns:Array):
+	for spawn in spawns:
+		var inst = EnemyDatabase.get_enemy_scene(spawn.enemy_type).instantiate()
+		inst.position = spawn.position
 		enemy_container.add_child(inst)

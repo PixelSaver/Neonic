@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hfi0ownhhbh8"]
 
 [ext_resource type="Script" uid="uid://rvsppgw6xtr5" path="res://scripts/room.gd" id="1_36trf"]
+[ext_resource type="Resource" uid="uid://b5lojjmy5bjpm" path="res://assets/resources/waves/r1_w1.tres" id="2_85yof"]
 [ext_resource type="PackedScene" uid="uid://2qxv63wlb60v" path="res://scenes/enemy.tscn" id="2_ffxv4"]
 
 [node name="Room" type="Node2D" unique_id=392177367 node_paths=PackedStringArray("enemy_container", "collision_shape", "border")]
@@ -11,6 +12,7 @@ border = NodePath("Line2D")
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 room_size = Vector2(1300, 800)
 wall_thickness = 100.0
+wave_data = ExtResource("2_85yof")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=453305642]
 
@@ -25,55 +27,37 @@ default_color = Color(2.737, 0.205, 1.243, 1)
 [node name="EnemyContainer" type="Node2D" parent="." unique_id=1752651648]
 
 [node name="Enemy" parent="EnemyContainer" unique_id=1695829330 instance=ExtResource("2_ffxv4")]
-position = Vector2(488, -144)
+position = Vector2(-252, 675)
 
 [node name="Enemy2" parent="EnemyContainer" unique_id=1087809732 instance=ExtResource("2_ffxv4")]
-position = Vector2(682, -321)
+position = Vector2(-1044, -536)
 
 [node name="Enemy3" parent="EnemyContainer" unique_id=675836648 instance=ExtResource("2_ffxv4")]
-position = Vector2(745, -67)
+position = Vector2(-997, 328)
 
 [node name="Enemy4" parent="EnemyContainer" unique_id=260144549 instance=ExtResource("2_ffxv4")]
-position = Vector2(508, -370)
+position = Vector2(-987, -14)
 
 [node name="Enemy5" parent="EnemyContainer" unique_id=379363473 instance=ExtResource("2_ffxv4")]
-position = Vector2(671, -500)
+position = Vector2(-687, 561)
 
 [node name="Enemy6" parent="EnemyContainer" unique_id=621637648 instance=ExtResource("2_ffxv4")]
-position = Vector2(809, -399)
+position = Vector2(-376, -620)
 
 [node name="Enemy7" parent="EnemyContainer" unique_id=883519351 instance=ExtResource("2_ffxv4")]
-position = Vector2(865, -299)
+position = Vector2(148, -646)
 
 [node name="Enemy8" parent="EnemyContainer" unique_id=1442637251 instance=ExtResource("2_ffxv4")]
-position = Vector2(892, -194)
+position = Vector2(760, -591)
 
 [node name="Enemy9" parent="EnemyContainer" unique_id=1892139433 instance=ExtResource("2_ffxv4")]
-position = Vector2(713, -214)
+position = Vector2(1128, 343)
 
 [node name="Enemy10" parent="EnemyContainer" unique_id=362431748 instance=ExtResource("2_ffxv4")]
-position = Vector2(597, -56)
+position = Vector2(834, 606)
 
 [node name="Enemy11" parent="EnemyContainer" unique_id=1271241458 instance=ExtResource("2_ffxv4")]
-position = Vector2(887, 34)
+position = Vector2(134, 694)
 
 [node name="Enemy12" parent="EnemyContainer" unique_id=397332712 instance=ExtResource("2_ffxv4")]
-position = Vector2(731, 48)
-
-[node name="Enemy13" parent="EnemyContainer" unique_id=1930791612 instance=ExtResource("2_ffxv4")]
-position = Vector2(555, 50)
-
-[node name="Enemy14" parent="EnemyContainer" unique_id=1117609684 instance=ExtResource("2_ffxv4")]
-position = Vector2(443, -44)
-
-[node name="Enemy15" parent="EnemyContainer" unique_id=1589113069 instance=ExtResource("2_ffxv4")]
-position = Vector2(546, -249)
-
-[node name="Enemy16" parent="EnemyContainer" unique_id=488956810 instance=ExtResource("2_ffxv4")]
-position = Vector2(483, -495)
-
-[node name="Enemy17" parent="EnemyContainer" unique_id=1745509213 instance=ExtResource("2_ffxv4")]
-position = Vector2(872, -524)
-
-[node name="Enemy18" parent="EnemyContainer" unique_id=1524351328 instance=ExtResource("2_ffxv4")]
-position = Vector2(368, -229)
+position = Vector2(1021, -155)

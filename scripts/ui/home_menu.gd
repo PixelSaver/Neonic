@@ -69,6 +69,8 @@ func end_anim():
 	t.chain().tween_callback(func():
 		is_animating = false
 		Global.is_animating = false
+		Global.go_to_state(Global.State.FIGHT)
+		queue_free()
 	)
 
 func _get_tween() -> Tween:

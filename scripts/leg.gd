@@ -95,8 +95,10 @@ func _start_step(target: Vector2):
 	update_visual()
 
 func get_body_up() -> Vector2:
-	if Engine.is_editor_hint(): return -parent.transform.y.normalized()
-	return -_parent.transform.y.normalized()
+	if Engine.is_editor_hint() and parent: return -parent.transform.y.normalized()
+	elif parent:
+		return -_parent.transform.y.normalized()
+	else: return Vector2.UP
 
 func update_visual():
 	var local_foot_pos = self.to_local(foot_position)

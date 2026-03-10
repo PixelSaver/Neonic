@@ -21,6 +21,7 @@ config/icon="res://assets/icon.svg"
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
 Global="*res://scripts/global.gd"
+EnemyDatabase="*uid://caqcwylnj8cbm"
 
 [display]
 
@@ -35,6 +36,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 [file_customization]
 
 folder_colors={
+"res://assets/resources/": "blue",
 "res://scenes/ui/": "green",
 "res://scripts/": "orange",
 "res://scripts/upgrades/": "yellow"

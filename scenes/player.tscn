@@ -26,10 +26,10 @@ script = ExtResource("2_g2els")
 metadata/_custom_type_script = "uid://c0opl162vnmfw"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1162314289]
-polygon = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
+polygon = PackedVector2Array(-40, -40, -40, 40, 40, 40, 40, -40)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1935202646]
-points = PackedVector2Array(-40, 40, 40, 40, 40, -40, -40, -40)
+points = PackedVector2Array(-40, -40, -40, 40, 40, 40, 40, -40)
 closed = true
 default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bawneitvaw23a"]
 
-[ext_resource type="Script" uid="uid://u7hbj5m3mswn" path="res://scripts/ui/room_manager.gd" id="1_vyxlf"]
+[ext_resource type="Script" uid="uid://u7hbj5m3mswn" path="res://scripts/ui/room_manager.gd" id="1_p3gtf"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_p3gtf"]
 [ext_resource type="PackedScene" uid="uid://hnmw2l6ff5iw" path="res://scenes/ui.tscn" id="3_yb5u0"]
 [ext_resource type="PackedScene" uid="uid://b3dxlqyn1r8rn" path="res://scenes/player.tscn" id="4_i2wdx"]
@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_yeis2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_1etkx"]
 [ext_resource type="PackedScene" uid="uid://hfi0ownhhbh8" path="res://scenes/room.tscn" id="9_iiwnb"]
-[ext_resource type="Script" path="res://scripts/bullet_manager.gd" id="10_jkfvm"]
-[ext_resource type="Script" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
+[ext_resource type="Script" uid="uid://ojkhfdq2hceo" path="res://scripts/bullet_manager.gd" id="10_jkfvm"]
+[ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
 
 [sub_resource type="Environment" id="Environment_gkwb2"]
 background_mode = 3
@@ -24,10 +24,12 @@ glow_hdr_scale = 4.0
 [sub_resource type="Resource" id="Resource_gkqgh"]
 script = ExtResource("8_1etkx")
 
-[node name="RoomManager" type="Control" unique_id=242911744]
+[node name="RoomManager" type="Control" unique_id=401721657 node_paths=PackedStringArray("room_container", "current_room")]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_vyxlf")
+script = ExtResource("1_p3gtf")
+room_container = NodePath("RoomContainer")
+current_room = NodePath("RoomContainer/Room")
 metadata/_custom_type_script = "uid://u7hbj5m3mswn"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=36547595]
@@ -44,7 +46,6 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 visible = false
 
 [node name="UI" parent="CanvasLayer" unique_id=1052533720 instance=ExtResource("3_yb5u0")]
-visible = false
 
 [node name="BG" type="ColorRect" parent="CanvasLayer" unique_id=808212251]
 z_index = -100
@@ -74,8 +75,6 @@ lookahead = true
 lookahead_time = Vector2(0.05, 0.05)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="Room" parent="." unique_id=392177367 instance=ExtResource("9_iiwnb")]
-
 [node name="BulletManager" type="Node2D" parent="." unique_id=1228174791]
 script = ExtResource("10_jkfvm")
 
@@ -83,5 +82,7 @@ script = ExtResource("10_jkfvm")
 script = ExtResource("11_o3s6b")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=144404807]
+
+[node name="Room" parent="RoomContainer" unique_id=392177367 instance=ExtResource("9_iiwnb")]
 
 [editable path="CanvasLayer/UI"]
