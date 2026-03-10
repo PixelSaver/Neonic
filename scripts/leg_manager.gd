@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 class_name LegManager
 
@@ -9,10 +10,11 @@ var legs : Array[ProceduralLeg] = []
 var step_timer := 0.0
 
 func _ready() -> void:
-	health_component.health_changed.connect(_on_health_changed)
 	for child in get_children():
 		if child is ProceduralLeg:
 			legs.append(child)
+	if Engine.is_editor_hint(): return
+	health_component.health_changed.connect(_on_health_changed)
 
 func _on_health_changed(_h, _mh) -> void:
 	taken_damage = true
@@ -51,7 +53,8 @@ func _get_best_step_candidate() -> ProceduralLeg:
 	return best_leg
 
 func _is_neighbor_stepping(leg:ProceduralLeg) -> bool:
-	for neighbor in leg.neighbors:
-		if neighbor.is_stepping:
-			return true
+	if leg:
+		for neighbor in leg.neighbors:
+			if neighbor.is_stepping:
+				return true
 	return false

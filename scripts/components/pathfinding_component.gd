@@ -18,7 +18,6 @@ func _ready() -> void:
 	else:
 		print_tree_pretty()
 		push_error("Pathfinding component couldn't find parent.")
-	#HACK Using process frame ot await player ref
 	player = Global.player_ref
 
 func _physics_process(delta: float) -> void:
@@ -54,5 +53,5 @@ func _rotate_toward(target_dir:Vector2) -> void:
 
 func _move_forward() -> void:
 	var forward = Vector2.from_angle(_parent.global_rotation)
-	_parent.apply_central_force(forward * move_force)
+	_parent.apply_central_force(forward * move_force * _parent.speed)
 	

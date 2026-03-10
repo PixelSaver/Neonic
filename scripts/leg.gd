@@ -30,6 +30,7 @@ var is_stepping := false
 var t : Tween
 
 func _ready():
+	await get_tree().process_frame
 	_parent = parent if parent else get_parent().get_parent()
 	#foot_position = self.to_global(points[2])
 	#foot_target = self.to_global(points[2])
@@ -43,12 +44,15 @@ func take_step() -> void:
 	var v = _parent.linear_velocity
 	var w = _parent.angular_velocity
 	
-	var lookahead = 0.2
+	var lookahead = 0.1
+	var move_dir = v.normalized() if v.length() > 0.01 else -get_body_up().orthogonal()
+	var overshoot := step_distance * 0.6
 	
-	var target = resting.global_position + (v * lookahead)
+	var target = resting.global_position + v * lookahead + move_dir * overshoot
 	
 	var offset_from_center = target - _parent.global_position
 	target = _parent.global_position + offset_from_center.rotated(w * lookahead)
+	
 	
 	_start_step(target)
 
@@ -86,8 +90,8 @@ func _start_step(target: Vector2):
 	t = create_tween().set_trans(Tween.TRANS_SINE).set_parallel(true)
 	t.tween_method((func(val:Vector2): foot_position = val), foot_position, foot_target, .2)
 	#TODO Get the current_lift to work visually
-	t.tween_property(self, "current_lift", step_height, step_speed / 2.0).set_ease(Tween.EASE_OUT)
-	t.tween_property(self, "current_lift", 0.0, step_speed / 2.0).set_ease(Tween.EASE_IN).set_delay(step_speed / 2.0)
+	t.tween_property(self, "current_lift", step_height, step_speed / 2.0)
+	t.tween_property(self, "current_lift", 0.0, step_speed / 2.0).set_delay(step_speed / 2.0)
 	
 	
 	t.chain().tween_callback(func():is_stepping = false)

@@ -7,9 +7,8 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.2915966), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Leg" type="Line2D" unique_id=844722159 node_paths=PackedStringArray("resting")]
-points = PackedVector2Array(-1, 0, -0.49999857, 39.996876, 0, 0)
+points = PackedVector2Array(-1, 0, 4.108437, -39.67246, -22.067835, -69.91817)
 width_curve = SubResource("Curve_thk1m")
-default_color = Color(2.844, 0, 0.289, 1)
 script = ExtResource("1_thk1m")
 resting = NodePath("Resting")
 

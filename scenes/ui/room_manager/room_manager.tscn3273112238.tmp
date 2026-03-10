@@ -94,8 +94,7 @@ script = ExtResource("11_o3s6b")
 wave_data = SubResource("Resource_1etkx")
 
 [node name="Centipede" parent="RoomContainer/Room/EnemyContainer" parent_id_path=PackedInt32Array(392177367, 1752651648) index="0" unique_id=1172271911 instance=ExtResource("14_yeis2")]
-position = Vector2(656, -241)
-max_bend_angle = 0.7853981633974483
+position = Vector2(574, -227)
 
 [editable path="CanvasLayer/UI"]
 [editable path="RoomContainer/Room"]

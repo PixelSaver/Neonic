@@ -6,7 +6,7 @@ enum Types {
 	BOSS,
 }
 var scenes = {
-	Types.BUG : preload("res://scenes/enemy.tscn")
+	Types.BUG : preload("res://scenes/enemies//enemy.tscn")
 }
 func get_enemy_scene(type:Types) -> PackedScene:
 	if scenes.has(type):

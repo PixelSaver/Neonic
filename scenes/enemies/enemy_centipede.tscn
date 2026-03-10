@@ -1,0 +1,335 @@
+[gd_scene format=3 uid="uid://crgjugxl2r7xw"]
+
+[ext_resource type="Script" uid="uid://b6ud3lblt1r7u" path="res://scripts/enemies/enemy_centipede.gd" id="1_6iw15"]
+[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_sfmsk"]
+[ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_exhx1"]
+[ext_resource type="Script" uid="uid://dnuhma4u68bsa" path="res://scripts/enemies/centipede_pathfinding.gd" id="4_6iw15"]
+[ext_resource type="Script" uid="uid://dovxpfgloh44e" path="res://scripts/mirrored_line.gd" id="5_qq1bs"]
+[ext_resource type="Script" uid="uid://ciaxt1cl10nw" path="res://scripts/leg_manager.gd" id="6_h0dkc"]
+[ext_resource type="PackedScene" uid="uid://bmrer5ryvv8c4" path="res://scenes/leg.tscn" id="7_t2vbo"]
+[ext_resource type="Script" uid="uid://bqljlqm5iusbh" path="res://scenes/ui/utilities/tool_line.gd" id="8_sfmsk"]
+
+[node name="Centipede" type="RigidBody2D" unique_id=1172271911 node_paths=PackedStringArray("segment_cont", "health_component", "knockback_component")]
+modulate = Color(2.681, 0, 0.27, 1)
+position = Vector2(146, -40)
+gravity_scale = 0.0
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 5
+linear_damp = 10.0
+angular_damp = 10.0
+script = ExtResource("1_6iw15")
+segment_cont = NodePath("SegmentContainer")
+segment_length = 70.0
+first_segment_length = 70.0
+max_bend_angle = 1.571
+health_component = NodePath("HealthComponent")
+knockback_component = NodePath("KnockbackComponent")
+enemy_type = 1
+speed = 5.0
+knockback_strength = 800.0
+metadata/_custom_type_script = "uid://cw8y265c5i8le"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1467516213]
+script = ExtResource("2_sfmsk")
+health = 4.99
+max_health = 4.99
+metadata/_custom_type_script = "uid://c0opl162vnmfw"
+
+[node name="KnockbackComponent" type="Node" parent="." unique_id=957452475]
+script = ExtResource("3_exhx1")
+metadata/_custom_type_script = "uid://dgtg2a5maatww"
+
+[node name="PathfindingComponent" type="Node" parent="." unique_id=1370504580]
+script = ExtResource("4_6iw15")
+turn_speed = 30000.0
+metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
+
+[node name="Line2D" type="Line2D" parent="." unique_id=916800914 node_paths=PackedStringArray("collision_shape", "mirrored_line")]
+points = PackedVector2Array(-41, 3, 0, -50, 48, -20, 76, -32, 93, -14)
+script = ExtResource("5_qq1bs")
+collision_shape = NodePath("../CollisionPolygon2D")
+mirrored_line = NodePath("Mirrored")
+
+[node name="Mirrored" type="Line2D" parent="Line2D" unique_id=1929862762]
+points = PackedVector2Array(-41, -3, 0, 50, 48, 20, 76, 32, 93, 14)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1549397015]
+polygon = PackedVector2Array(-41, 3, 0, -50, 48, -20, 76, -32, 93, -14, 93, 14, 76, 32, 48, 20, 0, 50, -41, -3)
+
+[node name="LegManager" type="Node2D" parent="." unique_id=1226819589 node_paths=PackedStringArray("health_component")]
+script = ExtResource("6_h0dkc")
+health_component = NodePath("../HealthComponent")
+max_simultaneous_steps = 4
+step_interval = 0.01
+
+[node name="Leg" parent="LegManager" unique_id=844722159 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_t2vbo")]
+position = Vector2(40, -30)
+points = PackedVector2Array(-1, 0, 12.811003, -37.540062, -14, -51)
+parent = NodePath("../..")
+lower_length = 30.0
+step_speed = 0.01
+resting_position = Vector2(0, -60)
+neighbors = [NodePath("../Leg2")]
+
+[node name="Leg2" parent="LegManager" unique_id=917778324 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_t2vbo")]
+position = Vector2(-10, -35)
+points = PackedVector2Array(-1, 0, 27.263958, -28.30457, 23, -58)
+parent = NodePath("../..")
+lower_length = 30.0
+step_speed = 0.01
+resting_position = Vector2(0, -60)
+neighbors = [NodePath("../Leg")]
+
+[node name="Leg3" parent="LegManager" unique_id=2136972939 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_t2vbo")]
+position = Vector2(-10, 35)
+points = PackedVector2Array(-1, 0, -10.389037, 38.88246, -18, 69)
+parent = NodePath("../..")
+lower_length = 30.0
+step_speed = 0.01
+resting_position = Vector2(0, 60)
+flip_knee = true
+neighbors = [NodePath("../Leg4")]
+
+[node name="Leg4" parent="LegManager" unique_id=1685246850 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_t2vbo")]
+position = Vector2(35, 30)
+points = PackedVector2Array(-1, 0, 22.917952, 32.06137, 21, 62)
+parent = NodePath("../..")
+lower_length = 30.0
+step_speed = 0.01
+resting_position = Vector2(0, 60)
+flip_knee = true
+neighbors = [NodePath("../Leg3")]
+
+[node name="SegmentContainer" type="Node2D" parent="." unique_id=295578657]
+modulate = Color(2.681, 0, 0.27, 1)
+show_behind_parent = true
+top_level = true
+
+[node name="Segment" type="Marker2D" parent="SegmentContainer" unique_id=1862926181]
+position = Vector2(76.20598, -34.634007)
+rotation = -0.076732345
+
+[node name="Line2D" type="Line2D" parent="SegmentContainer/Segment" unique_id=104798420]
+points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
+closed = true
+script = ExtResource("8_sfmsk")
+size = 70.0
+_points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
+metadata/_custom_type_script = "uid://bqljlqm5iusbh"
+
+[node name="LegManager2" type="Node2D" parent="SegmentContainer/Segment" unique_id=725690968 node_paths=PackedStringArray("health_component")]
+scale = Vector2(1.0000002, 1.0000002)
+script = ExtResource("6_h0dkc")
+health_component = NodePath("../../../HealthComponent")
+step_interval = 0.01
+
+[node name="Leg2" parent="SegmentContainer/Segment/LegManager2" unique_id=1337123357 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, -35)
+points = PackedVector2Array(-1, 0, 10.572167, -27.67824, -5.3721695, -39.752106)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, -40)
+
+[node name="Leg3" parent="SegmentContainer/Segment/LegManager2" unique_id=167952948 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, 35)
+points = PackedVector2Array(-1, 0, 0.57211137, 29.95878, -16.770023, 39.921227)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, 40)
+flip_knee = true
+
+[node name="Segment2" type="Marker2D" parent="SegmentContainer" unique_id=349233484]
+position = Vector2(6.2067947, -34.297474)
+rotation = -201.06674
+
+[node name="Line2D" type="Line2D" parent="SegmentContainer/Segment2" unique_id=1405591794]
+points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
+closed = true
+script = ExtResource("8_sfmsk")
+size = 70.0
+_points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
+metadata/_custom_type_script = "uid://bqljlqm5iusbh"
+
+[node name="LegManager2" type="Node2D" parent="SegmentContainer/Segment2" unique_id=485711915 node_paths=PackedStringArray("health_component")]
+scale = Vector2(1.0000002, 1.0000002)
+script = ExtResource("6_h0dkc")
+health_component = NodePath("../../../HealthComponent")
+step_interval = 0.01
+
+[node name="Leg2" parent="SegmentContainer/Segment2/LegManager2" unique_id=1709322952 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, -35)
+points = PackedVector2Array(-1, 0, 3.8733988, -29.60152, -12.998785, -40.340668)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, -40)
+
+[node name="Leg3" parent="SegmentContainer/Segment2/LegManager2" unique_id=637337025 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, 35)
+points = PackedVector2Array(-1, 0, 20.13077, 21.295319, 13.273328, 40.082962)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, 40)
+flip_knee = true
+
+[node name="Segment3" type="Marker2D" parent="SegmentContainer" unique_id=1198350844]
+position = Vector2(-63.792923, -34.495247)
+rotation = -188.49274
+
+[node name="Line2D" type="Line2D" parent="SegmentContainer/Segment3" unique_id=809062112]
+points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
+closed = true
+script = ExtResource("8_sfmsk")
+size = 70.0
+_points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
+metadata/_custom_type_script = "uid://bqljlqm5iusbh"
+
+[node name="LegManager2" type="Node2D" parent="SegmentContainer/Segment3" unique_id=1665702977 node_paths=PackedStringArray("health_component")]
+scale = Vector2(1.0000002, 1.0000002)
+script = ExtResource("6_h0dkc")
+health_component = NodePath("../../../HealthComponent")
+step_interval = 0.01
+
+[node name="Leg2" parent="SegmentContainer/Segment3/LegManager2" unique_id=646213400 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, -35)
+points = PackedVector2Array(-1, 0, 18.291498, -22.974728, 7.9206886, -40.07579)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, -40)
+
+[node name="Leg3" parent="SegmentContainer/Segment3/LegManager2" unique_id=31760876 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, 35)
+points = PackedVector2Array(-1, 0, 19.511164, 21.892742, 10.8633995, 39.92649)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, 40)
+flip_knee = true
+
+[node name="Segment4" type="Marker2D" parent="SegmentContainer" unique_id=1107739613]
+position = Vector2(-133.7923, -34.19833)
+rotation = -188.4998
+
+[node name="Line2D" type="Line2D" parent="SegmentContainer/Segment4" unique_id=493752944]
+points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
+closed = true
+script = ExtResource("8_sfmsk")
+size = 70.0
+_points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
+metadata/_custom_type_script = "uid://bqljlqm5iusbh"
+
+[node name="LegManager2" type="Node2D" parent="SegmentContainer/Segment4" unique_id=1344836545 node_paths=PackedStringArray("health_component")]
+scale = Vector2(1.0000002, 1.0000002)
+script = ExtResource("6_h0dkc")
+health_component = NodePath("../../../HealthComponent")
+step_interval = 0.01
+
+[node name="Leg2" parent="SegmentContainer/Segment4/LegManager2" unique_id=37764463 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, -35)
+points = PackedVector2Array(-1, 0, 21.30353, -20.063711, 23.870644, -39.898277)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, -40)
+
+[node name="Leg3" parent="SegmentContainer/Segment4/LegManager2" unique_id=917192851 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, 35)
+points = PackedVector2Array(-1, 0, 19.440733, 21.958517, 11.041161, 40.1092)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, 40)
+flip_knee = true
+
+[node name="Segment5" type="Marker2D" parent="SegmentContainer" unique_id=48700530]
+position = Vector2(-203.74199, -31.545145)
+rotation = -182.25029
+
+[node name="Line2D" type="Line2D" parent="SegmentContainer/Segment5" unique_id=1610011575]
+points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
+closed = true
+script = ExtResource("8_sfmsk")
+size = 70.0
+_points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
+metadata/_custom_type_script = "uid://bqljlqm5iusbh"
+
+[node name="LegManager2" type="Node2D" parent="SegmentContainer/Segment5" unique_id=183412641 node_paths=PackedStringArray("health_component")]
+scale = Vector2(1.0000002, 1.0000002)
+script = ExtResource("6_h0dkc")
+health_component = NodePath("../../../HealthComponent")
+step_interval = 0.01
+
+[node name="Leg2" parent="SegmentContainer/Segment5/LegManager2" unique_id=378695007 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, -35)
+points = PackedVector2Array(-1, 0, -11.360704, -28.154142, -28.543182, -38.389496)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, -40)
+
+[node name="Leg3" parent="SegmentContainer/Segment5/LegManager2" unique_id=388466738 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, 35)
+points = PackedVector2Array(-1, 0, 20.347277, 21.078278, 22.94191, 40.90926)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, 40)
+flip_knee = true
+
+[node name="Segment6" type="Marker2D" parent="SegmentContainer" unique_id=1724186171]
+position = Vector2(-272.44357, -18.125309)
+rotation = -188.68846
+
+[node name="Line2D" type="Line2D" parent="SegmentContainer/Segment6" unique_id=1273131116]
+points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
+closed = true
+script = ExtResource("8_sfmsk")
+size = 70.0
+_points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
+metadata/_custom_type_script = "uid://bqljlqm5iusbh"
+
+[node name="LegManager2" type="Node2D" parent="SegmentContainer/Segment6" unique_id=38333227 node_paths=PackedStringArray("health_component")]
+scale = Vector2(1.0000002, 1.0000002)
+script = ExtResource("6_h0dkc")
+health_component = NodePath("../../../HealthComponent")
+step_interval = 0.01
+
+[node name="Leg2" parent="SegmentContainer/Segment6/LegManager2" unique_id=1725791032 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, -35)
+points = PackedVector2Array(-1, 0, -6.7952414, -29.434933, -26.496338, -32.879753)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, -40)
+
+[node name="Leg3" parent="SegmentContainer/Segment6/LegManager2" unique_id=739444781 node_paths=PackedStringArray("parent") instance=ExtResource("7_t2vbo")]
+position = Vector2(1, 35)
+points = PackedVector2Array(-1, 0, 16.071783, 24.668892, 15.547745, 44.662025)
+parent = NodePath("../../../..")
+upper_length = 30.0
+lower_length = 20.0
+step_speed = 0.01
+resting_position = Vector2(0, 40)
+flip_knee = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=470184653]
+position = Vector2(-101, 0)
+polygon = PackedVector2Array(-41, 3, 0, -50, 48, -20, 76, -32, 93, -14, 93, 14, 76, 32, 48, 20, 0, 50, -41, -3)
+
+[connection signal="body_entered" from="." to="." method="_on_contact"]
