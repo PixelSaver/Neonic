@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
 [ext_resource type="Script" uid="uid://cr6qk0tbwe17w" path="res://scripts/components/enemy_spawn.gd" id="12_7oyl4"]
 [ext_resource type="Script" uid="uid://ccj1ttcbriooo" path="res://scripts/components/wave_data.gd" id="13_8gq5o"]
-[ext_resource type="PackedScene" uid="uid://crgjugxl2r7xw" path="res://scenes/enemies/enemy_centipede.tscn" id="14_yeis2"]
+[ext_resource type="PackedScene" uid="uid://crgjugxl2r7xw" path="res://scenes/enemies/centipede/enemy_centipede.tscn" id="14_yeis2"]
 
 [sub_resource type="Environment" id="Environment_gkwb2"]
 background_mode = 3

@@ -41,6 +41,7 @@ func get_distance_to_resting() -> float:
 	return foot_position.distance_to(resting.global_position)
 
 func take_step() -> void:
+	if not _parent: return
 	var v = _parent.linear_velocity
 	var w = _parent.angular_velocity
 	
@@ -63,7 +64,8 @@ func _randomize_leg_pos():
 	var side_dir = -get_body_up()
 	var body_dir = side_dir.orthogonal()
 
-	var forward_offset = rng.randf_range(-step_distance, step_distance)
+	#var forward_offset = rng.randf_range(-step_distance, step_distance)
+	var forward_offset = step_distance * 1.5
 	var side_offset = rng.randf_range(-1.0, 1.0) * 1.
 
 	var offset = body_dir * forward_offset + side_dir * side_offset

@@ -14,7 +14,8 @@ func _ready() -> void:
 		if child is ProceduralLeg:
 			legs.append(child)
 	if Engine.is_editor_hint(): return
-	health_component.health_changed.connect(_on_health_changed)
+	if health_component:
+		health_component.health_changed.connect(_on_health_changed)
 
 func _on_health_changed(_h, _mh) -> void:
 	taken_damage = true

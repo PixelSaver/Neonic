@@ -41,9 +41,9 @@ var bullet_upgrades : Array[BaseBulletStrategy] = []
 var player_upgrades : Array[BasePlayerStrategy] = []
 
 func _ready() -> void:
-	if PlayerSettings.weapon_data:
+	if PlayerSettings and PlayerSettings.weapon_data:
 		self.weapon_data = PlayerSettings.weapon_data
-	if PlayerSettings.body_data:
+	if PlayerSettings and PlayerSettings.body_data:
 		self.body_data = PlayerSettings.body_data
 	_update_size()
 	if Engine.is_editor_hint(): return
