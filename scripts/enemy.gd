@@ -34,4 +34,5 @@ func _on_contact(body: Node) -> void:
 	player.health_component.damage(_get_attack(player))
 
 func _on_death():
+	Global.unregister_enemy(self)
 	self.queue_free()

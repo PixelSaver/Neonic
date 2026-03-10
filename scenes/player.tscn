@@ -10,6 +10,7 @@
 z_index = 100
 gravity_scale = 0.0
 can_sleep = false
+continuous_cd = 2
 linear_damp = 10.0
 script = ExtResource("1_3vyb7")
 line = NodePath("Line2D")

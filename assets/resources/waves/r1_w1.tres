@@ -6,50 +6,62 @@
 [sub_resource type="Resource" id="Resource_g3aev"]
 script = ExtResource("1_g3aev")
 position = Vector2(-252, 675)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_outkf"]
 script = ExtResource("1_g3aev")
 position = Vector2(-1044, -536)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_yln2m"]
 script = ExtResource("1_g3aev")
 position = Vector2(-997, 328)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_x1eam"]
 script = ExtResource("1_g3aev")
 position = Vector2(-987, -14)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_ex1nm"]
 script = ExtResource("1_g3aev")
 position = Vector2(-687, 561)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_tvtnv"]
 script = ExtResource("1_g3aev")
 position = Vector2(-376, -620)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_p5qjq"]
 script = ExtResource("1_g3aev")
 position = Vector2(148, -646)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_p2gnl"]
 script = ExtResource("1_g3aev")
 position = Vector2(760, -591)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_ekq0l"]
 script = ExtResource("1_g3aev")
 position = Vector2(1128, 343)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_7bduq"]
 script = ExtResource("1_g3aev")
 position = Vector2(834, 606)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_hh3du"]
 script = ExtResource("1_g3aev")
 position = Vector2(134, 694)
+enemy_type = null
 
 [sub_resource type="Resource" id="Resource_2anph"]
 script = ExtResource("1_g3aev")
 position = Vector2(1021, -155)
+enemy_type = null
 
 [resource]
 script = ExtResource("2_outkf")

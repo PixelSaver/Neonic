@@ -3,6 +3,7 @@ extends Node2D
 class_name Room
 
 signal room_cleared
+signal room_left
 
 @export_group("Script Exports")
 @export var enemy_container : Node2D
@@ -10,6 +11,7 @@ signal room_cleared
 @export var border : Line2D : 
 	set(val):
 		border = val
+@export var room_exit : RoomExit
 @export_group("Editor helpers")
 @export_tool_button("Save enemies as new wave") var action_save_wave = _save_children_as_wave
 @export_group("Room Variables")
@@ -27,6 +29,12 @@ signal room_cleared
 
 func _ready() -> void:
 	_update_col()
+	if Engine.is_editor_hint(): return
+	self.room_cleared.connect(_on_cleared)
+	room_exit.room_exited.connect(func():
+		room_left.emit()
+		print("Leaving room")
+	)
 
 func _update_col():
 	if not is_inside_tree(): return
@@ -52,6 +60,9 @@ func _update_col():
 	collision_shape.build_mode = CollisionPolygon2D.BUILD_SOLIDS
 	collision_shape.queue_redraw()
 	border.queue_redraw()
+
+func _on_cleared() -> void:
+	room_exit.activated = true
 
 func _save_children_as_wave():
 	if not Engine.is_editor_hint(): return
@@ -109,9 +120,11 @@ func _run_waves(wave_indices, waves) -> void:
 		if delay >= 0:
 			await get_tree().create_timer(delay).timeout
 		else:
-			#TODO All enemies dead
 			await Global.all_enemies_cleared
 		_spawn_waves(waves[wave_idx])
+	await Global.all_enemies_cleared
+	room_cleared.emit()
+	print("Cleared!!!")
 
 func _spawn_waves(spawns:Array):
 	for spawn in spawns:

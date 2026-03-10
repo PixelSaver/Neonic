@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://rvsppgw6xtr5" path="res://scripts/room.gd" id="1_36trf"]
 [ext_resource type="Resource" uid="uid://b5lojjmy5bjpm" path="res://assets/resources/waves/r1_w1.tres" id="2_85yof"]
 [ext_resource type="PackedScene" uid="uid://2qxv63wlb60v" path="res://scenes/enemy.tscn" id="2_ffxv4"]
+[ext_resource type="PackedScene" uid="uid://i75dwx3oajaq" path="res://scenes/ui/room_manager/room_exit.tscn" id="4_14vil"]
 
-[node name="Room" type="Node2D" unique_id=392177367 node_paths=PackedStringArray("enemy_container", "collision_shape", "border")]
+[node name="Room" type="Node2D" unique_id=392177367 node_paths=PackedStringArray("enemy_container", "collision_shape", "border", "room_exit")]
 script = ExtResource("1_36trf")
 enemy_container = NodePath("EnemyContainer")
 collision_shape = NodePath("StaticBody2D/CollisionPolygon2D")
 border = NodePath("Line2D")
+room_exit = NodePath("RoomExit")
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 room_size = Vector2(1300, 800)
 wall_thickness = 100.0
@@ -61,3 +63,5 @@ position = Vector2(134, 694)
 
 [node name="Enemy12" parent="EnemyContainer" unique_id=397332712 instance=ExtResource("2_ffxv4")]
 position = Vector2(1021, -155)
+
+[node name="RoomExit" parent="." unique_id=678394635 instance=ExtResource("4_14vil")]

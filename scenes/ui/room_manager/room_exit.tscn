@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://i75dwx3oajaq"]
+
+[ext_resource type="Script" uid="uid://bavb37cmavd4c" path="res://scripts/ui/room_exit.gd" id="1_cwvdn"]
+[ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="1_duogg"]
+[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="3_p6vqn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6vqn"]
+radius = 150.0
+
+[sub_resource type="Curve" id="Curve_duogg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20909089, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70632005), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cwvdn"]
+curve = SubResource("Curve_duogg")
+
+[sub_resource type="Curve" id="Curve_kqvjj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21454546, 1), 0.0, 0.0, 0, 0, Vector2(0.3490909, 1), 0.0, 0.0, 0, 0, Vector2(0.7363636, 0.45692515), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_duogg"]
+curve = SubResource("Curve_kqvjj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kqvjj"]
+lifetime_randomness = 0.34
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 1
+emission_sphere_radius = 150.0
+angle_min = -179.99998
+angle_max = 180.00002
+spread = 0.0
+flatness = 1.0
+radial_accel_min = -500.0
+radial_accel_max = -500.0
+tangential_accel_min = 3000.0
+tangential_accel_max = 3000.0
+damping_min = 0.5
+damping_max = 0.5
+scale_min = 23.0
+scale_max = 27.0
+scale_curve = SubResource("CurveTexture_duogg")
+color = Color(0, 0.493, 3.294, 1)
+alpha_curve = SubResource("CurveTexture_cwvdn")
+hue_variation_min = 0.009999977
+hue_variation_max = 0.029999977
+
+[node name="RoomExit" type="Node2D" unique_id=678394635 node_paths=PackedStringArray("particles", "area", "label", "label2")]
+script = ExtResource("1_cwvdn")
+particles = NodePath("GPUParticles2D")
+area = NodePath("Area2D")
+label = NodePath("RichTextLabel")
+label2 = NodePath("RichTextLabel2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1884131487]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1939816006]
+shape = SubResource("CircleShape2D_p6vqn")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1996809819]
+amount = 100
+speed_scale = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_kqvjj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1338964610]
+environment = ExtResource("1_duogg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=411248534]
+offset_left = -100.0
+offset_top = -280.0
+offset_right = 100.0
+offset_bottom = -80.0
+theme = ExtResource("3_p6vqn")
+theme_override_colors/default_color = Color(0.33126736, 0, 3.2944162, 1)
+bbcode_enabled = true
+text = "EXIT"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1639340793]
+offset_left = -150.0
+offset_top = 120.0
+offset_right = 150.0
+offset_bottom = 220.0
+theme = ExtResource("3_p6vqn")
+theme_override_colors/default_color = Color(0.33126736, 0, 3.2944162, 1)
+bbcode_enabled = true
+text = "[font_size=30]Press Enter / Space"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

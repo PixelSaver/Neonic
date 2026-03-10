@@ -41,14 +41,18 @@ var bullet_upgrades : Array[BaseBulletStrategy] = []
 var player_upgrades : Array[BasePlayerStrategy] = []
 
 func _ready() -> void:
+	if PlayerSettings.weapon_data:
+		self.weapon_data = PlayerSettings.weapon_data
+	if PlayerSettings.body_data:
+		self.body_data = PlayerSettings.body_data
 	_update_size()
+	if Engine.is_editor_hint(): return
 	if health_component == null:
 		print("Health Component is null")
 	else:
 		health_component.death.connect(_on_death)
 		health_component.health_changed.connect(_on_health_changed)
-	if not Engine.is_editor_hint():
-		Global.player_ref = self
+	Global.player_ref = self
 
 func _update_size():
 	if not is_inside_tree(): return

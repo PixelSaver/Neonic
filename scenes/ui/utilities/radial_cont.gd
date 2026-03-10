@@ -202,3 +202,6 @@ func get_actual_center() -> Vector2:
 	if flip:
 		center.x = size.x - circle_center.x
 	return center
+
+func get_current_child() -> Node:
+	return _get_layout_children()[get_closest_idx()]
