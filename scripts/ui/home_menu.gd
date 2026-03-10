@@ -8,6 +8,10 @@ var all_tweenables : Array[Tweenable] = []
 @export var play_button : HomeMenuButton
 
 func _ready() -> void:
+	self.modulate.a = 0.0
+	home_anim.anim_title(0)
+	home_anim.anim_boxes(0)
+	home_anim.anim_splines(0)
 	all_tweenables = PixelMenu.get_all_tweenables(self)
 	play_button.pressed.connect(
 		func():

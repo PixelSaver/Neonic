@@ -14,8 +14,13 @@ func _on_next_room() -> void:
 		self.end_anim()
 		await get_tree().create_timer(0.5).timeout
 		Global.go_to_state(Global.State.HQ)
+		self.queue_free()
 	else:
 		current_room.wave_data = next_wave
+
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("3") and OS.is_debug_build():
+		#current_room.room_left.emit()
 
 func start_anim():
 	self.modulate.a = 0.0
