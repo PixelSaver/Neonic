@@ -10,7 +10,7 @@ var segments : Array[Node] = []
 @export var max_bend_angle := deg_to_rad(45.)
 
 func _ready() -> void:
-	self.enemy_type = EnemyDatabase.Types.CENTIPEDE
+	self.enemy_type = Types.CENTIPEDE
 
 func _physics_process(_delta: float) -> void:
 	segments = segment_cont.get_children()

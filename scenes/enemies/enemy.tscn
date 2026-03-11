@@ -10,7 +10,6 @@
 
 [node name="Enemy" type="RigidBody2D" unique_id=1695829330 node_paths=PackedStringArray("health_component", "knockback_component")]
 modulate = Color(2.681, 0, 0.27, 1)
-position = Vector2(-34, 18)
 gravity_scale = 0.0
 can_sleep = false
 contact_monitor = true
@@ -20,7 +19,7 @@ angular_damp = 10.0
 script = ExtResource("1_jt03m")
 health_component = NodePath("HealthComponent")
 knockback_component = NodePath("KnockbackComponent")
-speed = 75.0
+speed = 3.0
 knockback_strength = 800.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1467516213]
@@ -35,7 +34,7 @@ metadata/_custom_type_script = "uid://dgtg2a5maatww"
 
 [node name="PathfindingComponent" type="Node" parent="." unique_id=1370504580]
 script = ExtResource("4_y5th1")
-turn_speed = 30000.0
+turn_speed = 5000.0
 metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=916800914 node_paths=PackedStringArray("collision_shape", "mirrored_line")]
@@ -56,7 +55,7 @@ health_component = NodePath("../HealthComponent")
 
 [node name="Leg" parent="LegManager" unique_id=844722159 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_k4gvh")]
 position = Vector2(40, -30)
-points = PackedVector2Array(-1, 0, 22.63591, -32.26986, 14, -61)
+points = PackedVector2Array(-1, 0, 19.936544, -34.08315, -9, -42)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -64,7 +63,7 @@ neighbors = [NodePath("../Leg2")]
 
 [node name="Leg2" parent="LegManager" unique_id=917778324 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_k4gvh")]
 position = Vector2(-10, -35)
-points = PackedVector2Array(-1, 0, -11.580746, -38.575222, -29, -63)
+points = PackedVector2Array(-1, 0, 19.936544, -34.08315, -9, -42)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, -60)
@@ -72,7 +71,7 @@ neighbors = [NodePath("../Leg")]
 
 [node name="Leg3" parent="LegManager" unique_id=2136972939 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_k4gvh")]
 position = Vector2(-10, 35)
-points = PackedVector2Array(-1, 0, 21.30973, 33.20054, 6, 59)
+points = PackedVector2Array(-1, 0, -4.8969135, 39.809723, -9, 78)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
@@ -81,7 +80,7 @@ neighbors = [NodePath("../Leg4")]
 
 [node name="Leg4" parent="LegManager" unique_id=1685246850 node_paths=PackedStringArray("parent", "neighbors") instance=ExtResource("7_k4gvh")]
 position = Vector2(35, 30)
-points = PackedVector2Array(-1, 0, 25.453627, 30.003426, 25, 60)
+points = PackedVector2Array(-1, 0, -4.8969135, 39.809723, -9, 78)
 parent = NodePath("../..")
 lower_length = 30.0
 resting_position = Vector2(0, 60)
