@@ -1,11 +1,18 @@
 extends RigidBody2D
 class_name Enemy
 
+enum Types {
+	BUG,
+	CENTIPEDE,
+	BOSS,
+	GUNNER,
+}
+
 @export_group("Exports")
 @export var health_component : HealthComponent
 @export var knockback_component : KnockbackComponent
 @export_category("Tweakables")
-@export var enemy_type : EnemyDatabase.Types = EnemyDatabase.Types.BUG
+@export var enemy_type : Types = Types.BUG
 @export var speed : float = 100.
 @export var damage : float = 1.0
 @export var knockback_strength : float = 100.0

@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
 [ext_resource type="Script" uid="uid://cr6qk0tbwe17w" path="res://scripts/components/enemy_spawn.gd" id="12_7oyl4"]
 [ext_resource type="Script" uid="uid://ccj1ttcbriooo" path="res://scripts/components/wave_data.gd" id="13_8gq5o"]
-[ext_resource type="PackedScene" uid="uid://crgjugxl2r7xw" path="res://scenes/enemies/centipede/enemy_centipede.tscn" id="14_yeis2"]
+[ext_resource type="PackedScene" uid="uid://v4m7a74njvme" path="res://scenes/enemies/gunner/gunner_enemy.tscn" id="14_7oyl4"]
 
 [sub_resource type="Environment" id="Environment_gkwb2"]
 background_mode = 3
@@ -93,9 +93,8 @@ script = ExtResource("11_o3s6b")
 [node name="Room" parent="RoomContainer" unique_id=392177367 instance=ExtResource("9_iiwnb")]
 wave_data = SubResource("Resource_1etkx")
 
-[node name="Centipede" parent="RoomContainer/Room/EnemyContainer" parent_id_path=PackedInt32Array(392177367, 1752651648) index="0" unique_id=1172271911 instance=ExtResource("14_yeis2")]
-position = Vector2(656, -241)
-max_bend_angle = 0.7853981633974483
+[node name="GunnerEnemy" parent="RoomContainer/Room/EnemyContainer" parent_id_path=PackedInt32Array(392177367, 1752651648) index="0" unique_id=1729969687 instance=ExtResource("14_7oyl4")]
+position = Vector2(545, -161)
 
 [editable path="CanvasLayer/UI"]
 [editable path="RoomContainer/Room"]

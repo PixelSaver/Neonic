@@ -16,6 +16,27 @@ class_name ToolLine
 		_points = val
 		if Engine.is_editor_hint():
 			_update_points()
+@export_group("Polygon Tool")
+@export var polygon_sides := 6
+@export var polygon_radius := 0.5
+@export var polygon_angle_offset := 0.0
+@export_tool_button("Add Regular Polygon") var add_polygon_action = _add_regular_polygon
+
+func _add_regular_polygon():
+	if polygon_sides < 3:
+		push_warning("Polygon must have at least 3 sides.")
+		return
+	
+	var new_points := PackedVector2Array()
+	var step := TAU / polygon_sides
+	
+	for i in range(polygon_sides):
+		var angle = i * step + polygon_angle_offset
+		var p = Vector2.RIGHT.rotated(angle) * polygon_radius
+		new_points.append(p)
+	
+	_points.append_array(new_points)
+	_update_points()
 
 func _ready() -> void:
 	_update_points()

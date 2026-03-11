@@ -45,7 +45,7 @@ func take_step() -> void:
 	var v = _parent.linear_velocity
 	var w = _parent.angular_velocity
 	
-	var lookahead = 0.1
+	var lookahead = 0.3
 	var move_dir = v.normalized() if v.length() > 0.01 else -get_body_up().orthogonal()
 	var overshoot := step_distance * 0.6
 	
@@ -53,7 +53,6 @@ func take_step() -> void:
 	
 	var offset_from_center = target - _parent.global_position
 	target = _parent.global_position + offset_from_center.rotated(w * lookahead)
-	
 	
 	_start_step(target)
 

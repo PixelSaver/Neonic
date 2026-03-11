@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 func _chase_player(to_player:Vector2, _delta:float) -> void:
 	var desired_dir := to_player.normalized()
 	_rotate_toward(desired_dir)
-	if desired_dir.dot(_parent.transform.x.normalized()) > 0.7: 
+	if desired_dir.dot(_parent.transform.x.normalized()) > 0.5: 
 		_move_forward()
 
 func _wander(delta:float) -> void:

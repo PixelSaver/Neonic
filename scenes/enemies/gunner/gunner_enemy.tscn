@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://v4m7a74njvme"]
+
+[ext_resource type="Script" uid="uid://cc1ieo1x6nibk" path="res://scripts/enemies/gunner_enemy.gd" id="1_f0lmb"]
+[ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_x0klt"]
+[ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_73agu"]
+[ext_resource type="Script" uid="uid://dktsw5vpbqiyk" path="res://scripts/enemies/gunner_pathfinding.gd" id="4_ftcyf"]
+[ext_resource type="Script" uid="uid://ciaxt1cl10nw" path="res://scripts/leg_manager.gd" id="6_rr256"]
+[ext_resource type="PackedScene" uid="uid://bmrer5ryvv8c4" path="res://scenes/leg.tscn" id="7_4pwl2"]
+[ext_resource type="Script" uid="uid://ctnswi7wetdsf" path="res://scripts/components/tool_line_collision.gd" id="7_f0lmb"]
+[ext_resource type="Script" uid="uid://bqljlqm5iusbh" path="res://scenes/ui/utilities/tool_line.gd" id="8_ftcyf"]
+
+[node name="GunnerEnemy" type="RigidBody2D" unique_id=1729969687 node_paths=PackedStringArray("eye_pivot")]
+modulate = Color(2.681, 0, 0.27, 1)
+script = ExtResource("1_f0lmb")
+eye_pivot = NodePath("EyePivot")
+enemy_type = 3
+metadata/_custom_type_script = "uid://cw8y265c5i8le"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1451901085]
+script = ExtResource("2_x0klt")
+health = 4.99
+max_health = 4.99
+metadata/_custom_type_script = "uid://c0opl162vnmfw"
+
+[node name="KnockbackComponent" type="Node" parent="." unique_id=1150102126]
+script = ExtResource("3_73agu")
+metadata/_custom_type_script = "uid://dgtg2a5maatww"
+
+[node name="PathfindingComponent" type="Node" parent="." unique_id=1650403727 node_paths=PackedStringArray("parent")]
+script = ExtResource("4_ftcyf")
+parent = NodePath("..")
+turn_speed = 30000.0
+metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
+
+[node name="LegManager" type="Node2D" parent="." unique_id=889580707]
+script = ExtResource("6_rr256")
+max_simultaneous_steps = 3
+
+[node name="Leg" parent="LegManager" unique_id=844722159 instance=ExtResource("7_4pwl2")]
+position = Vector2(38, -22)
+rotation = 1.0471976
+points = PackedVector2Array(-1, 0, 6.0125775, -39.3805, 12.999994, -80.784615)
+lower_length = 30.0
+resting_position = Vector2(0, -60)
+
+[node name="Leg2" parent="LegManager" unique_id=479229242 instance=ExtResource("7_4pwl2")]
+position = Vector2(-36, -22)
+rotation = -1.0471976
+points = PackedVector2Array(-1, 0, 34.547062, -18.341381, 13.000004, -39.21539)
+lower_length = 30.0
+resting_position = Vector2(0, -60)
+
+[node name="Leg3" parent="LegManager" unique_id=1260546964 instance=ExtResource("7_4pwl2")]
+position = Vector2(1, 44)
+points = PackedVector2Array(-1, 0, 2.8026881, 39.818836, 25, 60)
+lower_length = 30.0
+resting_position = Vector2(0, 60)
+
+[node name="ToolLineCollision" type="Line2D" parent="." unique_id=44565088 node_paths=PackedStringArray("target", "col")]
+script = ExtResource("7_f0lmb")
+target = NodePath("..")
+col = NodePath("../@CollisionPolygon2D@58612")
+_points = PackedVector2Array()
+polygon_sides = null
+polygon_radius = null
+polygon_angle_offset = null
+metadata/_custom_type_script = "uid://ctnswi7wetdsf"
+
+[node name="ToolLine" type="Line2D" parent="." unique_id=326339201]
+points = PackedVector2Array(50, 0, 24.999998, 43.301273, -25.000004, 43.30127, -50, -4.371139e-06, -24.999996, -43.301273, 24.999996, -43.301273)
+closed = true
+script = ExtResource("8_ftcyf")
+size = 100.0
+_points = PackedVector2Array(0.5, 0, 0.24999999, 0.43301272, -0.25000003, 0.4330127, -0.5, -4.371139e-08, -0.24999996, -0.43301272, 0.24999996, -0.43301272)
+metadata/_custom_type_script = "uid://bqljlqm5iusbh"
+
+[node name="EyePivot" type="Node2D" parent="." unique_id=1305831219]
+
+[node name="Line2D" type="Line2D" parent="EyePivot" unique_id=1313275428]
+position = Vector2(20, 0)
+points = PackedVector2Array(0, 0, 0.001, 0)
+width = 30.0
+begin_cap_mode = 2
+end_cap_mode = 2
