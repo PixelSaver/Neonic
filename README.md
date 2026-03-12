@@ -1,8 +1,5 @@
 # Neonic
 
-# Wacky Pixels
-
-
 <a id="readme-top"></a>
 <!-- TABLE OF CONTENTS -->
 <details>
