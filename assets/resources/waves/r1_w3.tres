@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://bj81eyfcg1ytm"]
+
+[ext_resource type="Script" uid="uid://cr6qk0tbwe17w" path="res://scripts/components/enemy_spawn.gd" id="1_k87t5"]
+[ext_resource type="Script" uid="uid://ccj1ttcbriooo" path="res://scripts/components/wave_data.gd" id="2_a7dee"]
+
+[sub_resource type="Resource" id="Resource_k87t5"]
+script = ExtResource("1_k87t5")
+position = Vector2(-259, -174)
+
+[sub_resource type="Resource" id="Resource_a7dee"]
+script = ExtResource("1_k87t5")
+position = Vector2(-647, 392)
+
+[sub_resource type="Resource" id="Resource_xx6t2"]
+script = ExtResource("1_k87t5")
+position = Vector2(-684, -17)
+
+[sub_resource type="Resource" id="Resource_h60ql"]
+script = ExtResource("1_k87t5")
+position = Vector2(-1047, 291)
+enemy_type = 3
+
+[sub_resource type="Resource" id="Resource_kwfpd"]
+script = ExtResource("1_k87t5")
+position = Vector2(-1028, -448)
+enemy_type = 3
+
+[sub_resource type="Resource" id="Resource_tn1j1"]
+script = ExtResource("1_k87t5")
+position = Vector2(631, -78)
+
+[sub_resource type="Resource" id="Resource_a63nk"]
+script = ExtResource("1_k87t5")
+position = Vector2(976, 118)
+enemy_type = 1
+
+[resource]
+script = ExtResource("2_a7dee")
+enemies = Array[ExtResource("1_k87t5")]([SubResource("Resource_k87t5"), SubResource("Resource_a7dee"), SubResource("Resource_xx6t2"), SubResource("Resource_h60ql"), SubResource("Resource_kwfpd"), SubResource("Resource_tn1j1"), SubResource("Resource_a63nk")])
+metadata/_custom_type_script = "uid://ccj1ttcbriooo"

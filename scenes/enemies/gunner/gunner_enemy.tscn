@@ -12,6 +12,7 @@
 
 [sub_resource type="Resource" id="Resource_5wt5c"]
 script = ExtResource("2_ftcyf")
+fire_rate = 0.6
 metadata/_custom_type_script = "uid://8kmgel1ahfjn"
 
 [sub_resource type="Resource" id="Resource_30n7q"]
@@ -84,7 +85,7 @@ points = PackedVector2Array(50, 0, 24.999998, 43.301273, -25.000004, 43.30127, -
 closed = true
 script = ExtResource("7_f0lmb")
 target = NodePath("..")
-col = NodePath("../@CollisionPolygon2D@20575")
+col = NodePath("../@CollisionPolygon2D@99711")
 size = 100.0
 _points = PackedVector2Array(0.5, 0, 0.24999999, 0.43301272, -0.25000003, 0.4330127, -0.5, -4.371139e-08, -0.24999996, -0.43301272, 0.24999996, -0.43301272)
 metadata/_custom_type_script = "uid://ctnswi7wetdsf"

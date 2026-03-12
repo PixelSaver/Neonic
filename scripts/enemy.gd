@@ -27,7 +27,6 @@ func _get_attack(target:Node2D) -> Attack:
 	var atk = Attack.new()
 	atk.damage = self.damage
 	atk.calc_knockback(self, target, knockback_strength)
-	print("Knockback: %s" % str(atk.knockback))
 	return atk
 
 func _physics_process(_delta: float) -> void:

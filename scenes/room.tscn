@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://hfi0ownhhbh8"]
 
 [ext_resource type="Script" uid="uid://rvsppgw6xtr5" path="res://scripts/room.gd" id="1_36trf"]
-[ext_resource type="Resource" uid="uid://b5lojjmy5bjpm" path="res://assets/resources/waves/r1_w1.tres" id="2_85yof"]
+[ext_resource type="Resource" uid="uid://bv1oin3yek88k" path="res://assets/resources/waves/r1.tres" id="2_jn645"]
+[ext_resource type="PackedScene" uid="uid://2qxv63wlb60v" path="res://scenes/enemies/enemy.tscn" id="3_qvc4m"]
+[ext_resource type="PackedScene" uid="uid://v4m7a74njvme" path="res://scenes/enemies/gunner/gunner_enemy.tscn" id="4_7dqbv"]
 [ext_resource type="PackedScene" uid="uid://i75dwx3oajaq" path="res://scenes/ui/room_manager/room_exit.tscn" id="4_14vil"]
+[ext_resource type="PackedScene" uid="uid://crgjugxl2r7xw" path="res://scenes/enemies/centipede/enemy_centipede.tscn" id="5_ybpoa"]
 
 [node name="Room" type="Node2D" unique_id=392177367 node_paths=PackedStringArray("enemy_container", "collision_shape", "border", "room_exit")]
 script = ExtResource("1_36trf")
@@ -13,7 +16,7 @@ room_exit = NodePath("RoomExit")
 points = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
 room_size = Vector2(1300, 800)
 wall_thickness = 100.0
-wave_data = ExtResource("2_85yof")
+wave_data = ExtResource("2_jn645")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=453305642]
 
@@ -26,5 +29,26 @@ closed = true
 default_color = Color(2.737, 0.205, 1.243, 1)
 
 [node name="EnemyContainer" type="Node2D" parent="." unique_id=1752651648]
+
+[node name="GunnerEnemy" parent="EnemyContainer" unique_id=1729969687 instance=ExtResource("4_7dqbv")]
+position = Vector2(-1055, -619)
+
+[node name="GunnerEnemy2" parent="EnemyContainer" unique_id=1024020832 instance=ExtResource("4_7dqbv")]
+position = Vector2(-1012, 584)
+
+[node name="Centipede" parent="EnemyContainer" unique_id=1172271911 instance=ExtResource("5_ybpoa")]
+position = Vector2(1150, -272)
+
+[node name="Enemy" parent="EnemyContainer" unique_id=1695829330 instance=ExtResource("3_qvc4m")]
+position = Vector2(639, 260)
+
+[node name="Enemy2" parent="EnemyContainer" unique_id=610955235 instance=ExtResource("3_qvc4m")]
+position = Vector2(9, -573)
+
+[node name="Enemy3" parent="EnemyContainer" unique_id=432424562 instance=ExtResource("3_qvc4m")]
+position = Vector2(-744, 48)
+
+[node name="Enemy4" parent="EnemyContainer" unique_id=900686652 instance=ExtResource("3_qvc4m")]
+position = Vector2(-23, 587)
 
 [node name="RoomExit" parent="." unique_id=678394635 instance=ExtResource("4_14vil")]

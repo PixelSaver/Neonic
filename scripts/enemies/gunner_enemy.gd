@@ -10,6 +10,7 @@ var _cooldown := 0.0
 #var to_player : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	super()
 	self.enemy_type = Types.GUNNER
 
 func _process(delta: float) -> void:
@@ -42,7 +43,8 @@ func _spawn_bullet(delay:float, attack:Attack):
 	if delay > 0: await get_tree().create_timer(delay).timeout
 	
 	var inst = BULLET.instantiate() as Bullet
-	inst.global_position = self.global_position
+	var eye_pos = (Vector2.RIGHT * 20.0).rotated(eye_pivot.global_rotation)
+	inst.global_position = self.global_position + eye_pos
 	inst.look_at(Global.player_ref.global_position)
 	
 	var dir_offset := randf_range(-weapon_data.spread, weapon_data.spread) * 0.5

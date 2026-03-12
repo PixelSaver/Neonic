@@ -14,6 +14,7 @@ signal room_left
 @export var room_exit : RoomExit
 @export_group("Editor helpers")
 @export_tool_button("Save enemies as new wave") var action_save_wave = _save_children_as_wave
+@export_tool_button("Spawn all enemies") var action_spawn_all = _spawn_all_enemies
 @export_group("Room Variables")
 @export_tool_button("Reload collision") var action_reload = _update_col
 @export var points : PackedVector2Array :
@@ -26,11 +27,12 @@ signal room_left
 		_update_col()
 @export var wall_thickness := 50.0
 @export var wave_data : WaveData
+var is_last_wave := false
 
 func _ready() -> void:
 	_update_col()
 	if Engine.is_editor_hint(): return
-	self.room_cleared.connect(_on_cleared)
+	#self.room_cleared.connect(_on_cleared)
 	room_exit.room_exited.connect(func():
 		room_left.emit()
 		print("Leaving room")
@@ -61,9 +63,6 @@ func _update_col():
 	collision_shape.queue_redraw()
 	border.queue_redraw()
 
-func _on_cleared() -> void:
-	room_exit.activated = true
-
 func _save_children_as_wave():
 	if not Engine.is_editor_hint(): return
 	
@@ -85,6 +84,21 @@ func _save_children_as_wave():
 		
 		wave_data.enemies.append(spawn)
 	print("Saved wave", next_wave, " with ", enemy_container.get_child_count(), " enemies.")
+func _spawn_all_enemies():
+	if wave_data == null:
+		push_warning("No WaveData assigned.")
+		return
+
+	for spawn in wave_data.enemies:
+		var scene = EnemyDatabase.get_enemy_scene(spawn.enemy_type)
+		if scene == null:
+			continue
+
+		var inst = scene.instantiate()
+		inst.position = spawn.position
+		enemy_container.add_child(inst)
+		inst.owner = enemy_container
+	self.queue_redraw()
 
 func clear_enemies():
 	for child in enemy_container.get_children():
@@ -102,31 +116,41 @@ func _group_waves() -> Dictionary:
 		waves[spawn.wave].append(spawn)
 	return waves
 
-func spawn_enemies():
-	print("Spawning")
-	var waves = _group_waves()
-	var wave_idxes = waves.keys()
-	wave_idxes.sort()
-	
-	await _run_waves(wave_idxes, waves)
-	
-func _run_waves(wave_indices, waves) -> void:
-	for wave_idx in wave_indices:
-		var delay := -1.0
-		# Check if idx is in wave_delays
-		if wave_idx < wave_data.wave_delays.size():
-			delay = wave_data.wave_delays[wave_idx]
-			
-		if delay >= 0:
-			await get_tree().create_timer(delay).timeout
-		else:
-			await Global.all_enemies_cleared
-		_spawn_waves(waves[wave_idx])
-	await Global.all_enemies_cleared
-	room_cleared.emit()
-	print("Cleared!!!")
+func start_waves():
+	print("Starting new wave set!")
+	if wave_data == null:
+		push_warning("No wave data!")
+		return
+		
+	await _run_all_waves()
+	if is_last_wave:
+		#await Global.all_enemies_cleared
+		room_exit.activated = true
+	else:
+		room_cleared.emit()
 
-func _spawn_waves(spawns:Array):
+func _run_all_waves():
+	var waves = _group_waves()
+	var indices = waves.keys()
+	indices.sort()
+
+	for wave_idx in indices:
+		await _run_single_wave(wave_idx, waves[wave_idx])
+		
+
+func _run_single_wave(wave_idx:int, spawns:Array):
+	var delay := -1.0
+	if wave_idx < wave_data.wave_delays.size():
+		delay = wave_data.wave_delays[wave_idx]
+		
+	if delay >= 0:
+		await get_tree().create_timer(delay).timeout
+	else:
+		await Global.all_enemies_cleared
+	print("Wave %s starting now" % wave_idx)
+	_spawn_enemies_in_wave.call_deferred(spawns)
+
+func _spawn_enemies_in_wave(spawns:Array):
 	for spawn in spawns:
 		var inst = EnemyDatabase.get_enemy_scene(spawn.enemy_type).instantiate()
 		inst.position = spawn.position

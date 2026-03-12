@@ -106,8 +106,8 @@ func _on_death():
 	print("DEAD")
 
 func _on_health_changed(_h, _mh):
-	print("Health: " + str(health_component.health))
-
+	#print("Health: " + str(health_component.health))
+	pass
 
 func add_upgrade(upgrade:BaseStrategy):
 	if upgrade is BaseBulletStrategy:

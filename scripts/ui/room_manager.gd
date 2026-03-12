@@ -5,18 +5,26 @@ class_name RoomManager
 @export var current_room : Room
 
 func _ready() -> void:
-	current_room.room_left.connect(_on_next_room)
-	pass
-
-func _on_next_room() -> void:
-	var next_wave := Global.get_next_wave()
-	if next_wave == null:
-		self.end_anim()
+	current_room.room_left.connect(func():
+		end_anim()
 		await get_tree().create_timer(0.5).timeout
 		Global.go_to_state(Global.State.HQ)
-		self.queue_free()
+		queue_free()
+	)
+	current_room.room_cleared.connect(_on_room_finished)
+	pass
+
+func _on_room_finished() -> void:
+	var next_wave := WaveDatabase.get_next_wave()
+
+	if next_wave == null:
+		await Global.all_enemies_cleared
+		current_room.room_exit.activated = true
+		current_room.is_last_wave = true
 	else:
 		current_room.wave_data = next_wave
+		current_room.start_waves()
+	
 
 #func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("3") and OS.is_debug_build():
@@ -29,8 +37,7 @@ func start_anim():
 	Global.room_manager = self
 	print("going")
 	current_room.clear_enemies()
-	#current_room.wave_data = Global.get_next_wave()
-	current_room.spawn_enemies()
+	_on_room_finished()
 
 func end_anim(): 
 	Global.room_manager = null

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_q4uuy")
 fire_rate = 0.7
+damage = 100.0
 spread = 0.7
 explosiveness = 0.95
 bullets_per_cycle = 5

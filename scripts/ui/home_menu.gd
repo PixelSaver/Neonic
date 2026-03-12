@@ -27,7 +27,6 @@ func _process(_delta: float) -> void:
 
 func start_anim():
 	if is_animating or Global.is_animating: return
-	print("Startiung")
 	is_animating = true
 	Global.is_animating = true
 	var t = _get_tween()

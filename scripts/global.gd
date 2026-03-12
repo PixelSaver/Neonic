@@ -48,7 +48,6 @@ func go_to_state(new_state:State):
 var player_ref : Player :
 	set(val):
 		player_ref = val
-		print("Boom")
 
 var root : Node
 var bullet_manager : BulletManager
@@ -63,12 +62,4 @@ func unregister_enemy(enemy:Enemy):
 	enemies.erase(enemy)
 	if enemies.size() == 0:
 		all_enemies_cleared.emit()
-
-var progression : Array[WaveData] = [
-	preload("res://assets/resources/waves/r1_w1.tres")
-]
-var _curr_prog := 0
-func get_next_wave() -> WaveData: 
-	if progression.size() >= _curr_prog: return null
-	_curr_prog += 1
-	return progression[_curr_prog - 1]
+		print("All enemies cleared!")

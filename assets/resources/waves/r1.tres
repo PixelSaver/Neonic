@@ -1,0 +1,104 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://bv1oin3yek88k"]
+
+[ext_resource type="Script" uid="uid://cr6qk0tbwe17w" path="res://scripts/components/enemy_spawn.gd" id="1_7cgm7"]
+[ext_resource type="Script" uid="uid://ccj1ttcbriooo" path="res://scripts/components/wave_data.gd" id="2_qeap0"]
+
+[sub_resource type="Resource" id="Resource_14vil"]
+script = ExtResource("1_7cgm7")
+position = Vector2(561, -381)
+
+[sub_resource type="Resource" id="Resource_jxe34"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-729, -217)
+
+[sub_resource type="Resource" id="Resource_jn645"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-186, -511)
+
+[sub_resource type="Resource" id="Resource_7dqbv"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-490, 452)
+
+[sub_resource type="Resource" id="Resource_ybpoa"]
+script = ExtResource("1_7cgm7")
+position = Vector2(628, 347)
+
+[sub_resource type="Resource" id="Resource_qtoah"]
+script = ExtResource("1_7cgm7")
+position = Vector2(468, -244)
+wave = 1
+
+[sub_resource type="Resource" id="Resource_eom3m"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-420, -349)
+wave = 1
+
+[sub_resource type="Resource" id="Resource_tk5fv"]
+script = ExtResource("1_7cgm7")
+position = Vector2(557, 190)
+wave = 1
+
+[sub_resource type="Resource" id="Resource_w68ji"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-949, 249)
+wave = 1
+
+[sub_resource type="Resource" id="Resource_23wr2"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-995, -265)
+wave = 1
+
+[sub_resource type="Resource" id="Resource_3j2fx"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-224, 575)
+wave = 1
+
+[sub_resource type="Resource" id="Resource_dynfe"]
+script = ExtResource("1_7cgm7")
+position = Vector2(954, -518)
+enemy_type = 3
+wave = 1
+
+[sub_resource type="Resource" id="Resource_xptvv"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-1055, -619)
+enemy_type = 3
+wave = 2
+
+[sub_resource type="Resource" id="Resource_pahtu"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-1012, 584)
+enemy_type = 3
+wave = 2
+
+[sub_resource type="Resource" id="Resource_44ugt"]
+script = ExtResource("1_7cgm7")
+position = Vector2(1150, -272)
+enemy_type = 1
+wave = 2
+
+[sub_resource type="Resource" id="Resource_rr7e1"]
+script = ExtResource("1_7cgm7")
+position = Vector2(639, 260)
+wave = 2
+
+[sub_resource type="Resource" id="Resource_lfuyu"]
+script = ExtResource("1_7cgm7")
+position = Vector2(9, -573)
+wave = 2
+
+[sub_resource type="Resource" id="Resource_7gqux"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-744, 48)
+wave = 2
+
+[sub_resource type="Resource" id="Resource_27puk"]
+script = ExtResource("1_7cgm7")
+position = Vector2(-23, 587)
+wave = 2
+
+[resource]
+script = ExtResource("2_qeap0")
+enemies = Array[ExtResource("1_7cgm7")]([SubResource("Resource_14vil"), SubResource("Resource_jxe34"), SubResource("Resource_jn645"), SubResource("Resource_7dqbv"), SubResource("Resource_ybpoa"), SubResource("Resource_qtoah"), SubResource("Resource_eom3m"), SubResource("Resource_tk5fv"), SubResource("Resource_w68ji"), SubResource("Resource_23wr2"), SubResource("Resource_3j2fx"), SubResource("Resource_dynfe"), SubResource("Resource_xptvv"), SubResource("Resource_pahtu"), SubResource("Resource_44ugt"), SubResource("Resource_rr7e1"), SubResource("Resource_lfuyu"), SubResource("Resource_7gqux"), SubResource("Resource_27puk")])
+wave_delays = Array[float]([0.0, -1.0, -1.0])
+metadata/_custom_type_script = "uid://ccj1ttcbriooo"
