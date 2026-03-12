@@ -1,10 +1,11 @@
 extends Enemy
 class_name GunnerEnemy
 
-const BULLET = preload("res://scenes/bullet.tscn")
+const BULLET = preload("res://scenes/enemy_bullet.tscn")
 @export var eye_pivot : Node2D
 @export var weapon_data : WeaponData
 @export var pathfinding : GunnerPathfindingComponent
+@export var attack : Attack
 var _cooldown := 0.0
 #var to_player : Vector2 = Vector2.ZERO
 
@@ -27,7 +28,7 @@ func _process(delta: float) -> void:
 func _fire():
 	if not weapon_data:
 		return
-	var attack := Attack.new()
+	
 	
 	var pellets = weapon_data.pellets if "pellets" in weapon_data else 1
 	

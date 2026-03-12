@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc1ieo1x6nibk" path="res://scripts/enemies/gunner_enemy.gd" id="1_f0lmb"]
 [ext_resource type="Script" uid="uid://8kmgel1ahfjn" path="res://scripts/components/weapon_data.gd" id="2_ftcyf"]
 [ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="2_x0klt"]
+[ext_resource type="Script" uid="uid://38m76llk8oas" path="res://scripts/attack.gd" id="3_5wt5c"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_73agu"]
 [ext_resource type="Script" uid="uid://dktsw5vpbqiyk" path="res://scripts/enemies/gunner_pathfinding.gd" id="4_ftcyf"]
 [ext_resource type="Script" uid="uid://ciaxt1cl10nw" path="res://scripts/leg_manager.gd" id="6_rr256"]
@@ -12,6 +13,10 @@
 [sub_resource type="Resource" id="Resource_5wt5c"]
 script = ExtResource("2_ftcyf")
 metadata/_custom_type_script = "uid://8kmgel1ahfjn"
+
+[sub_resource type="Resource" id="Resource_30n7q"]
+script = ExtResource("3_5wt5c")
+metadata/_custom_type_script = "uid://38m76llk8oas"
 
 [node name="GunnerEnemy" type="RigidBody2D" unique_id=1729969687 node_paths=PackedStringArray("eye_pivot", "pathfinding", "health_component", "knockback_component")]
 modulate = Color(2.681, 0, 0.27, 1)
@@ -27,13 +32,11 @@ script = ExtResource("1_f0lmb")
 eye_pivot = NodePath("EyePivot")
 weapon_data = SubResource("Resource_5wt5c")
 pathfinding = NodePath("PathfindingComponent")
+attack = SubResource("Resource_30n7q")
 health_component = NodePath("HealthComponent")
 knockback_component = NodePath("KnockbackComponent")
 enemy_type = 3
 speed = 3.0
-damage = null
-knockback_strength = null
-knockback_resistance = null
 metadata/_custom_type_script = "uid://cw8y265c5i8le"
 
 [node name="PathfindingComponent" type="Node" parent="." unique_id=457896009]
@@ -81,7 +84,7 @@ points = PackedVector2Array(50, 0, 24.999998, 43.301273, -25.000004, 43.30127, -
 closed = true
 script = ExtResource("7_f0lmb")
 target = NodePath("..")
-col = NodePath("../@CollisionPolygon2D@19222")
+col = NodePath("../@CollisionPolygon2D@20575")
 size = 100.0
 _points = PackedVector2Array(0.5, 0, 0.24999999, 0.43301272, -0.25000003, 0.4330127, -0.5, -4.371139e-08, -0.24999996, -0.43301272, 0.24999996, -0.43301272)
 metadata/_custom_type_script = "uid://ctnswi7wetdsf"

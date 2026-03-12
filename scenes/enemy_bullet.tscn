@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b8lxymalissuu"]
+
+[ext_resource type="PackedScene" uid="uid://khkv72v44goa" path="res://scenes/bullet.tscn" id="1_d2qol"]
+[ext_resource type="Script" uid="uid://djt1s6o2yw1u6" path="res://scenes/enemy_bullet.gd" id="2_38r62"]
+[ext_resource type="Script" uid="uid://38m76llk8oas" path="res://scripts/attack.gd" id="2_qx7rs"]
+
+[sub_resource type="Resource" id="Resource_38r62"]
+script = ExtResource("2_qx7rs")
+metadata/_custom_type_script = "uid://38m76llk8oas"
+
+[node name="Bullet" unique_id=1687535478 instance=ExtResource("1_d2qol")]
+default_color = Color(2.681, 0, 0.27, 1)
+script = ExtResource("2_38r62")
+attack = SubResource("Resource_38r62")
+
+[node name="Area2D" parent="." index="0" unique_id=1194668302]
+collision_layer = 2
+collision_mask = 4

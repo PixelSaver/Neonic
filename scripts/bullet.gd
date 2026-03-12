@@ -1,4 +1,4 @@
-extends Node2D
+extends Line2D
 class_name Bullet
 
 @export var lifetime : float = 180
