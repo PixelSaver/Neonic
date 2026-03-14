@@ -19,12 +19,6 @@ func _ready() -> void:
 			end_anim()
 	)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("1"):
-		start_anim()
-	#if Input.is_action_just_pressed("2"):
-		#end_anim()
-
 func start_anim():
 	if is_animating or Global.is_animating: return
 	is_animating = true

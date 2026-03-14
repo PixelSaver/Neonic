@@ -29,6 +29,7 @@ func get_knockback_resistance() -> float: return knockback_resistance
 		gun_spacing = val
 		if Engine.is_editor_hint():
 			_update_gun_hold_pos()
+@export var dash_cooldown := 2.0
 @export_category("Body")
 @export_tool_button("Update player icon") var action_update = _update_size()
 @export var body_data : BodyData
@@ -39,14 +40,15 @@ func get_knockback_resistance() -> float: return knockback_resistance
 			gun.weapon_data = weapon_data
 var bullet_upgrades : Array[BaseBulletStrategy] = []
 var player_upgrades : Array[BasePlayerStrategy] = []
+var _is_dashing := false
 
 func _ready() -> void:
+	_update_size()
+	if Engine.is_editor_hint(): return
 	if PlayerSettings and PlayerSettings.weapon_data:
 		self.weapon_data = PlayerSettings.weapon_data
 	if PlayerSettings and PlayerSettings.body_data:
 		self.body_data = PlayerSettings.body_data
-	_update_size()
-	if Engine.is_editor_hint(): return
 	if health_component == null:
 		print("Health Component is null")
 	else:
@@ -84,6 +86,13 @@ func _process(_delta:float) -> void:
 	
 	if Input.is_action_pressed("shoot"):
 		gun.fire(_get_attack())
+	if Input.is_action_just_pressed("dash"):
+		_dash(Input.get_vector("left", "right", "up", "down"))
+
+func _dash(dir:Vector2) -> void:
+	dir = dir.normalized()
+	_is_dashing = true
+	self.apply_central_impulse(dir * 10000.)
 
 func _get_attack() -> Attack:
 	var atk = Attack.new()

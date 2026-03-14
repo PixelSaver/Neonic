@@ -17,10 +17,6 @@ func _ready() -> void:
 	await get_tree().process_frame
 	start_anim()
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("1") and OS.is_debug_build():
-		start_anim()
-
 func start_anim():
 	if is_animating: return
 	is_animating = true

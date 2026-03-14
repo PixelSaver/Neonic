@@ -1,33 +1,53 @@
 [gd_scene format=3 uid="uid://f0y2e2d8abym"]
 
 [ext_resource type="Script" uid="uid://cso0mkrdo44xb" path="res://scripts/enemies/enemy_heart.gd" id="1_ojfve"]
-[ext_resource type="Script" uid="uid://mnl50rwei4c0" path="res://scenes/enemies/heart/heart_pathfinding.gd" id="2_hnpyh"]
+[ext_resource type="Script" uid="uid://8kmgel1ahfjn" path="res://scripts/components/weapon_data.gd" id="2_u0o30"]
+[ext_resource type="Script" uid="uid://b6me4py8ev21d" path="res://scripts/enemies/heart_pathfinding.gd" id="2_vq2c8"]
 [ext_resource type="Script" uid="uid://c0opl162vnmfw" path="res://scripts/components/health_component.gd" id="3_hnpyh"]
+[ext_resource type="Script" uid="uid://38m76llk8oas" path="res://scripts/attack.gd" id="3_yemtn"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="4_u0o30"]
 [ext_resource type="Script" uid="uid://ciaxt1cl10nw" path="res://scripts/leg_manager.gd" id="5_yemtn"]
 [ext_resource type="Script" uid="uid://ctnswi7wetdsf" path="res://scripts/components/tool_line_collision.gd" id="7_2t7fx"]
 [ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="7_vq2c8"]
 [ext_resource type="Script" uid="uid://bqljlqm5iusbh" path="res://scenes/ui/utilities/tool_line.gd" id="9_hnpyh"]
 
+[sub_resource type="Resource" id="Resource_bqgur"]
+script = ExtResource("2_u0o30")
+bullets_per_cycle = 6
+metadata/_custom_type_script = "uid://8kmgel1ahfjn"
+
+[sub_resource type="Resource" id="Resource_2t7fx"]
+script = ExtResource("3_yemtn")
+damage = 2.0
+metadata/_custom_type_script = "uid://38m76llk8oas"
+
 [node name="HeartEnemy" type="RigidBody2D" unique_id=489024425 node_paths=PackedStringArray("health_component", "knockback_component")]
 modulate = Color(2.681, 0.329, 0.562, 1)
+mass = 10.0
 gravity_scale = 0.0
 can_sleep = false
 lock_rotation = true
+linear_damp = 10.0
 script = ExtResource("1_ojfve")
+weapon_data = SubResource("Resource_bqgur")
+gun_attack = SubResource("Resource_2t7fx")
 health_component = NodePath("HealthComponent")
 knockback_component = NodePath("KnockbackComponent")
+enemy_type = 4
 speed = 1.0
+damage = 2.0
 metadata/_custom_type_script = "uid://cw8y265c5i8le"
 
-[node name="PathfindingComponent" type="Node" parent="." unique_id=1635236309]
-script = ExtResource("2_hnpyh")
+[node name="PathfindingComponent" type="Node" parent="." unique_id=1635236309 node_paths=PackedStringArray("parent")]
+script = ExtResource("2_vq2c8")
+parent = NodePath("..")
+move_force = 1500000.0
 metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=770005473]
 script = ExtResource("3_hnpyh")
-health = 4.99
-max_health = 4.99
+health = 99.99
+max_health = 99.99
 metadata/_custom_type_script = "uid://c0opl162vnmfw"
 
 [node name="KnockbackComponent" type="Node" parent="." unique_id=2097096589]

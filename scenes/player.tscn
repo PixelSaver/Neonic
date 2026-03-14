@@ -23,6 +23,7 @@ knockback_component = NodePath("KnockbackComponent")
 gun = NodePath("GunCenter/Gun")
 gun_center = NodePath("GunCenter")
 gun_spacing = -10.0
+dash_cooldown = null
 body_data = ExtResource("2_qlg0r")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=208179252]

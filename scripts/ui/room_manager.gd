@@ -24,11 +24,6 @@ func _on_room_finished() -> void:
 	else:
 		current_room.wave_data = next_wave
 		current_room.start_waves()
-	
-
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("3") and OS.is_debug_build():
-		#current_room.room_left.emit()
 
 func start_anim():
 	self.modulate.a = 0.0
