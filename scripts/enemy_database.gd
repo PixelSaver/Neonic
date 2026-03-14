@@ -10,3 +10,5 @@ func get_enemy_scene(type:Enemy.Types) -> PackedScene:
 		return scenes.get(type)
 	else:
 		return scenes.get(Enemy.Types.BUG)
+
+var lazer_attack_scene := preload("res://scenes/enemies/heart/lazer_attack.tscn")

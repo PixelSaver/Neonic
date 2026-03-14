@@ -77,7 +77,8 @@ func _update_size():
 	_update_gun_hold_pos()
 
 func _process(_delta:float) -> void:
-	if Engine.is_editor_hint(): return
+	if Engine.is_editor_hint(): 
+		return
 	var mouse_global = get_global_mouse_position()
 	gun_center.look_at(mouse_global)
 	

@@ -5,11 +5,7 @@ extends Line2D
 @export var collision_shape : CollisionPolygon2D
 @export var mirrored_line : Line2D
 @export_group("Tweakables")
-#@export var player_size : float = 80 : 
-	#set(val):
-		#player_size = val
-		#if Engine.is_editor_hint():
-			#_update_col()
+@export var mirror_axis := Vector2(1, -1)
 
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint(): return
@@ -22,7 +18,7 @@ func _update_col():
 	position = Vector2.ZERO
 	mirrored_line.clear_points()
 	for point in points:
-		mirrored_line.add_point(point * Vector2(1, -1))
+		mirrored_line.add_point(point * mirror_axis)
 	mirrored_line.queue_redraw()
 	var _points = points
 	var _mirrored = mirrored_line.points

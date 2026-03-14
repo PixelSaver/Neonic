@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
 [ext_resource type="Script" uid="uid://cr6qk0tbwe17w" path="res://scripts/components/enemy_spawn.gd" id="12_7oyl4"]
 [ext_resource type="Script" uid="uid://ccj1ttcbriooo" path="res://scripts/components/wave_data.gd" id="13_8gq5o"]
-[ext_resource type="PackedScene" uid="uid://v4m7a74njvme" path="res://scenes/enemies/gunner/gunner_enemy.tscn" id="14_7oyl4"]
 
 [sub_resource type="Environment" id="Environment_gkwb2"]
 background_mode = 3
@@ -26,111 +25,6 @@ glow_hdr_scale = 4.0
 
 [sub_resource type="Resource" id="Resource_gkqgh"]
 script = ExtResource("8_1etkx")
-
-[sub_resource type="Resource" id="Resource_e7gyl"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-595, -166)
-
-[sub_resource type="Resource" id="Resource_5l60o"]
-script = ExtResource("12_7oyl4")
-position = Vector2(900, 265)
-
-[sub_resource type="Resource" id="Resource_n5hl8"]
-script = ExtResource("12_7oyl4")
-position = Vector2(1055, -287)
-enemy_type = 3
-
-[sub_resource type="Resource" id="Resource_i4mhu"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-214, 357)
-
-[sub_resource type="Resource" id="Resource_yrhqb"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-27, -374)
-
-[sub_resource type="Resource" id="Resource_rfocy"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-846, 386)
-enemy_type = 3
-
-[sub_resource type="Resource" id="Resource_p0sjw"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-542, -698)
-enemy_type = 3
-
-[sub_resource type="Resource" id="Resource_b0krp"]
-script = ExtResource("12_7oyl4")
-position = Vector2(645, 571)
-enemy_type = 3
-
-[sub_resource type="Resource" id="Resource_xx6t2"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-259, -174)
-wave = 1
-
-[sub_resource type="Resource" id="Resource_h60ql"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-647, 392)
-wave = 1
-
-[sub_resource type="Resource" id="Resource_kwfpd"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-684, -17)
-wave = 1
-
-[sub_resource type="Resource" id="Resource_tn1j1"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-1047, 291)
-enemy_type = 3
-wave = 1
-
-[sub_resource type="Resource" id="Resource_a63nk"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-1028, -448)
-enemy_type = 3
-wave = 1
-
-[sub_resource type="Resource" id="Resource_0l7mx"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-666, -530)
-enemy_type = 3
-wave = 1
-
-[sub_resource type="Resource" id="Resource_65mj0"]
-script = ExtResource("12_7oyl4")
-position = Vector2(631, -78)
-wave = 1
-
-[sub_resource type="Resource" id="Resource_luive"]
-script = ExtResource("12_7oyl4")
-position = Vector2(976, 118)
-enemy_type = 1
-wave = 1
-
-[sub_resource type="Resource" id="Resource_7oyl4"]
-script = ExtResource("12_7oyl4")
-position = Vector2(561, -381)
-wave = 2
-
-[sub_resource type="Resource" id="Resource_8gq5o"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-729, -217)
-wave = 2
-
-[sub_resource type="Resource" id="Resource_yeis2"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-186, -511)
-wave = 2
-
-[sub_resource type="Resource" id="Resource_iiwnb"]
-script = ExtResource("12_7oyl4")
-position = Vector2(-490, 452)
-wave = 2
-
-[sub_resource type="Resource" id="Resource_jkfvm"]
-script = ExtResource("12_7oyl4")
-position = Vector2(628, 347)
-wave = 2
 
 [sub_resource type="Resource" id="Resource_1etkx"]
 script = ExtResource("13_8gq5o")
@@ -197,8 +91,5 @@ script = ExtResource("11_o3s6b")
 
 [node name="Room" parent="RoomContainer" unique_id=392177367 instance=ExtResource("9_iiwnb")]
 wave_data = SubResource("Resource_1etkx")
-
-[node name="GunnerEnemy4" parent="RoomContainer/Room" unique_id=1729969687 instance=ExtResource("14_7oyl4")]
-position = Vector2(545, -161)
 
 [editable path="CanvasLayer/UI"]

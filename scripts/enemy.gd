@@ -6,6 +6,7 @@ enum Types {
 	CENTIPEDE,
 	BOSS,
 	GUNNER,
+	HEART,
 }
 
 @export_group("Exports")

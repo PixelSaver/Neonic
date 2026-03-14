@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://djvegeo1d8udo"]
+
+[ext_resource type="Script" uid="uid://nho6idymes5l" path="res://scripts/enemies/lazer_attack.gd" id="1_ojnq5"]
+[ext_resource type="Script" uid="uid://du6yf4vykkyov" path="res://scenes/enemies/heart/update_line.gd" id="2_ojnq5"]
+[ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="3_ybj3q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytv0v"]
+size = Vector2(400, 20)
+
+[node name="LazerAttack" type="Area2D" unique_id=708041779 node_paths=PackedStringArray("warning", "line", "collision_shape")]
+scale = Vector2(20, 7)
+monitorable = false
+script = ExtResource("1_ojnq5")
+warning = NodePath("Control")
+line = NodePath("Line2D")
+collision_shape = NodePath("CollisionShape2D")
+attack_length = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=869611542]
+visible = false
+shape = SubResource("RectangleShape2D_ytv0v")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1634463793]
+modulate = Color(1, 1, 1, 0)
+points = PackedVector2Array(-200, 0, 200, 0)
+width = 0.0
+default_color = Color(2.681, 0.329, 0.562, 1)
+script = ExtResource("2_ojnq5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1359299366]
+environment = ExtResource("3_ybj3q")
+
+[node name="Control" type="Control" parent="." unique_id=1409347828]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 20.0
+scale = Vector2(1, 1e-05)
+
+[node name="Warning" type="ColorRect" parent="Control" unique_id=192122397]
+self_modulate = Color(2.681, 0, 0.27, 0.119)
+layout_mode = 0
+offset_left = -200.0
+offset_top = -10.0
+offset_right = 200.0
+offset_bottom = 10.0
+pivot_offset_ratio = Vector2(0.5, 0.5)

@@ -21,7 +21,25 @@ class_name ToolLine
 @export var polygon_radius := 0.5
 @export var polygon_angle_offset := 0.0
 @export_tool_button("Add Regular Polygon") var add_polygon_action = _add_regular_polygon
+@export_group("Heart Tool")
+@export var heart_points := 64
+@export var heart_scale := 0.05
+@export_tool_button("Add Heart") var add_heart_action = _add_heart
 
+func _add_heart():
+	var new_points := PackedVector2Array()
+
+	for i in range(heart_points):
+		var t = float(i) / heart_points * TAU
+		
+		var x = 16 * pow(sin(t), 3)
+		var y = 13 * cos(t) - 5 * cos(2*t) - 2 * cos(3*t) - cos(4*t)
+		
+		var p = Vector2(x, -y) * heart_scale
+		new_points.append(p)
+
+	_points = new_points
+	_update_points()
 func _add_regular_polygon():
 	if polygon_sides < 3:
 		push_warning("Polygon must have at least 3 sides.")
