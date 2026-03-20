@@ -49,19 +49,18 @@ process_physics_priority = 300
 script = ExtResource("2_p3gtf")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
+[node name="UI" parent="Camera2D" unique_id=1052533720 instance=ExtResource("3_yb5u0")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -860.0
+offset_top = -490.0
+offset_right = 860.0
+offset_bottom = 490.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2062936308]
-visible = false
-
-[node name="UI" parent="CanvasLayer" unique_id=1052533720 instance=ExtResource("3_yb5u0")]
-
-[node name="BG" type="ColorRect" parent="CanvasLayer" unique_id=808212251]
-z_index = -100
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.087457694, 0.08745768, 0.08745768, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1282443079]
 environment = SubResource("Environment_gkwb2")
@@ -96,5 +95,3 @@ wave_data = SubResource("Resource_1etkx")
 
 [node name="HeartEnemy" parent="RoomContainer/Room" unique_id=489024425 instance=ExtResource("14_7oyl4")]
 position = Vector2(558, -248)
-
-[editable path="CanvasLayer/UI"]

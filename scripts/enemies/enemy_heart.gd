@@ -45,24 +45,22 @@ func _physics_process(delta: float) -> void:
 		Phase.APPROACH:
 			_process_bullets(delta)
 		Phase.LAZER:
-			_timer += delta
-			if _timer > lazer_attack_cooldown:
-				_timer -= lazer_attack_cooldown
-				var y_axis = false if last_lazer_axis == Axis.Y else true
-				last_lazer_axis = Axis.Y if y_axis else Axis.X
-				_lazer_attack(y_axis)
+			_process_lazers(delta)
 		Phase.COMBO:
-			_timer += delta
-			if _timer > lazer_attack_cooldown:
-				_timer -= lazer_attack_cooldown
-				var y_axis = false if last_lazer_axis == Axis.Y else true
-				last_lazer_axis = Axis.Y if y_axis else Axis.X
-				_lazer_attack(y_axis)
+			_process_lazers(delta)
+			_process_bullets(delta)
 func _process_bullets(delta: float) -> void:
 	if _cooldown > 0: _cooldown -= delta
 	else:
 		_cooldown = weapon_data.fire_rate
 		_fire()
+func _process_lazers(delta: float) -> void:
+	_timer += delta
+	if _timer > lazer_attack_cooldown:
+		_timer -= lazer_attack_cooldown
+		var y_axis = false if last_lazer_axis == Axis.Y else true
+		last_lazer_axis = Axis.Y if y_axis else Axis.X
+		_lazer_attack(y_axis)
 
 func _lazer_attack(y_axis:=false) -> void:
 	var atk = Attack.new()

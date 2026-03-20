@@ -1,5 +1,34 @@
 [gd_scene format=3 uid="uid://hnmw2l6ff5iw"]
 
+[ext_resource type="Script" uid="uid://0v2ldtclq8gp" path="res://scripts/ui/overlay.gd" id="1_nt7q6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4jx1"]
+bg_color = Color(0, 0, 0, 0)
+skew = Vector2(1, 0)
+border_width_left = 5
+border_width_top = 3
+border_width_right = 5
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 3.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yev5y"]
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(1, 0)
+
+[sub_resource type="Environment" id="Environment_gdt2y"]
+background_mode = 3
+ambient_light_source = 1
+reflected_light_source = 1
+glow_enabled = true
+glow_intensity = 2.0
+glow_bloom = 0.2
+glow_hdr_scale = 4.0
+
 [node name="UI" type="Control" unique_id=1052533720]
 layout_mode = 3
 anchors_preset = 15
@@ -7,20 +36,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nt7q6")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1965871192]
+[node name="PlayerHP" type="Panel" parent="." unique_id=2107375144]
+modulate = Color(0, 0.493, 3.294, 1)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.875
+anchor_right = 0.4
+anchor_bottom = 0.925
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13215789, 0.13215789, 0.13215789, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4jx1")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1215212110]
-modulate = Color(8.3, 8.3, 8.3, 1)
-layout_mode = 0
-offset_left = 475.0
-offset_top = 332.0
-offset_right = 515.0
-offset_bottom = 372.0
+[node name="Panel" type="Panel" parent="PlayerHP" unique_id=1099274914]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_yev5y")
+
+[node name="Panel2" type="Panel" parent="PlayerHP" unique_id=516755083]
+modulate = Color(1, 1, 1, 0.26200002)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_yev5y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=487796546]
+environment = SubResource("Environment_gdt2y")

@@ -121,6 +121,7 @@ func start_waves():
 	if wave_data == null:
 		push_warning("No wave data!")
 		return
+	clear_enemies()
 		
 	await _run_all_waves()
 	if is_last_wave:
