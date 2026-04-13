@@ -6,10 +6,9 @@ class_name RoomManager
 
 func _ready() -> void:
 	current_room.room_left.connect(func():
-		end_anim()
-		await get_tree().create_timer(0.5).timeout
 		Global.go_to_state(Global.State.HQ)
-		queue_free()
+		end_anim()
+		await get_tree().create_timer(0.2).timeout
 	)
 	current_room.room_cleared.connect(_on_room_finished)
 	pass

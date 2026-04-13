@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://ba7sra5q48737" path="res://scripts/upgrade_manager.gd" id="11_o3s6b"]
 [ext_resource type="Script" uid="uid://cr6qk0tbwe17w" path="res://scripts/components/enemy_spawn.gd" id="12_7oyl4"]
 [ext_resource type="Script" uid="uid://ccj1ttcbriooo" path="res://scripts/components/wave_data.gd" id="13_8gq5o"]
-[ext_resource type="PackedScene" uid="uid://f0y2e2d8abym" path="res://scenes/enemies/heart/enemy_heart.tscn" id="14_7oyl4"]
 
 [sub_resource type="Environment" id="Environment_gkwb2"]
 background_mode = 3
@@ -68,7 +67,6 @@ environment = SubResource("Environment_gkwb2")
 
 [node name="Player" parent="." unique_id=1294409382 instance=ExtResource("4_i2wdx")]
 gun_spacing = 10.0
-dash_cooldown = 2.0
 body_data = ExtResource("5_7oyl4")
 weapon_data = ExtResource("6_8gq5o")
 
@@ -93,6 +91,3 @@ script = ExtResource("11_o3s6b")
 
 [node name="Room" parent="RoomContainer" unique_id=392177367 instance=ExtResource("9_iiwnb")]
 wave_data = SubResource("Resource_1etkx")
-
-[node name="HeartEnemy" parent="RoomContainer/Room" unique_id=489024425 instance=ExtResource("14_7oyl4")]
-position = Vector2(558, -248)
