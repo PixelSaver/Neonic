@@ -37,6 +37,7 @@ func go_to_state(new_state:State):
 			if inst:
 				get_tree().root.add_child(inst)
 				await get_tree().process_frame
+				inst.show()
 				inst.start_anim()
 		State.FIGHT:
 			var scene = scenes[State.FIGHT] as PackedScene

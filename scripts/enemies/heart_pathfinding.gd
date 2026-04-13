@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not player: return
+	if not player or not heart_enemy: return
 	
 	var vec_to_player = player.global_position - _parent.global_position
 	var vec_to_center = Vector2.ZERO - _parent.global_position

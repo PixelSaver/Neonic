@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hnmw2l6ff5iw"]
 
 [ext_resource type="Script" uid="uid://0v2ldtclq8gp" path="res://scripts/ui/overlay.gd" id="1_nt7q6"]
+[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_x4jx1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4jx1"]
 bg_color = Color(0, 0, 0, 0)
@@ -29,14 +30,21 @@ glow_intensity = 2.0
 glow_bloom = 0.2
 glow_hdr_scale = 4.0
 
-[node name="UI" type="Control" unique_id=1052533720]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdt2y"]
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[node name="UI" type="Control" unique_id=1052533720 node_paths=PackedStringArray("death_screen", "home_button")]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_x4jx1")
 script = ExtResource("1_nt7q6")
+death_screen = NodePath("Death")
+home_button = NodePath("Death/BackHome")
 
 [node name="PlayerHP" type="Panel" parent="." unique_id=2107375144]
 modulate = Color(0, 0.493, 3.294, 1)
@@ -48,6 +56,7 @@ anchor_right = 0.4
 anchor_bottom = 0.925
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x4jx1")
 
 [node name="Panel" type="Panel" parent="PlayerHP" unique_id=1099274914]
@@ -62,6 +71,7 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0, 0.5)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yev5y")
 
 [node name="Panel2" type="Panel" parent="PlayerHP" unique_id=516755083]
@@ -77,7 +87,61 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0, 0.5)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yev5y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=487796546]
 environment = SubResource("Environment_gdt2y")
+
+[node name="Death" type="Panel" parent="." unique_id=1973038410]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdt2y")
+
+[node name="Title" type="RichTextLabel" parent="Death" unique_id=1740975465]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.55
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 180
+bbcode_enabled = true
+text = "[color=red]You Died"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BackHome" type="Button" parent="Death" unique_id=1547339646]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.559
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Death/BackHome" unique_id=838131824]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "Back to Headquarters"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

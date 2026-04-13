@@ -38,6 +38,9 @@ func end_anim():
 	Global.room_manager = null
 	var t = _get_tween()
 	t.tween_property(self, "modulate:a", 0.0, 0.5)
+	t.tween_callback(func():
+		self.queue_free()
+	)
 
 func _get_tween() -> Tween:
 	return create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART).set_parallel(true)

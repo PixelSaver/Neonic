@@ -8,7 +8,7 @@
 [ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="6_tuyoq"]
 
 [node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component", "knockback_component", "gun", "gun_center")]
-z_index = 100
+z_index = 1
 collision_layer = 5
 collision_mask = 7
 gravity_scale = 0.0
@@ -23,7 +23,6 @@ knockback_component = NodePath("KnockbackComponent")
 gun = NodePath("GunCenter/Gun")
 gun_center = NodePath("GunCenter")
 gun_spacing = -10.0
-dash_cooldown = null
 body_data = ExtResource("2_qlg0r")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=208179252]
