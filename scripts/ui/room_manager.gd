@@ -26,9 +26,6 @@ func _on_room_finished() -> void:
 		current_room.wave_data = next_wave
 		current_room.start_waves()
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("3"):
-		special_ending(Vector2.ZERO)
 
 func start_anim():
 	self.modulate.a = 0.0
