@@ -42,17 +42,17 @@ func get_distance_to_resting() -> float:
 
 func take_step() -> void:
 	if not _parent: return
-	var v = _parent.linear_velocity
-	var w = _parent.angular_velocity
+	var v = _parent.linear_velocity 
+	var w = _parent.angular_velocity 
 	
-	var lookahead = 0.3
+	var lookahead = 0.2
 	var move_dir = v.normalized() if v.length() > 0.01 else -get_body_up().orthogonal()
 	var overshoot := step_distance * 0.6
 	
 	var target = resting.global_position + v * lookahead + move_dir * overshoot
 	
 	var offset_from_center = target - _parent.global_position
-	target = _parent.global_position + offset_from_center.rotated(w * lookahead)
+	target = _parent.global_position + offset_from_center.rotated(w * 0.2) 
 	
 	_start_step(target)
 
