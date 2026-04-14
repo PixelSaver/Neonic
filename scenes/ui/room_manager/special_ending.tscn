@@ -28,7 +28,7 @@ anchor_right = 0.85
 anchor_bottom = 0.813
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 theme = ExtResource("1_qjpfc")
 bbcode_enabled = true
 text = "Thank you so much for playing! This was only ever meant to be a [wave]demo[/wave] and an exercise, but if you really would like to see a game out of this, please [rainbow]star[/rainbow] the [color=#00e3ff][url=https://github.com/pixelsaver/neonic]github repo[/url][/color]!"
