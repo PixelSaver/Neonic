@@ -110,3 +110,8 @@ func _spawn_bullet(delay:float, attack:Attack, rot:float):
 	for upgrade in Global.player_ref.bullet_upgrades:
 		upgrade.apply_upgrade(inst)
 	Global.bullet_manager.register_bullet(inst)
+
+func _on_death():
+	Global.unregister_enemy(self)
+	Global.room_manager.special_ending(self.global_position)
+	self.queue_free()

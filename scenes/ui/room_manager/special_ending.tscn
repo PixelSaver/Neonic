@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dngtyofs50by5"]
+
+[ext_resource type="Script" uid="uid://bmrg8vxmcxxjs" path="res://scenes/ui/room_manager/special_ending.gd" id="1_a3it0"]
+[ext_resource type="Theme" uid="uid://bkcveu1jjdjb8" path="res://assets/start_menu.tres" id="1_qjpfc"]
+[ext_resource type="Script" uid="uid://bmm4cpa5q27tp" path="res://scenes/ui/room_manager/button.gd" id="2_f304l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjpfc"]
+bg_color = Color(0.99160117, 0.33183005, 0.33183005, 0.776)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Polygon2D" type="Polygon2D" unique_id=1598582684]
+z_index = 15
+scale = Vector2(6, 6)
+color = Color(2.681, 0.329, 0.562, 1)
+polygon = PackedVector2Array(0, -25, 0.07533488, -25.978575, 0.59401464, -28.803825, 1.9568717, -33.157032, 4.483415, -38.54767, 8.38011, -44.368874, 13.718508, -49.964878, 20.425173, -54.701786, 28.284273, -58.03301, 36.952694, -59.55143, 45.986374, -59.02254, 54.875618, -56.39531, 63.086445, -51.790886, 70.10429, -45.47193, 75.47651, -37.79803, 78.84989, -29.174194, 80, -20, 78.84989, -10.626273, 75.47651, -1.3248812, 70.10429, 7.7252855, 63.086445, 16.43555, 54.875618, 24.789963, 45.986374, 32.817303, 36.952694, 40.55812, 28.284273, 48.03301, 20.425173, 55.21751, 13.718508, 62.027977, 8.38011, 68.32056, 4.483415, 73.90301, 1.9568717, 78.55735, 0.59401464, 82.06887, 0.07533488, 84.25663, 0, 85, -0.07533488, 84.25663, -0.59401464, 82.06887, -1.9568717, 78.55735, -4.483415, 73.90301, -8.38011, 68.32056, -13.718508, 62.027977, -20.425173, 55.21751, -28.284273, 48.03301, -36.952694, 40.55812, -45.986374, 32.817303, -54.875618, 24.789963, -63.086445, 16.43555, -70.10429, 7.7252855, -75.47651, -1.3248812, -78.84989, -10.626273, -80, -20, -78.84989, -29.174194, -75.47651, -37.79803, -70.10429, -45.47193, -63.086445, -51.790886, -54.875618, -56.39531, -45.986374, -59.02254, -36.952694, -59.55143, -28.284273, -58.03301, -20.425173, -54.701786, -13.718508, -49.964878, -8.38011, -44.368874, -4.483415, -38.54767, -1.9568717, -33.157032, -0.59401464, -28.803825, -0.07533488, -25.978575)
+script = ExtResource("1_a3it0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1298686030]
+layer = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=809414684]
+anchors_preset = -1
+anchor_left = 0.15
+anchor_right = 0.85
+anchor_bottom = 0.813
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_qjpfc")
+bbcode_enabled = true
+text = "Thank you so much for playing! This was only ever meant to be a [wave]demo[/wave] and an exercise, but if you really would like to see a game out of this, please [rainbow]star[/rainbow] the [color=#00e3ff][url=https://github.com/pixelsaver/neonic]github repo[/url][/color]!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1512182994]
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.65
+anchor_right = 0.65
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qjpfc")
+flat = true
+script = ExtResource("2_f304l")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Button" unique_id=1328580199]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjpfc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Button" unique_id=1814935866]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "Go Back"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
