@@ -23,6 +23,7 @@ func get_knockback_resistance() -> float: return knockback_resistance
 func _ready() -> void:
 	Global.register_enemy(self)
 	health_component.death.connect(_on_death)
+	health_component.health_changed.connect(_on_h_changed)
 
 func _get_attack(target:Node2D) -> Attack:
 	var atk = Attack.new()
@@ -33,6 +34,9 @@ func _get_attack(target:Node2D) -> Attack:
 func _physics_process(_delta: float) -> void:
 	pass
 		
+
+func _on_h_changed(h, mh) -> void:
+	print(h)
 
 func _on_contact(body: Node) -> void:
 	#TODO Apply an attack cooldown so that constant contact still means damage

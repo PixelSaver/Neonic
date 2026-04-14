@@ -11,7 +11,7 @@ metadata/_custom_type_script = "uid://38m76llk8oas"
 [node name="Bullet" unique_id=1687535478 instance=ExtResource("1_d2qol")]
 default_color = Color(2.681, 0, 0.27, 1)
 script = ExtResource("2_38r62")
-speed = 750.0
+speed = 500.0
 attack = SubResource("Resource_38r62")
 
 [node name="Area2D" parent="." index="0" unique_id=1194668302]

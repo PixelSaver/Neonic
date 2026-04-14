@@ -19,8 +19,10 @@ class_name BoxLine
 
 func _ready() -> void:
 	await get_tree().process_frame
-	_update_points()
 	target.pivot_offset_ratio = target_pivot_ratio
+	self.outline_proportion = Vector2.ZERO
+	await get_tree().process_frame
+	_update_points()
 
 func _update_points():
 	if not target:

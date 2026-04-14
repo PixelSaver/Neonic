@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://rvsppgw6xtr5" path="res://scripts/room.gd" id="1_36trf"]
 [ext_resource type="Resource" uid="uid://bv1oin3yek88k" path="res://assets/resources/waves/r1.tres" id="2_jn645"]
-[ext_resource type="PackedScene" uid="uid://f0y2e2d8abym" path="res://scenes/enemies/heart/enemy_heart.tscn" id="3_14vil"]
 [ext_resource type="PackedScene" uid="uid://i75dwx3oajaq" path="res://scenes/ui/room_manager/room_exit.tscn" id="4_14vil"]
 
 [node name="Room" type="Node2D" unique_id=392177367 node_paths=PackedStringArray("enemy_container", "collision_shape", "border", "room_exit")]
@@ -27,7 +26,5 @@ closed = true
 default_color = Color(2.737, 0.205, 1.243, 1)
 
 [node name="EnemyContainer" type="Node2D" parent="." unique_id=1752651648]
-
-[node name="HeartEnemy" parent="EnemyContainer" unique_id=489024425 instance=ExtResource("3_14vil")]
 
 [node name="RoomExit" parent="." unique_id=678394635 instance=ExtResource("4_14vil")]

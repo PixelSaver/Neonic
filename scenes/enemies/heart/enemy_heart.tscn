@@ -13,6 +13,7 @@
 
 [sub_resource type="Resource" id="Resource_bqgur"]
 script = ExtResource("2_u0o30")
+fire_rate = 0.5
 bullets_per_cycle = 6
 metadata/_custom_type_script = "uid://8kmgel1ahfjn"
 

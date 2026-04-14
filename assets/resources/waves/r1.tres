@@ -65,15 +65,9 @@ position = Vector2(-1055, -619)
 enemy_type = 3
 wave = 2
 
-[sub_resource type="Resource" id="Resource_pahtu"]
-script = ExtResource("1_7cgm7")
-position = Vector2(-1012, 584)
-enemy_type = 3
-wave = 2
-
 [sub_resource type="Resource" id="Resource_44ugt"]
 script = ExtResource("1_7cgm7")
-position = Vector2(1150, -272)
+position = Vector2(750, -272)
 enemy_type = 1
 wave = 2
 
@@ -104,6 +98,6 @@ wave = 3
 
 [resource]
 script = ExtResource("2_qeap0")
-enemies = Array[ExtResource("1_7cgm7")]([SubResource("Resource_14vil"), SubResource("Resource_jxe34"), SubResource("Resource_jn645"), SubResource("Resource_7dqbv"), SubResource("Resource_ybpoa"), SubResource("Resource_qtoah"), SubResource("Resource_eom3m"), SubResource("Resource_tk5fv"), SubResource("Resource_w68ji"), SubResource("Resource_23wr2"), SubResource("Resource_3j2fx"), SubResource("Resource_dynfe"), SubResource("Resource_xptvv"), SubResource("Resource_pahtu"), SubResource("Resource_44ugt"), SubResource("Resource_rr7e1"), SubResource("Resource_lfuyu"), SubResource("Resource_7gqux"), SubResource("Resource_27puk"), SubResource("Resource_7cgm7")])
+enemies = Array[ExtResource("1_7cgm7")]([SubResource("Resource_14vil"), SubResource("Resource_jxe34"), SubResource("Resource_jn645"), SubResource("Resource_7dqbv"), SubResource("Resource_ybpoa"), SubResource("Resource_qtoah"), SubResource("Resource_eom3m"), SubResource("Resource_tk5fv"), SubResource("Resource_w68ji"), SubResource("Resource_23wr2"), SubResource("Resource_3j2fx"), SubResource("Resource_dynfe"), SubResource("Resource_xptvv"), SubResource("Resource_44ugt"), SubResource("Resource_rr7e1"), SubResource("Resource_lfuyu"), SubResource("Resource_7gqux"), SubResource("Resource_27puk"), SubResource("Resource_7cgm7")])
 wave_delays = Array[float]([0.0, -1.0, -1.0, -1.0])
 metadata/_custom_type_script = "uid://ccj1ttcbriooo"

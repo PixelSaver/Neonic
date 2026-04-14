@@ -28,7 +28,7 @@ func _ready() -> void:
 func damage(atk: Attack):
 	health -= atk.damage
 	if _target.has_node(^"KnockbackComponent"):
-		var kb_c = _target.get_node(^"KnockbackComponent")
+		var kb_c = _target.get_node(^"KnockbackComponent") as KnockbackComponent
 		kb_c.apply_knockback(atk)
 	if health < 0:
 		death.emit()

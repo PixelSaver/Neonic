@@ -69,7 +69,8 @@ func _spawn_bullet(delay:float, attack:Attack):
 	var dir_offset := randf_range(-weapon_data.spread, weapon_data.spread) * 0.5
 	inst.global_rotation += dir_offset
 	
-	attack.damage *= weapon_data.damage
+	#HACK Using only weapon data damage
+	attack.damage = weapon_data.damage
 	inst.attack = attack
 	
 	inst.speed = weapon_data.bullet_speed

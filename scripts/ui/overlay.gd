@@ -31,6 +31,7 @@ func _on_death() -> void:
 	var t = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT).set_parallel(true)
 	death_screen.show()
 	death_screen.modulate.a = 0.0
+	room_man.room_container.process_mode = Node.PROCESS_MODE_DISABLED
 	t.tween_property(death_screen, "modulate:a", 1.0, 0.6)
 
 func _on_home_button_pressed() -> void:
