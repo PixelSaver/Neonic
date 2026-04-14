@@ -27,12 +27,13 @@ knockback_component = NodePath("KnockbackComponent")
 enemy_type = 1
 speed = 10.0
 knockback_strength = 800.0
+knockback_resistance = 0.9
 metadata/_custom_type_script = "uid://cw8y265c5i8le"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1467516213]
 script = ExtResource("2_tkbju")
-health = 4.99
-max_health = 4.99
+health = 20.0
+max_health = 20.0
 metadata/_custom_type_script = "uid://c0opl162vnmfw"
 
 [node name="KnockbackComponent" type="Node" parent="." unique_id=957452475]
@@ -41,7 +42,7 @@ metadata/_custom_type_script = "uid://dgtg2a5maatww"
 
 [node name="PathfindingComponent" type="Node" parent="." unique_id=1370504580]
 script = ExtResource("4_vgukq")
-turn_speed = 100000.0
+turn_speed = 500000.0
 move_force = 1000.0
 metadata/_custom_type_script = "uid://b1rqm1btwvqyo"
 
@@ -108,14 +109,14 @@ top_level = true
 
 [node name="Segment" type="Marker2D" parent="SegmentContainer" unique_id=61617002]
 position = Vector2(-69.99828, 0.4899887)
-rotation = -0.0069998964
+rotation = -0.006999896
 
 [node name="Line2D" type="Line2D" parent="SegmentContainer/Segment" unique_id=1857509970 node_paths=PackedStringArray("target", "col")]
 points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
 closed = true
 script = ExtResource("8_tkbju")
 target = NodePath("../../..")
-col = NodePath("../../../@CollisionPolygon2D@139727")
+col = NodePath("../../../@CollisionPolygon2D@159480")
 size = 70.0
 _points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
 metadata/_custom_type_script = "uid://bqljlqm5iusbh"
@@ -136,7 +137,7 @@ resting_position = Vector2(0, -40)
 
 [node name="Leg3" parent="SegmentContainer/Segment/LegManager2" unique_id=679770614 node_paths=PackedStringArray("parent") instance=ExtResource("7_c6655")]
 position = Vector2(1, 35)
-points = PackedVector2Array(-1, 0, 20.795097, 20.61489, 24.999401, 40.16799)
+points = PackedVector2Array(-1, 0, 20.795092, 20.614895, 24.999401, 40.168)
 parent = NodePath("../../../..")
 upper_length = 30.0
 lower_length = 20.0
@@ -153,7 +154,7 @@ points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
 closed = true
 script = ExtResource("8_tkbju")
 target = NodePath("../../..")
-col = NodePath("../../../@CollisionPolygon2D@139728")
+col = NodePath("../../../@CollisionPolygon2D@159481")
 size = 70.0
 _points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
 metadata/_custom_type_script = "uid://bqljlqm5iusbh"
@@ -191,7 +192,7 @@ points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
 closed = true
 script = ExtResource("8_tkbju")
 target = NodePath("../../..")
-col = NodePath("../../../@CollisionPolygon2D@139729")
+col = NodePath("../../../@CollisionPolygon2D@159482")
 size = 70.0
 _points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
 metadata/_custom_type_script = "uid://bqljlqm5iusbh"
@@ -229,7 +230,7 @@ points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
 closed = true
 script = ExtResource("8_tkbju")
 target = NodePath("../../..")
-col = NodePath("../../../@CollisionPolygon2D@139730")
+col = NodePath("../../../@CollisionPolygon2D@159483")
 size = 70.0
 _points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
 metadata/_custom_type_script = "uid://bqljlqm5iusbh"
@@ -267,7 +268,7 @@ points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
 closed = true
 script = ExtResource("8_tkbju")
 target = NodePath("../../..")
-col = NodePath("../../../@CollisionPolygon2D@139731")
+col = NodePath("../../../@CollisionPolygon2D@159484")
 size = 70.0
 _points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
 metadata/_custom_type_script = "uid://bqljlqm5iusbh"
@@ -298,14 +299,14 @@ flip_knee = true
 
 [node name="Segment6" type="Marker2D" parent="SegmentContainer" unique_id=228700097]
 position = Vector2(-419.98938, 2.9870372)
-rotation = -0.0071820156
+rotation = -0.007182019
 
 [node name="Line2D" type="Line2D" parent="SegmentContainer/Segment6" unique_id=47802744 node_paths=PackedStringArray("target", "col")]
 points = PackedVector2Array(-35, 0, 0, -35, 35, 0, 0, 35)
 closed = true
 script = ExtResource("8_tkbju")
 target = NodePath("../../..")
-col = NodePath("../../../@CollisionPolygon2D@139732")
+col = NodePath("../../../@CollisionPolygon2D@159485")
 size = 70.0
 _points = PackedVector2Array(-0.5, 0, 0, -0.5, 0.5, 0, 0, 0.5)
 metadata/_custom_type_script = "uid://bqljlqm5iusbh"
@@ -317,7 +318,7 @@ step_interval = 0.01
 
 [node name="Leg2" parent="SegmentContainer/Segment6/LegManager2" unique_id=1202381952 node_paths=PackedStringArray("parent") instance=ExtResource("7_c6655")]
 position = Vector2(1, -35)
-points = PackedVector2Array(-1, 0, 21.184958, -20.194744, 24.99939, -39.82763)
+points = PackedVector2Array(-1, 0, 21.184948, -20.194754, 24.99939, -39.827637)
 parent = NodePath("../../../..")
 upper_length = 30.0
 lower_length = 20.0
@@ -326,7 +327,7 @@ resting_position = Vector2(0, -40)
 
 [node name="Leg3" parent="SegmentContainer/Segment6/LegManager2" unique_id=671674157 node_paths=PackedStringArray("parent") instance=ExtResource("7_c6655")]
 position = Vector2(1, 35)
-points = PackedVector2Array(-1, 0, 20.789894, 20.620392, 24.99942, 40.17237)
+points = PackedVector2Array(-1, 0, 20.789904, 20.62038, 24.99942, 40.172363)
 parent = NodePath("../../../..")
 upper_length = 30.0
 lower_length = 20.0
