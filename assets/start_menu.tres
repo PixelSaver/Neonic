@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://bkcveu1jjdjb8"]
 
-[ext_resource type="FontFile" uid="uid://drsi1hfcqqt7c" path="res://assets/fonts/Spantaran (DEMO).ttf" id="1_lbpqq"]
+[ext_resource type="FontFile" uid="uid://d202nke3jmmh4" path="res://assets/fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_lbpqq"]
 
 [resource]
 default_font = ExtResource("1_lbpqq")
-default_font_size = 80
+default_font_size = 60

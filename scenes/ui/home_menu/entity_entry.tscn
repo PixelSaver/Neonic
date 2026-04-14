@@ -47,7 +47,7 @@ theme_override_constants/separation = 0
 [node name="Title" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer" unique_id=1807413439]
 layout_mode = 2
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Weapon"
 fit_content = true

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://drsi1hfcqqt7c"
-path="res://.godot/imported/Spantaran (DEMO).ttf-d3cd155689817ee271a6caa7ae77798b.fontdata"
+path="res://.godot/imported/Spantaran (DEMO).ttf-175b0752fc45c6ca9e474cf6717fe0ed.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Spantaran (DEMO).ttf"
-dest_files=["res://.godot/imported/Spantaran (DEMO).ttf-d3cd155689817ee271a6caa7ae77798b.fontdata"]
+source_file="res://assets/fonts/spantaran/Spantaran (DEMO).ttf"
+dest_files=["res://.godot/imported/Spantaran (DEMO).ttf-175b0752fc45c6ca9e474cf6717fe0ed.fontdata"]
 
 [params]
 

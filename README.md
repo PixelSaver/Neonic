@@ -5,14 +5,14 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#play">Play</a></li>
-    <li><a href="#screenshots">Screenshots</a></li>
-    <li><a href="#built-with">Built With</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+	<li><a href="#about-the-project">About The Project</a></li>
+	<li><a href="#play">Play</a></li>
+	<li><a href="#screenshots">Screenshots</a></li>
+	<li><a href="#built-with">Built With</a></li>
+	<li><a href="#roadmap">Roadmap</a></li>
+	<li><a href="#license">License</a></li>
+	<li><a href="#contact">Contact</a></li>
+	<li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -115,7 +115,7 @@ Project Link: [https://github.com/PixelSaver/neonic](https://github.com/PixelSav
 ## Acknowledgments
 - [Zero Sum Game](https://arandompsi.itch.io/zero-sum) - HEAVILY INSPIRED BY THESE DEVELOPERS!! GO CHECK THEM OUT!!
 - [Just U and I](https://pixelsaver.itch.io/just-u-and-i) - My old shenanigans which led me to use them here! This is just the UI inspiration though
-
+- [Zen Dots](https://github.com/googlefonts/zen-dots) - Fontface!! Copyright 2021 The Dots Project Authors licensed under [SIL Open Font License, Version 1.1](https://openfontlicense.org/open-font-license-official-text/)
 ---
 
 I'm sorry to those who have astigmatism...

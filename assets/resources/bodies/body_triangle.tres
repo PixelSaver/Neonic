@@ -4,6 +4,9 @@
 
 [resource]
 script = ExtResource("1_8iqg5")
+max_hp = 13.0
+move_speed = 1.2
+dash = true
 skill = null
 ultimate = null
 entity_name = "Triangle"

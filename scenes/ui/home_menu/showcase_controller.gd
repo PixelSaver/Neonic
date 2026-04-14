@@ -4,6 +4,8 @@ class_name ShowcaseController
 @export var radial_selector : RadialSelector
 @export var entity_showcase : EntityShowcase
 
+
+
 func _update_showcase():
 	var entry = radial_selector.get_current_child() as WeaponEntry
 	if not entry: return

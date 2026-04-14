@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ctr4ak8eqrh82"]
+
+[ext_resource type="Script" uid="uid://c3rwftl570i2b" path="res://scenes/ui/home_menu/body_stats.gd" id="1_y3blc"]
+
+[node name="StatsShowcase" type="MarginContainer" unique_id=1479816175 node_paths=PackedStringArray("_name", "_description")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_y3blc")
+_name = NodePath("Text/Title")
+_description = NodePath("Text/Description")
+
+[node name="Text" type="VBoxContainer" parent="." unique_id=1073076067]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Title" type="RichTextLabel" parent="Text" unique_id=911080357]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "TITLE"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="Text" unique_id=2133312782]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "description: lorem ipsum and stuff"
+fit_content = true

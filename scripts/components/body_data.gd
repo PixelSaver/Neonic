@@ -5,7 +5,7 @@ class_name BodyData
 @export var max_hp := 10.0
 @export var move_speed := 1.0
 @export var weight := 1.0
-@export var dash := 1.0
+@export var dash := false
 #TODO Add skills and ultimates
 @export var skill = null
 @export var ultimate = null

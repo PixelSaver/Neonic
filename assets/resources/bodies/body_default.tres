@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_nw86o")
+max_hp = 15.0
 skill = null
 ultimate = null
 entity_name = "Default"

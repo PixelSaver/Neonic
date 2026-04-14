@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_5uc2a")
+max_hp = 15.0
+move_speed = 0.7
 skill = null
 ultimate = null
 entity_name = "Star"

@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://dwvkpuhddinch" path="res://assets/resources/guns/gun_regular.tres" id="10_bnd2k"]
 [ext_resource type="Resource" uid="uid://dm8sade1oc7rv" path="res://assets/resources/guns/gun_shotgun.tres" id="11_lvn86"]
 [ext_resource type="Resource" uid="uid://djssvlfob4egc" path="res://assets/resources/guns/gun_sniper.tres" id="12_cp36n"]
+[ext_resource type="PackedScene" uid="uid://ctr4ak8eqrh82" path="res://scenes/ui/home_menu/stats_showcase.tscn" id="15_nn0xo"]
 [ext_resource type="Resource" uid="uid://cstqfqhdt11ev" path="res://assets/resources/bodies/body_default.tres" id="16_lvn86"]
 [ext_resource type="Resource" uid="uid://bfgb4olqjq0is" path="res://assets/resources/bodies/body_triangle.tres" id="17_cp36n"]
 [ext_resource type="Resource" uid="uid://c3abcv6xhpb63" path="res://assets/resources/bodies/body_star.tres" id="18_atbu8"]
@@ -144,7 +145,7 @@ default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
 antialiased = true
 script = ExtResource("9_r7x5e")
-target = NodePath("../../../HBoxContainer/Left/MarginContainer")
+target = NodePath("../../../HBoxContainer/Left/WeaponStats")
 flip_h = true
 metadata/_custom_type_script = "uid://rpabkj42rhiy"
 
@@ -156,7 +157,7 @@ default_color = Color(0, 0.493, 3.294, 1)
 joint_mode = 1
 antialiased = true
 script = ExtResource("9_r7x5e")
-target = NodePath("../../../HBoxContainer/Right/MarginContainer")
+target = NodePath("../../../HBoxContainer/Right/BodyStats")
 metadata/_custom_type_script = "uid://rpabkj42rhiy"
 
 [node name="SplineLine" type="Line2D" parent="Control/BottomStuff" unique_id=923003746]
@@ -235,33 +236,9 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Left" unique_id=1306965350]
+[node name="WeaponStats" parent="HBoxContainer/Left" unique_id=1479816175 instance=ExtResource("15_nn0xo")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Text" type="VBoxContainer" parent="HBoxContainer/Left/MarginContainer" unique_id=1336245421]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Left/MarginContainer/Text" unique_id=1306759490]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 60
-bbcode_enabled = true
-text = "TITLE"
-fit_content = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/Left/MarginContainer/Text" unique_id=1180049294]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "description: lorem ipsum and stuff"
-fit_content = true
+type = 1
 
 [node name="Center" type="Control" parent="HBoxContainer" unique_id=1715130507]
 layout_mode = 2
@@ -341,36 +318,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Right" unique_id=33409727]
+[node name="BodyStats" parent="HBoxContainer/Right" unique_id=338138720 instance=ExtResource("15_nn0xo")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-mouse_filter = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Text" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer" unique_id=826739663]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Right/MarginContainer/Text" unique_id=1754119279]
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 60
-bbcode_enabled = true
-text = "TITLE"
-fit_content = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="HBoxContainer/Right/MarginContainer/Text" unique_id=53475597]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "description: lorem ipsum and stuff"
-fit_content = true
 
 [editable path="HBoxContainer/Left/ShowcaseCont/GunShowcase"]
