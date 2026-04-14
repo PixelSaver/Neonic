@@ -49,6 +49,8 @@ func _ready() -> void:
 		self.weapon_data = PlayerSettings.weapon_data
 	if PlayerSettings and PlayerSettings.body_data:
 		self.body_data = PlayerSettings.body_data
+	_update_size()
+	gun._update_weapon()
 	if health_component == null:
 		print("Health Component is null")
 	else:
@@ -92,7 +94,7 @@ func _process(_delta:float) -> void:
 func _dash(dir:Vector2) -> void:
 	dir = dir.normalized()
 	_is_dashing = true
-	self.apply_central_impulse(dir * 10000.)
+	self.apply_central_impulse(dir * 5000.)
 
 func _get_attack() -> Attack:
 	var atk = Attack.new()

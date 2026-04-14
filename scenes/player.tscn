@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://cstqfqhdt11ev" path="res://assets/resources/bodies/body_default.tres" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://dgtg2a5maatww" path="res://scripts/components/knockback_component.gd" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cft4so0m0iimv" path="res://scenes/gun.tscn" id="4_dqkch"]
+[ext_resource type="Resource" uid="uid://djssvlfob4egc" path="res://assets/resources/guns/gun_sniper.tres" id="6_fjrip"]
 [ext_resource type="Environment" uid="uid://d3ahxa4kv0ec5" path="res://assets/neon_environment.tres" id="6_tuyoq"]
 
 [node name="Player" type="RigidBody2D" unique_id=1294409382 node_paths=PackedStringArray("line", "collision_shape", "health_component", "knockback_component", "gun", "gun_center")]
@@ -47,6 +48,7 @@ metadata/_custom_type_script = "uid://dgtg2a5maatww"
 [node name="Gun" parent="GunCenter" unique_id=187595378 node_paths=PackedStringArray("parent") instance=ExtResource("4_dqkch")]
 position = Vector2(70, 0)
 parent = NodePath("../..")
+weapon_data = ExtResource("6_fjrip")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2039421369]
 environment = ExtResource("6_tuyoq")
