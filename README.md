@@ -10,6 +10,7 @@
 	<li><a href="#screenshots">Screenshots</a></li>
 	<li><a href="#built-with">Built With</a></li>
 	<li><a href="#roadmap">Roadmap</a></li>
+	<li><a href="#ai-usage">AI Usage</a></li>
 	<li><a href="#license">License</a></li>
 	<li><a href="#contact">Contact</a></li>
 	<li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -105,6 +106,11 @@ If you'd like to build it yourself, I used Godot 4.5. I do have a pre-built web 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+<!-- AI Usage -->
+## AI Usage
+
+This project has used Generative Artificial Intelligence in the debugging process, and for some boilerplate code across the project. This is especially so when generating the tool scripts like `resource_tool.gd` where the scripts are only used during the game development process and which does not affect the user experience.
 
 <!-- LICENSE -->
 ## License
