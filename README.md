@@ -50,13 +50,18 @@ If you'd like to build it yourself, I used Godot 4.5. I do have a pre-built web 
 
 <!-- SCREENSHOTS -->
 ## Screenshots
-Haven't taken any for now...
-
-
-<!-- <details>
-  <summary><strong>Not yet</strong></summary>
-  <img src="media/img2.png" alt="Screenshot of the added simulation controls">
-</details> -->
+ <details>
+  <summary><strong>HQ</strong></summary>
+  <img src="media/hq.png" alt="Screenshot of the home menu">
+</details> 
+<details>
+ <summary><strong>Fighting</strong></summary>
+ <img src="media/fighting.png" alt="Screenshot of the player fighting bugs">
+</details>   
+<details>
+<summary><strong>Centipede</strong></summary>
+<img src="media/centipede.png" alt="Screenshot of the player facing a centipede enemy">
+</details> 
 
 > [!TIP]
 > Click `SHIFT` to dash! There's no implemented cooldown, just be careful about dashing into enemies!!
