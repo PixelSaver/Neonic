@@ -64,6 +64,11 @@ If you'd like to build it yourself, I used Godot 4.5. I do have a pre-built web 
 <img src="media/centipede.png" alt="Screenshot of the player facing a centipede enemy">
 </details> 
 
+Gameplay!
+
+https://github.com/user-attachments/assets/9c9c500d-9cf2-4326-9290-2c8969b68561
+
+
 > [!TIP]
 > Click `SHIFT` to dash! There's no implemented cooldown, just be careful about dashing into enemies!!
 
