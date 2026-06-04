@@ -1,7 +1,3 @@
-
-
-https://github.com/user-attachments/assets/f0b08d6c-4e26-402b-b5b9-cf45f780fee4
-
 # Neonic
 
 <a id="readme-top"></a>
