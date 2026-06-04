@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_xxhir")
 fire_rate = 1.0
-damage = 10.1
+damage = 5.0
 spread = 0.0
 bullet_speed = 3000.0
 entity_name = "Sniper"

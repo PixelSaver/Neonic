@@ -112,7 +112,7 @@ func _physics_process(_delta:float):
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	if input_dir != Vector2.ZERO:
-		apply_central_force(input_dir * acceleration)
+		apply_central_force(input_dir * acceleration * self.body_data.move_speed)
 
 func _on_death():
 	print("DEAD")
