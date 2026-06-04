@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/f0b08d6c-4e26-402b-b5b9-cf45f780fee4
+
 # Neonic
 
 <a id="readme-top"></a>
@@ -62,6 +66,10 @@ If you'd like to build it yourself, I used Godot 4.5. I do have a pre-built web 
 <summary><strong>Centipede</strong></summary>
 <img src="media/centipede.png" alt="Screenshot of the player facing a centipede enemy">
 </details> 
+
+Gameplay!
+https://github.com/user-attachments/assets/9c9c500d-9cf2-4326-9290-2c8969b68561
+
 
 > [!TIP]
 > Click `SHIFT` to dash! There's no implemented cooldown, just be careful about dashing into enemies!!
