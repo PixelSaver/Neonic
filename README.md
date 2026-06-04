@@ -23,10 +23,15 @@
 > EPILEPSY WARNING!! This project contains a black screen and bright colors that can be very fast. Player discretion is advised. Please be safe.
 
 ### Abstract
-A neon game (apologies astigmatics) where you kill bugs and level up!
+A neon game (apologies astigmatics) where you kill bugs and level up! Pick your favorite body and weapon from a headquarters screen!
 
-(Heavy inspiration has been taken from Zero Sum Game and it's derivative. Please go check them out, they are amazing!!)
+## Motivation
+I was inspired by the [Zero Sum Game](https://arandompsi.itch.io/zero-sum) makers, and wanted to give the aesthetic and game style a shot. I realize now that that isn't a very good way of going about things, and I would like to point all credit to them; their animations, sound design, level system, everything is much better than what I have done here. 
 
+I must say that I am rather proud of the user interface, that's what I spent the most time on (if memory serves!). I wanted to try actually placing my UI inside a game and have it interact with systems for the first time (instead of just being standalone like my JUIOS project).
+
+## What I learned
+I tried my hardest to make everything seem polished; the movement, camera following, procedural legs, etc. I also tried to make robust systems to expand on further, like the weapon and body system, reusable UI components, tweening, and a lot more. In the end, for such a small scope, I went too far into polish and not enough into the actual gameplay; I don't think it's a very fun game, just cool to look at and rage at.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- Play -->
@@ -54,7 +59,7 @@ Haven't taken any for now...
 </details> -->
 
 > [!TIP]
-> Use `--save-intermediates false` to skip saving intermediate files if you only care about the final output.
+> Click `SHIFT` to dash! There's no implemented cooldown, just be careful about dashing into enemies!!
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -71,7 +76,7 @@ Haven't taken any for now...
   - [X] Bug
   - [X] Gunner
   - [X] Centipede
-  - [ ] Darth Lazer (shoots lazers across the room)
+  - [X] Darth Lazer (shoots lazers across the room)
   - [ ] MORE TO COME
  - [X] Player
  - [X] Wave systems
@@ -89,7 +94,7 @@ Haven't taken any for now...
   - [ ] Enemy Sounds
 
 ### Feedback
- - [ ] Decrease intensity for play button when highlighted
+ - [X] Decrease intensity for play button when highlighted
  - [ ] Move NEONIC from start to home
  - [ ] Entity Entry boxes too close to showcase outline
 
