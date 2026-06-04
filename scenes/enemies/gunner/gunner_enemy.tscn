@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://b6me4py8ev21d" path="res://scripts/enemies/heart_pathfinding.gd" id="4_5wt5c"]
 [ext_resource type="Script" uid="uid://ciaxt1cl10nw" path="res://scripts/leg_manager.gd" id="6_rr256"]
 [ext_resource type="PackedScene" uid="uid://bmrer5ryvv8c4" path="res://scenes/leg.tscn" id="7_4pwl2"]
-[ext_resource type="Script" uid="uid://ctnswi7wetdsf" path="res://scripts/components/tool_line_collision.gd" id="7_f0lmb"]
 
 [sub_resource type="Resource" id="Resource_5wt5c"]
 script = ExtResource("2_ftcyf")
@@ -78,15 +77,9 @@ points = PackedVector2Array(-1, 0, 2.8026881, 39.818836, 25, 60)
 lower_length = 30.0
 resting_position = Vector2(0, 60)
 
-[node name="ToolLineCollision" type="Line2D" parent="." unique_id=44565088 node_paths=PackedStringArray("target", "col")]
+[node name="ToolLineCollision" type="Line2D" parent="." unique_id=765090296]
 points = PackedVector2Array(50, 0, 24.999998, 43.301273, -25.000004, 43.30127, -50, -4.371139e-06, -24.999996, -43.301273, 24.999996, -43.301273)
 closed = true
-script = ExtResource("7_f0lmb")
-target = NodePath("..")
-col = NodePath("../@CollisionPolygon2D@19816")
-size = 100.0
-_points = PackedVector2Array(0.5, 0, 0.24999999, 0.43301272, -0.25000003, 0.4330127, -0.5, -4.371139e-08, -0.24999996, -0.43301272, 0.24999996, -0.43301272)
-metadata/_custom_type_script = "uid://ctnswi7wetdsf"
 
 [node name="EyePivot" type="Node2D" parent="." unique_id=380309936]
 
@@ -96,3 +89,6 @@ points = PackedVector2Array(0, 0, 0.001, 0)
 width = 30.0
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1362834775]
+polygon = PackedVector2Array(50, 0, 24.999998, 43.301273, -25.000004, 43.30127, -50, -4.371139e-06, -24.999996, -43.301273, 24.999996, -43.301273)
