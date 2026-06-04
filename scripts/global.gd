@@ -32,6 +32,7 @@ func go_to_state(new_state:State):
 				inst.start_anim()
 				inst.show()
 		State.HQ:
+			enemies.clear()
 			var scene = scenes[State.HQ] as PackedScene
 			var inst = scene.instantiate() as PixelMenu
 			if inst:
@@ -59,8 +60,10 @@ signal all_enemies_cleared
 
 func register_enemy(enemy:Enemy):
 	enemies.append(enemy)
+	print(enemies.size())
 func unregister_enemy(enemy:Enemy):
 	enemies.erase(enemy)
+	print(enemies.size())
 	if enemies.size() == 0:
 		all_enemies_cleared.emit()
 		print("All enemies cleared!")

@@ -7,6 +7,7 @@ class_name RoomManager
 var _special_ending : Node2D
 
 func _ready() -> void:
+	#WaveDatabase.reset_wave()
 	current_room.room_left.connect(func():
 		Global.go_to_state(Global.State.HQ)
 		end_anim()

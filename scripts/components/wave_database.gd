@@ -7,9 +7,11 @@ var waves : Array[WaveData] = [
 	
 ]
 var _curr_prog := 0
+func reset_wave():
+	_curr_prog = 0
 func get_next_wave() -> WaveData: 
 	print("PROGRESS: prog %s " % _curr_prog)
 	if _curr_prog >= waves.size(): 
 		return null
-	_curr_prog += 1
+	#_curr_prog += 1
 	return waves[_curr_prog - 1]
